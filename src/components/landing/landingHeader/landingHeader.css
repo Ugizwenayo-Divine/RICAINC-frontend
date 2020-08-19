@@ -1,0 +1,132 @@
+body{
+  font-family: 'Montserrat';
+}
+.grid-container{
+    display: grid;
+    grid-template-columns: auto auto auto auto auto auto auto auto auto;
+    grid-gap: 1%;
+    padding-left: 2%;
+    padding-top: 2%;
+    width: 100%;
+    height: auto;
+}
+.grid-item>a, .navbar>span, .pop-modal>ul>li>a {
+    color: #000000;
+    font-size: medium;
+    font-weight: 500;
+}
+.grid-item > a:hover, a:focus, .navbar>span:hover, .pop-modal>ul>li>a:hover {
+    text-decoration: none;
+    color: #8f8d8d;
+}
+.search {
+    grid-column-start: 3;
+    grid-column-end: 8;
+}
+.navbar {
+  grid-column-start: 4;
+  grid-column-end: 7;
+  margin: 0 12%;
+}
+.search-form{
+    height: 56%;
+}
+.search-form input{
+    border-radius: 20px;
+    height: 100%;
+}
+.search-input:focus{
+    outline: 0;
+}
+.search-input{
+    font-size: medium;
+    color: #000000;
+    width: 80%;
+    padding: 0px 60px;
+    box-sizing: border-box;
+}
+::-webkit-input-placeholder {
+    text-align: center;
+  }
+  :-moz-placeholder {
+    text-align: center;
+  }
+  .icon {
+    position: relative;
+    font-size: 15px;
+    right:6%;
+    cursor: pointer;
+  }
+  .all{
+    position: relative;
+    left: 6%;
+  }
+.vertical { 
+    border-left: 2px solid black; 
+    height: 185%; 
+    position:absolute;
+    top:-35%;
+    right:-35%;
+}
+.pop-modal{
+  position: absolute;
+  top: 70%;
+  right: 43%;
+  background-color: #f0f0f0e7;
+  width: 30%;
+  height: 52px;
+  padding-left: 1%;
+}
+.pop-modal>ul{
+  list-style: none;
+  margin-left: -35%;
+}
+.navbar>span:hover,span:focus{
+  cursor: pointer;
+}
+.all > span{
+  cursor: pointer;
+}
+@media (max-width: 1000px) {
+  .grid-container{
+    width: auto;
+    height: auto;
+}
+  .search {
+    grid-column-start: 1;
+    grid-column-end: -1;
+    grid-row-start: 2;
+    padding:5%;
+  }
+  .logo{
+    grid-column-start: 1;
+    grid-column-end: 3;
+  }
+  .language {
+    grid-column-start: 4;
+    grid-column-end: -2;
+  }
+  .search-form{
+    height: 32px;
+  }
+  .all{
+    left: 10%;
+  }
+  .icon {
+    right:8%;
+  }
+  .vertical { 
+    height: 140%;
+    top: -22%;
+  }
+  .navbar {
+    grid-column-start: 1;
+    grid-column-end: -1;
+  }
+
+  .pop-modal{
+    position: absolute;
+    top: -100%;
+    right: 43%;
+  }
+}
