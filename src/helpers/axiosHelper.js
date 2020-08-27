@@ -12,7 +12,7 @@ export default (data = {}) => {
     (reactUrl && `${reactUrl}/api`) ||
     (defaultUrl && `${defaultUrl}/api`);
   const headers = {
-    token: token || localStorage.token || undefined,
+    Authorization: token || localStorage.token || undefined,
     'Content-Type': 'application/json',
     'Access-Control-Allow-Origin': reactUrl,
     'Access-Control-Allow-Credentials': true,

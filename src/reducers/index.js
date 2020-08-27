@@ -1,2 +1,3 @@
 import user from './user';
-export default { user };
+import product from './product';
+export default { user, product };
