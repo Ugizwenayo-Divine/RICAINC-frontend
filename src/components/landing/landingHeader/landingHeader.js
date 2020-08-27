@@ -5,6 +5,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
+import { withRouter } from "react-router-dom";
 import { ToastContainer, toast } from 'react-toastify';
 import search from '../../../actions/landing/search';
 
@@ -18,7 +19,8 @@ class LandingHeader extends Component {
     this.state={
       searchedItem : '',
       allProducts: [],
-      serviceClicked :false
+      serviceClicked :false,
+      token: '',
     }
   }
   handleChange = (event) => {
@@ -63,6 +65,10 @@ class LandingHeader extends Component {
       serviceClicked: false,
     });
   }
+  handleLogout = () =>{
+    localStorage.removeItem('token');
+    this.props.history.push('/');
+  }
   componentWillReceiveProps = (nextProps) => {
     const {searchAllProducts} = this.props;
     let alertMessage='';
@@ -73,12 +79,15 @@ class LandingHeader extends Component {
     return !nextProps.loading && alertMessage;
   };
   componentDidMount(){
-    const {searchAllProducts} = this.props;
-    searchAllProducts();
+    const {searchAllProducts, data} = this.props;
+    if(data.length === 0){
+      searchAllProducts();
+    }
   }
 
   render(){
     const visibility = this.state.serviceClicked?'visible':'hidden';
+    const localToken = localStorage.getItem('token');
     return (
       <div>
         <ToastContainer
@@ -110,10 +119,11 @@ class LandingHeader extends Component {
             <Link to='#'>KINYA | </Link>
             <Link to='#'>FRAN</Link>
           </div>
-          <div className='grid-item'>
-            <Link to='/signup'>signup | </Link>
-            <Link to='/login'>login</Link>
-          </div>
+            {(!localToken)?
+            (<div className='grid-item'><Link to='/signup'>signup | </Link>
+             <Link to='/login'>login</Link></div>):
+             (<div className='grid-item'><Link to='/'> My orders &nbsp;&nbsp;</Link>
+            <Link to='' onClick={this.handleLogout}> Logout</Link></div>)}
           <div className='grid-item navbar'>
             <Link to='#'>home</Link>
             <span 
@@ -142,7 +152,6 @@ LandingHeader.propTypes = {
   message: PropTypes.string
 };
 const mapStateToProps = (state) => {
-  console.log(state,'5555555555');
   return {
   token:state.search.token,
   loading:state.search.loading,
@@ -150,4 +159,4 @@ const mapStateToProps = (state) => {
   message:state.search.message,
   data:state.search.data,
 }};
-export default connect(mapStateToProps,{search:searchAny, searchAllProducts:searchAll})(LandingHeader);
+export default connect(mapStateToProps,{search:searchAny, searchAllProducts:searchAll})(withRouter(LandingHeader));

@@ -21,9 +21,11 @@ class LandingLeft extends Component{
     }
   }
   componentDidMount(){
-    const {sidebar, displayBestProducts} = this.props;
-    sidebar();
-    displayBestProducts();
+    const {sidebar, displayBestProducts, bestProducts} = this.props;
+    if(bestProducts.length === 0){
+      sidebar();
+      displayBestProducts();
+    }
   }
   handleClick = (data) => {
     const {search} = this.props;
@@ -43,17 +45,17 @@ class LandingLeft extends Component{
           <h5 style={{color:textColor}}>Categories</h5>
           <ul>
             {!loading&&data.length!==0 ? [...new Set(uniqueData)].map(
-              dt=><li onClick={()=>{this.handleClick(dt)}}>{dt}</li>):<Spinner/>}
+              dt=><li onClick={()=>{this.handleClick(dt)}} key={dt}>{dt}</li>):<Spinner/>}
           </ul>
           <h5 style={{color:textColor}}>Brand</h5>
           <ul>
             {!loading&&data.length!==0 ? [...new Set(uniqueDataBrand)].map(
-              dt=><li onClick={()=>{this.handleClick(dt)}}>{dt}</li>):<Spinner/>}
+              dt=><li onClick={()=>{this.handleClick(dt)}} key={dt}>{dt}</li>):<Spinner/>}
           </ul>
           <h5 style={{color:textColor}}>Best Products</h5>
           <ul>
             {!loading&&bestProducts.length!==0 ? bestProducts.map(
-              dt=><li onClick={()=>{this.handleClick(dt.name)}}><strong>{dt.name} : {dt.price}</strong></li>):<Spinner/>}
+              dt=><li onClick={()=>{this.handleClick(dt.name)}} key={dt.id}><strong>{dt.name} : {dt.price}</strong></li>):<Spinner/>}
           </ul>
         </div>        
       </div>

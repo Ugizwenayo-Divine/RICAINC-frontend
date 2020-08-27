@@ -15,11 +15,11 @@ const reducer = (state, { type, payload }) => {
       };
     case USER_LOGIN_SUCCESS:
       localStorage.setItem('token', payload.token);
-      window.location.replace('/');
       return {
         ...state,
         loading: false,
         token: payload.token,
+        data:payload.data,
         loginErrors: null,
       };
     case USER_LOGIN_FAILURE:

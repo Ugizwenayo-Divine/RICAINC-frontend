@@ -6,5 +6,6 @@ import externalAdvertisement from './initialStates/externalAdvertInitialState';
 import announcement from './initialStates/announcementInitialState';
 import sidebar from './initialStates/sidebarInitialState';
 import bestProducts from './initialStates/bestProductInitialState';
+import order from './initialStates/orderInitialState';
 
-export default { user, search, advertisement, externalAdvertisement, announcement, sidebar, bestProducts, product };
+export default { user, search, advertisement, externalAdvertisement, announcement, sidebar, bestProducts, product, order };

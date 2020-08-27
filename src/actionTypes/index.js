@@ -7,6 +7,7 @@ import * as announcementActionTypes from './announcementActionTypes';
 import * as externalAdvertActionTypes from './externalAdvertActionTypes';
 import * as sidebarActionTypes from './sidebarActionTypes';
 import * as bestProductsActionTypes from './bestProductsActionTypes';
+import * as orderActionTypes from './orderActionTypes';
 
 export { 
     apiActionsTypes, 
@@ -17,4 +18,6 @@ export {
     externalAdvertActionTypes,
     sidebarActionTypes,
     bestProductsActionTypes,
-    productActionTypes };
+    productActionTypes,
+    orderActionTypes,
+};

@@ -18,8 +18,10 @@ class ExternaAdvertisement extends Component {
     }
   }
   componentDidMount(){
-    const {externalAdvertisement} = this.props;
-    externalAdvertisement();
+    const {externalAdvertisement, advertisements} = this.props;
+    if(advertisements.length === 0){
+      externalAdvertisement();
+    }
   }
   handleNext = () => {
     const {advertisements} = this.props;
@@ -43,7 +45,6 @@ class ExternaAdvertisement extends Component {
   }
   render(){
     const {advertisements,loading} = this.props;
-    console.log(advertisements,'kkkkkkkkk');
     const spanColor = loading?'#f0f0f0e7':'#000000';
     const style = {
       image: {

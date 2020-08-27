@@ -3,6 +3,7 @@ const searchInitialState = {
     searchErrors: null,
     message: null,
     data: [],
+    token:null,
   };
   
   export default searchInitialState;

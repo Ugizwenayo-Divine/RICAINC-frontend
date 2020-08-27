@@ -15,7 +15,6 @@ import {
           message: null,
         };
       case EXTERNAL_ADVERTISEMENT_SUCCESS:
-        localStorage.setItem('token', payload.token);
         return {
           ...state,
           loading: false,
