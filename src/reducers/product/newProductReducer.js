@@ -1,39 +1,39 @@
 import {
-  USER_SIGNUP_END,
-  USER_SIGNUP_SUCCESS,
-  USER_SIGNUP_FAILURE,
-  USER_SIGNUP_START,
-} from '../../actionTypes/userActionTypes';
+  CREATE_PRODUCT_REQUEST,
+  CREATE_PRODUCT_SUCCESS,
+  CREATE_PRODUCT_FAILURE,
+  CREATE_PRODUCT_END,
+} from '../../actionTypes/productActionTypes';
 
 const reducer = (state, { type, payload }) => {
   switch (type) {
-    case USER_SIGNUP_START:
+    case CREATE_PRODUCT_REQUEST:
       return {
         ...state,
         loading: true,
-        loginErrors: null,
         message: null,
+        productErrors: null,
       };
-    case USER_SIGNUP_SUCCESS:
+    case CREATE_PRODUCT_SUCCESS:
       return {
         ...state,
         loading: false,
-        loginErrors: null,
         message: payload.message,
+        productErrors: null,
       };
-    case USER_SIGNUP_FAILURE:
+    case CREATE_PRODUCT_FAILURE:
       return {
         ...state,
         loading: false,
-        loginErrors: payload.error,
         message: null,
+        productErrors: payload.error,
       };
-    case USER_SIGNUP_END:
+    case CREATE_PRODUCT_END:
       return {
         ...state,
         loading: false,
-        loginErrors: null,
         message: null,
+        productErrors: null,
       };
 
     default:

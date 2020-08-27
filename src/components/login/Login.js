@@ -42,7 +42,7 @@ class Login extends Component {
   };
   render() {
     const { history } = this.props;
-    const token = localStorage.getItem('token');
+    const token = localStorage.getItem('authorization');
     if (token) {
       history.push('/');
     }

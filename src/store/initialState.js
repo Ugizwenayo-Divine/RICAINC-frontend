@@ -1,3 +1,4 @@
 import user from './initialStates/userInitialState';
+import product from './initialStates/productInitialState';
 
-export default { user };
+export default { user, product };

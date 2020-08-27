@@ -5,14 +5,7 @@ body {
 html {
   height: 100%;
 }
-#layout {
-  display: flex;
-  min-height: 100vh;
-  background: url('https://charisuas.com/wp-content/uploads/2019/04/Charis-logo-01.jpg');
-  background-repeat: no-repeat;
-  background-size: contain;
-  background-position: center;
-}
+
 .form {
   position: relative;
   display: flex;
