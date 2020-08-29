@@ -3,6 +3,7 @@ const userInitialState = {
   loginErrors: null,
   token: localStorage.token,
   message: null,
+  data:null,
 };
 
 export default userInitialState;

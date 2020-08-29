@@ -41,10 +41,16 @@ class Login extends Component {
     return !nextProps.loading && alertMessage;
   };
   render() {
-    const { history } = this.props;
-    const token = localStorage.getItem('authorization');
+    const { history,data } = this.props;
+    const token = localStorage.getItem('token');
     if (token) {
+      console.log(data.type,'??');
+      if(data.type === 'client'){
       history.push('/');
+      }
+      else{
+      history.push('/addproduct');
+      }     
     }
     return (
       <div id='layout'>
@@ -98,10 +104,11 @@ Login.propTypes = {
   history: PropTypes.shape({ push: PropTypes.func }).isRequired,
 };
 
-const mapStateToProps = ({ user: { token, loading, loginErrors } }) => ({
+const mapStateToProps = ({ user: { token, loading, loginErrors, data } }) => ({
   token,
   loading,
   loginErrors,
+  data,
 });
 
 export default connect(mapStateToProps, { login })(Login);

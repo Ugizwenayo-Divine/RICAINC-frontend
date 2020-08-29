@@ -18,8 +18,11 @@ class LandingRightSide extends Component {
     }
   }
   componentDidMount(){
-    const {getAnnouncements} = this.props;
-    getAnnouncements();
+    const {getAnnouncements, announcements} = this.props;
+    if(announcements.length === 0){
+      getAnnouncements();
+    }
+
   }
   handleNext = () => {
     const {announcements} = this.props;
@@ -63,7 +66,6 @@ class LandingRightSide extends Component {
   }
 }
 const mapStateToProps = (state) => {
-  console.log(state,'ll');
   return {
     loading:state.announcement.loading,
     announcementErrors: state.announcement.announcementErrors,

@@ -18,15 +18,23 @@ class LandingLeft extends Component{
   }
   render(){
     const {loading, data} = this.props;
+    const token = localStorage.getItem('token');
     const backColor= loading?'white':'#f0f0f0e7';
     return(
       <div>
         <div className='displayed-products' style={{backgroundColor:backColor}}>
-          {!loading&&data.length!==0 ? data.map(dt=><div className='one-image'><img alt='' src={dt.image} />
+          {!loading&&data.length!==0 ? data.map(dt=>
+          <div className='one-image' key={dt.id} onClick={()=>{this.viewAll(dt)}}><img alt='' src={dt.image} />
           <p style={{cursor:'pointer'}} onClick={()=>{this.viewAll(dt)}}>{dt.name}</p>
           <p style={{cursor:'pointer'}} onClick={()=>{this.viewAll(dt)}}>View more</p>
           </div>):<Skeleton/>}
-          <MiddleModal product={this.state.product} visibility={this.state.show} clicked={this.viewAll}/>
+
+          <MiddleModal 
+            product={this.state.product} 
+            visibility={this.state.show}
+            token={token}
+            clicked={this.viewAll}
+          />
         </div>        
       </div>
     )

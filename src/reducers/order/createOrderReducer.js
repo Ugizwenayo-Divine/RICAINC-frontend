@@ -1,39 +1,39 @@
 import {
-    BEST_PRODUCTS_END,
-    BEST_PRODUCTS_FAILURE,
-    BEST_PRODUCTS_START,
-    BEST_PRODUCTS_SUCCESS,
-  } from '../../actionTypes/bestProductsActionTypes';
+    ORDER_PRODUCT_END,
+    ORDER_PRODUCT_SUCCESS,
+    ORDER_PRODUCT_FAILURE,
+    ORDER_PRODUCT_START,
+  } from '../../actionTypes/orderActionTypes';
   
   const reducer = (state, { type, payload }) => {
     switch (type) {
-      case BEST_PRODUCTS_START:
+      case ORDER_PRODUCT_START:
         return {
           ...state,
           loading: true,
-          bestProductErrors: null,
+          orderErrors: null,
           message: null,
         };
-      case BEST_PRODUCTS_SUCCESS:
+      case ORDER_PRODUCT_SUCCESS:
         return {
           ...state,
           loading: false,
-          bestProductErrors: null,
+          orderErrors: null,
           message: payload.message,
-          bestProducts: payload.data,
+          data: payload.data,
         };
-      case BEST_PRODUCTS_FAILURE:
+      case ORDER_PRODUCT_FAILURE:
         return {
           ...state,
           loading: false,
-          bestProductErrors: payload.error,
+          orderErrors: payload.error,
           message: null,
         };
-      case BEST_PRODUCTS_END:
+      case ORDER_PRODUCT_END:
         return {
           ...state,
           loading: false,
-          bestProductErrors: null,
+          orderErrors: null,
           message: null,
         };
   

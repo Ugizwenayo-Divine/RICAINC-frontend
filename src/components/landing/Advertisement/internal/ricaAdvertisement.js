@@ -21,8 +21,11 @@ class RicaAdvertisement extends Component{
     }
   }
   componentDidMount(){
-    const {internalAdvertisement}=this.props;
-    internalAdvertisement();
+    const {internalAdvertisement, advertisements}=this.props;
+    if(advertisements.length === 0)
+    {
+      internalAdvertisement();
+    }
   }
   handleNext = () => {
     const {advertisements} = this.props;

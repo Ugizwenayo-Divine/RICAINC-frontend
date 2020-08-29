@@ -5,6 +5,7 @@ import Login from './login';
 import AddingProduct from './adding-product';
 import Landing from './landing/landing';
 
+import Order from './order/createOrder/createOrder';
 
 const Routes = () => (
   <Switch>
@@ -15,6 +16,7 @@ const Routes = () => (
 
     {/* Adding Product */}
     <Route exact path='/addproduct' component={AddingProduct} />
+    <Route exact path='/order' component={Order} />
   </Switch>
 );
 

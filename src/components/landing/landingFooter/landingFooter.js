@@ -26,8 +26,8 @@ const landingFooter = () => {
             </div>
             <div className='footer-social'>
                 <div className='facebook'><Link to=''><FontAwesomeIcon icon={faFacebook}/></Link></div>
-                <div className='twitter'><Link><FontAwesomeIcon icon={faTwitter}/></Link></div>
-                <div className='instagram'><Link><FontAwesomeIcon icon={faInstagram}/></Link></div>
+                <div className='twitter'><Link to=''><FontAwesomeIcon icon={faTwitter}/></Link></div>
+                <div className='instagram'><Link to=''><FontAwesomeIcon icon={faInstagram}/></Link></div>
                 <hr style={{width:'100%'}}/>
             </div>
             <hr/>

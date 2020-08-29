@@ -15,13 +15,13 @@ import {
           message: null,
         };
       case USER_SEARCH_SUCCESS:
-        localStorage.setItem('token', payload.token);
         return {
           ...state,
           loading: false,
           searchErrors: null,
           message: payload.message,
           data: payload.data,
+          token: localStorage.getItem('token')
         };
       case USER_SEARCH_FAILURE:
         return {

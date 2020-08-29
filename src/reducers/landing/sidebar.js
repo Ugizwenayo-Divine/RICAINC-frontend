@@ -15,7 +15,6 @@ import {
           message: null,
         };
       case SIDEBAR_DISPLAY_SUCCESS:
-        localStorage.setItem('token', payload.token);
         return {
           ...state,
           loading: false,
