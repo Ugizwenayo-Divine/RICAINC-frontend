@@ -2,16 +2,26 @@ import user from './user';
 import product from './product';
 import landing from './landing';
 import order from './order';
-const {
-  createOrder,
-} = order;
+import advert from './advert';
+const { createOrder } = order;
 const {
   advertisement,
   search,
   announcement,
-  externalAdvertisement, 
+  externalAdvertisement,
   sidebar,
   bestProducts,
 } = landing;
 
-export default { user, search, advertisement, externalAdvertisement, announcement, sidebar, bestProducts, product, createOrder };
+export default {
+  user,
+  search,
+  advertisement,
+  advert,
+  externalAdvertisement,
+  announcement,
+  sidebar,
+  bestProducts,
+  product,
+  createOrder,
+};

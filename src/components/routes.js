@@ -6,6 +6,7 @@ import AddingProduct from './adding-product';
 import Landing from './landing/landing';
 
 import Order from './order/createOrder/createOrder';
+import AddingAdvert from './advert';
 
 const Routes = () => (
   <Switch>
@@ -17,6 +18,8 @@ const Routes = () => (
     {/* Adding Product */}
     <Route exact path='/addproduct' component={AddingProduct} />
     <Route exact path='/order' component={Order} />
+    {/* Adding Advertisement */}
+    <Route exact path='/addadvert' component={AddingAdvert} />
   </Switch>
 );
 

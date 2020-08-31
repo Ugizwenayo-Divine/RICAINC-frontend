@@ -41,16 +41,15 @@ class Login extends Component {
     return !nextProps.loading && alertMessage;
   };
   render() {
-    const { history,data } = this.props;
+    const { history, data } = this.props;
     const token = localStorage.getItem('token');
     if (token) {
-      console.log(data.type,'??');
-      if(data.type === 'client'){
-      history.push('/');
+      console.log(data.type, '??');
+      if (data.type === 'client') {
+        history.push('/');
+      } else {
+        history.push('/addproduct');
       }
-      else{
-      history.push('/addproduct');
-      }     
     }
     return (
       <div id='layout'>
