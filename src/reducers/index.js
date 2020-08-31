@@ -5,7 +5,7 @@ import order from './order';
 import advert from './advert';
 import announcements from './announcement';
 import news from './news';
-const { createOrder } = order;
+
 const {
   advertisement,
   search,
@@ -14,7 +14,11 @@ const {
   sidebar,
   bestProducts,
 } = landing;
-
+const { 
+  createOrder,
+  payment,
+  clientOrders
+} = order;
 export default {
   user,
   search,
@@ -28,4 +32,6 @@ export default {
   createOrder,
   announcements,
   news,
+  payment,
+  clientOrders,
 };

@@ -1,9 +1,9 @@
 import React, {Component} from 'react';
 import { connect } from 'react-redux';
-import PropTypes from 'prop-types';
 import { ToastContainer, toast } from 'react-toastify';
 import Select from 'react-select';
-import {order} from '../../../actions/order';
+import {addOrder} from '../../../actions/order';
+import ProductOrder from '../productOrder/productOrder';
 import './createOrder.css';
 
 class CreateOrders extends Component {
@@ -11,12 +11,18 @@ class CreateOrders extends Component {
     super();
     this.state={
       quantity:'',
-      payment_options:''
+      payment_options:'',
+      visible:false,
+      order:{},
+      user:{},
     }
   }
 	componentWillReceiveProps = (nextProps) => {
+    if(!this.props.loading && this.props.data){
+      const user = JSON.parse(localStorage.getItem('user')); 
+      this.setState({visible:!this.state.visible,order:this.props.data?this.props.data:null, user:user});
+    }   
     const alertMessage =
-      (nextProps.message && toast.success(nextProps.message)) ||
       (nextProps.orderErrors && toast.error(nextProps.orderErrors));
 
     return !nextProps.loading && alertMessage;
@@ -32,6 +38,9 @@ class CreateOrders extends Component {
       payment_options: event.value,
     });
   };
+  viewProductOrder=() =>{
+    this.setState({visible:!this.state.visible});
+  }
   submitOrder = (event,product) =>{
     event.preventDefault();
     const {addOrder} = this.props;
@@ -41,14 +50,12 @@ class CreateOrders extends Component {
       payment_options: this.state.payment_options,
     }
     addOrder(data);
-    // this.props.history.push('/');
   }
   cancelOrder = () =>{
     this.props.history.push('/');
   }
   render (){
     const {product}=this.props.location.state;
-    console.log(this.props,'oredrprop');
     const options = [
       { value: 'card', label: 'card' },
       { value: 'momo', label: 'momo' }
@@ -118,16 +125,18 @@ class CreateOrders extends Component {
               </form>
             </div>
           </div>
+        <ProductOrder 
+          visible={this.state.visible} 
+          order={this.state.order} 
+          user={this.state.user}
+          product={product}
+          clicked={this.viewProductOrder} />
         </div>
       </div>
     )
     
 	}
 }
-CreateOrders.propTypes = {
-  orderErrors: PropTypes.string,
-  message: PropTypes.string,
-};
 const mapStateToProps = (state) => {
   return {
     loading:state.createOrder.loading,
@@ -136,4 +145,4 @@ const mapStateToProps = (state) => {
     message:state.createOrder.message
   }
 }
- export default connect (mapStateToProps,{addOrder:order})(CreateOrders);
+ export default connect (mapStateToProps,{addOrder:addOrder})(CreateOrders);

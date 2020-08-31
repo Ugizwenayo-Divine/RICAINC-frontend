@@ -21,6 +21,7 @@ class LandingHeader extends Component {
       allProducts: [],
       serviceClicked :false,
       token: '',
+      loggedInUser:{}
     }
   }
   handleChange = (event) => {
@@ -67,7 +68,8 @@ class LandingHeader extends Component {
   }
   handleLogout = () =>{
     localStorage.removeItem('token');
-    this.props.history.push('/');
+    localStorage.removeItem('user');
+    this.props.history.go('/');
   }
   componentWillReceiveProps = (nextProps) => {
     const {searchAllProducts} = this.props;
@@ -80,6 +82,8 @@ class LandingHeader extends Component {
   };
   componentDidMount(){
     const {searchAllProducts, data} = this.props;
+    const user = JSON.parse(localStorage.getItem('user'));
+    this.setState({loggedInUser:user});
     if(data.length === 0){
       searchAllProducts();
     }
@@ -122,11 +126,12 @@ class LandingHeader extends Component {
             {(!localToken)?
             (<div className='grid-item'><Link to='/signup'>signup | </Link>
              <Link to='/login'>login</Link></div>):
-             (<div className='grid-item'><Link to='/'> My orders &nbsp;&nbsp;</Link>
+             (<div className='grid-item'><Link to='/displayclientorders'> My orders &nbsp;&nbsp;</Link>
             <Link to='' onClick={this.handleLogout}> Logout</Link></div>)}
           <div className='grid-item navbar'>
             <Link to='#'>home</Link>
             <span 
+              className='serv-span'
               onClick={this.handleService} 
               onMouseOver={this.handleServiceHover} 
               onMouseOut= {this.handleServiceUnHover} >
@@ -134,11 +139,11 @@ class LandingHeader extends Component {
             </span>
             <Link to='#'>videos</Link>
             <Link to='#'>news</Link>
+            {localToken&&this.state.loggedInUser.type ==='admin'?<Link to='/addproduct'>Admin</Link>:null}
             <div className='pop-modal' style={{visibility:visibility}} 
             onMouseOver={this.handleServiceHover}
             onMouseOut= {this.handleServiceUnHover}>
               <ul>
-                <li><Link to='#'>ordering</Link></li>
                 <li><Link to='#'>consultant</Link></li>
               </ul>
             </div>

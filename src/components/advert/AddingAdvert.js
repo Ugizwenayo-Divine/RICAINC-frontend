@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import { ToastContainer, toast } from 'react-toastify';
 import { newAdvert } from '../../actions/advert';
 import './addadvert.css';
+import AdminNavbar from '../admin-navbar/admin-navbar';
 
 class AddingAdvert extends Component {
   constructor() {
@@ -69,6 +70,7 @@ class AddingAdvert extends Component {
             className='toastMessages'
             style={{ width: '700px' }}
           />
+          <AdminNavbar/>
           <div className='formAdvert'>
             <div className='headerAdvert'>
               <h3 className='text-center font-weight-light my-4'>New Advert</h3>

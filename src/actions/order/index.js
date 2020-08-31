@@ -1,3 +1,9 @@
 import order from './orderAction';
+import orderPayment from'./orderPaymentAction';
 
-export { order };
+const {
+    addOrder,
+    getClientOrders
+} = order;
+
+export { addOrder, orderPayment, getClientOrders };

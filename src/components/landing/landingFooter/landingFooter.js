@@ -8,18 +8,18 @@ const landingFooter = () => {
     return(
         <div className='footer-container'>
             <div className='footer-left'>
-                <h4>Customer services</h4>
+                <h4 className='footer-head'>Customer services</h4>
                 <p><Link to='#'>Refund</Link></p>
                 <p><Link to='#'>Feedback</Link></p>
             </div>
             <div className='footer-middle'>
-                <h4>About us</h4>
+                <h4 className='footer-head'>About us</h4>
                 <div>RICA incorporation is an electronic shop which does contruction consultation too 
                     <br/>
                     RICA is located in Kigali,KG523</div>
             </div>
             <div className='footer-right'>
-            <h4>Contact us</h4>
+            <h4 className='footer-head'>Contact us</h4>
                 <p>Tel:+2507893135945</p>
                 <p>E:ricainc@gmail.com</p>
                 <p>Location:kigali</p>

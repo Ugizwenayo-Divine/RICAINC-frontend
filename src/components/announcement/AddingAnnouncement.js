@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { ToastContainer, toast } from 'react-toastify';
 import { newAnnouncement } from '../../actions/announcement';
+import AdminNavbar from '../admin-navbar/admin-navbar';
 import './addAnnouncement.css';
 
 class AddingAnnouncement extends Component {
@@ -46,6 +47,7 @@ class AddingAnnouncement extends Component {
             className='toastMessages'
             style={{ width: '700px' }}
           />
+          <AdminNavbar/>
           <div className='formAnnouncement'>
             <div className='headerAnnouncement'>
               <h3 className='text-center font-weight-light my-4'>
