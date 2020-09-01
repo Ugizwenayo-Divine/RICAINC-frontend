@@ -77,7 +77,7 @@ class AddingProduct extends Component {
           <ToastContainer
             position={toast.POSITION.TOP_CENTER}
             className='toastMessages'
-            style={{ width: '500px' }}
+            style={{ width: '700px' }}
           />
           <div className='formProduct'>
             <div className='headerProduct'>
