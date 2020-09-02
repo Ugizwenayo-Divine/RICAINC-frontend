@@ -13,6 +13,9 @@ const EXTERNAL_ADVERTISEMENT_URL = `${BASE_URL}/advertisement/external`;
 const ANNOUNCEMENT_URL = `${BASE_URL}/announcement`;
 const BEST_PRODUCT_URL = `${BASE_URL}/product/product-type`;
 const ORDER_URL = `${BASE_URL}/orders/add`;
+const ORDER_PAYMENT_URL = `${BASE_URL}/orders/pay`;
+const CLIENT_ORDERS_URL = `${BASE_URL}/orders/client-orders`;
+
 export {
   BASE_URL,
   LOCAL_URL,
@@ -29,4 +32,6 @@ export {
   NEW_ADVERT,
   NEW_ANNOUNCEMENT,
   NEW_NEWS,
+  ORDER_PAYMENT_URL,
+  CLIENT_ORDERS_URL
 };

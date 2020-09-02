@@ -15,6 +15,7 @@ const reducer = (state, { type, payload }) => {
       };
     case USER_LOGIN_SUCCESS:
       localStorage.setItem('token', payload.token);
+      localStorage.setItem('user',JSON.stringify(payload.data));
       return {
         ...state,
         loading: false,

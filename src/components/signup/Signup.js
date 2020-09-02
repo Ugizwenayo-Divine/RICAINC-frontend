@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { ToastContainer, toast } from 'react-toastify';
 import { signup } from '../../actions/user';
+import MainNavbar from '../admin-navbar/main-navbar';
 import './signup.css';
 
 class Signup extends Component {
@@ -58,6 +59,7 @@ class Signup extends Component {
             className='toastMessages'
             style={{ width: '750px' }}
           />
+          <MainNavbar/>
           <div className='card-form'>
             <div className='card-header'>
               <h3 className='text-center font-weight-light my-4'>

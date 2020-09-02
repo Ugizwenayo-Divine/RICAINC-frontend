@@ -9,6 +9,7 @@ import * as externalAdvertActionTypes from './externalAdvertActionTypes';
 import * as sidebarActionTypes from './sidebarActionTypes';
 import * as bestProductsActionTypes from './bestProductsActionTypes';
 import * as orderActionTypes from './orderActionTypes';
+import * as paymentActionTypes from './paymentActionTypes';
 
 export {
   apiActionsTypes,
@@ -22,4 +23,5 @@ export {
   productActionTypes,
   orderActionTypes,
   newsActionTypes,
+  paymentActionTypes,
 };

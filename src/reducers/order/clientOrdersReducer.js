@@ -1,20 +1,20 @@
 import {
-    ORDER_PRODUCT_END,
-    ORDER_PRODUCT_SUCCESS,
-    ORDER_PRODUCT_FAILURE,
-    ORDER_PRODUCT_START,
+    CLIENT_ORDERS_END,
+    CLIENT_ORDERS_SUCCESS,
+    CLIENT_ORDERS_FAILURE,
+    CLIENT_ORDERS_START,
   } from '../../actionTypes/orderActionTypes';
   
   const reducer = (state, { type, payload }) => {
     switch (type) {
-      case ORDER_PRODUCT_START:
+      case CLIENT_ORDERS_START:
         return {
           ...state,
           loading: true,
           orderErrors: null,
           message: null,
         };
-      case ORDER_PRODUCT_SUCCESS:
+      case CLIENT_ORDERS_SUCCESS:
         console.log(payload,'reducer')
         return {
           ...state,
@@ -23,14 +23,14 @@ import {
           message: payload.message,
           data: payload.data,
         };
-      case ORDER_PRODUCT_FAILURE:
+      case CLIENT_ORDERS_FAILURE:
         return {
           ...state,
           loading: false,
           orderErrors: payload.error,
           message: null,
         };
-      case ORDER_PRODUCT_END:
+      case CLIENT_ORDERS_END:
         return {
           ...state,
           loading: false,

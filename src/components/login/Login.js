@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
+import { Link,Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { ToastContainer, toast } from 'react-toastify';
 import { login } from '../../actions/user';
+import MainNavbar from '../admin-navbar/main-navbar';
 import './login.css';
 
 class Login extends Component {
@@ -41,19 +42,20 @@ class Login extends Component {
     return !nextProps.loading && alertMessage;
   };
   render() {
-    const { history, data } = this.props;
     const token = localStorage.getItem('token');
+    const user = JSON.parse(localStorage.getItem('user'));
     if (token) {
-      console.log(data.type, '??');
-      if (data.type === 'client') {
-        history.push('/');
-      } else {
-        history.push('/addproduct');
+      if(user.type === 'client'){
+      return <Redirect to='/'/>
+      }
+      else{
+        return <Redirect to='/addproduct'/>        
       }
     }
     return (
       <div id='layout'>
         <div className='container'>
+        <MainNavbar/>
           <div>
             <div className='form'>
               <ToastContainer

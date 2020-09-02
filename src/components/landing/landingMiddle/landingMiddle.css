@@ -3,7 +3,6 @@ body{
 }
 .displayed-products{
     height: 550px;
-    /* width: 800px; */
     margin-top: 0.5%;
     margin-left: 5%;
     padding: 1% 1%;
@@ -11,7 +10,6 @@ body{
     display: inline-flex;
     overflow: hidden;
     display: grid;
-    /* grid-gap: 0.5%; */
     grid-row-gap: 2px;
     grid-template-columns: repeat(4, 1fr);
     overflow-y: scroll;
@@ -50,95 +48,10 @@ background: rgb(175, 174, 174);
 ::-webkit-scrollbar-thumb:hover {
 background: #555; 
 }
-.middle-modal{
-    position: absolute;
-    top: 72%;
-    left: 30%;
-    width: 500px;
-    height: 400px;
-    background-color: rgb(243, 242, 242);
-    opacity: 0.98;
-    text-align: center;
-    padding-right:10px;
-    padding-left: 10px;
-    box-sizing: border-box;
-}
-.modal-content{
-    text-align: center;
-    padding-left: auto;
-    padding-right: auto;
-    padding-top: 5%;
-    height: 60%;
-    margin-top: 18%;
-    margin-bottom: 20%;
-}
-.modal-content>button{
-    width: 90%;
-    margin-left: auto;
-    margin-right: auto;
-}
-.modal-content>p{
-    text-align: left;
-    margin-left: 35%;
-}
-.modal-content>hr{
-    width: 60%;
-    margin-left: auto;
-    margin-right: auto;
-}
-.close-modal{
-    position: absolute;
-    font-size: 25px;
-    margin-left: 90%;
-    margin-top: 2%;
-    cursor: pointer;
-}
 
 @media (max-width: 1000px) {
     .displayed-products{
         width: auto;
         grid-template-columns: auto;
     }
-    .middle-modal{
-        width: auto;
-        height: auto;
-        margin-top: -15%;
-        padding: 2%;
-        left: 5%;
-    }
-    .modal-content>p{
-        text-align: left;
-        margin-left: 2%;
-        font-size: 12px;
-    }
-    .modal-content{
-        padding-top: 5%;
-        height: 80%;
-        margin-top: 10%;
-        margin-bottom: auto;
-    }
-    .close-modal{
-        margin-left: 80%;
-        margin-top: -9%;
-        cursor: pointer;
-    }
 }
-/* @media (min-width: 1000px){
-    .displayed-products{
-        width: 100%;
-    }
-    .one-image{
-        width: 90%;
-    }
-    .middle-modal{
-        width: 40%;
-        top: 60%;
-        left: 28%;
-    }
-    .modal-content>p{
-        margin-left: 15%;
-    }
-    .close-modal{
-        margin-top: -4%;
-    }
-} */

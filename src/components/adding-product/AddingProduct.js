@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { ToastContainer, toast } from 'react-toastify';
 import { newProduct } from '../../actions/product';
+import AdminNavbar from '../admin-navbar/admin-navbar';
 import './addproduct.css';
 
 class AddingProduct extends Component {
@@ -79,6 +80,7 @@ class AddingProduct extends Component {
             className='toastMessages'
             style={{ width: '700px' }}
           />
+          <AdminNavbar/>
           <div className='formProduct'>
             <div className='headerProduct'>
               <h3 className='text-center font-weight-light my-4'>

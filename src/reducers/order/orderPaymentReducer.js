@@ -1,40 +1,40 @@
 import {
-    ORDER_PRODUCT_END,
-    ORDER_PRODUCT_SUCCESS,
-    ORDER_PRODUCT_FAILURE,
-    ORDER_PRODUCT_START,
-  } from '../../actionTypes/orderActionTypes';
+    PAYMENT_END,
+    PAYMENT_SUCCESS,
+    PAYMENT_FAILURE,
+    PAYMENT_START,
+  } from '../../actionTypes/paymentActionTypes';
   
   const reducer = (state, { type, payload }) => {
     switch (type) {
-      case ORDER_PRODUCT_START:
+      case PAYMENT_START:
         return {
           ...state,
           loading: true,
-          orderErrors: null,
+          paymentErrors: null,
           message: null,
         };
-      case ORDER_PRODUCT_SUCCESS:
+      case PAYMENT_SUCCESS:
         console.log(payload,'reducer')
         return {
           ...state,
           loading: false,
-          orderErrors: null,
+          paymentErrors: null,
           message: payload.message,
           data: payload.data,
         };
-      case ORDER_PRODUCT_FAILURE:
+      case PAYMENT_FAILURE:
         return {
           ...state,
           loading: false,
-          orderErrors: payload.error,
+          paymentErrors: payload.error,
           message: null,
         };
-      case ORDER_PRODUCT_END:
+      case PAYMENT_END:
         return {
           ...state,
           loading: false,
-          orderErrors: null,
+          paymentErrors: null,
           message: null,
         };
   

@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { ToastContainer, toast } from 'react-toastify';
 import { newNews } from '../../actions/news';
+import AdminNavbar from '../admin-navbar/admin-navbar';
 import './addnews.css';
 
 class AddingNews extends Component {
@@ -56,6 +57,7 @@ class AddingNews extends Component {
             className='toastMessages'
             style={{ width: '700px' }}
           />
+          <AdminNavbar/>
           <div className='formNews'>
             <div className='headerNews'>
               <h3 className='text-center font-weight-light my-4'>New News</h3>

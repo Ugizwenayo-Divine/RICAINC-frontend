@@ -11,7 +11,7 @@ body {
   height: auto;
 }
 .grid-item > a,
-.navbar > span,
+.navbar > .serv-span,
 .pop-modal > ul > li > a {
   color: #000000;
   font-size: medium;
@@ -19,7 +19,7 @@ body {
 }
 .grid-item > a:hover,
 a:focus,
-.navbar > span:hover,
+.navbar > .serv-span:hover,
 .pop-modal > ul > li > a:hover {
   text-decoration: none;
   color: #8f8d8d;

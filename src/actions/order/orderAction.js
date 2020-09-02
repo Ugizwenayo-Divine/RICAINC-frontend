@@ -1,9 +1,9 @@
 import { orderActionTypes } from '../../actionTypes';
 import { apiAction } from '../../helpers';
-import { ORDER_URL } from '../../helpers/backendURLs';
+import { ORDER_URL,CLIENT_ORDERS_URL } from '../../helpers/backendURLs';
 
 const token = localStorage.getItem('token');
-export default (data) => (dispatch) =>
+const addOrder = (data) => (dispatch) =>
   dispatch(
     apiAction({
       method: 'post',
@@ -19,3 +19,21 @@ export default (data) => (dispatch) =>
       onFailure: orderActionTypes.ORDER_PRODUCT_FAILURE,
     })
   );
+  const getClientOrders= (data) => (dispatch) =>
+  dispatch(
+    apiAction({
+      method: 'get',
+      httpOptions: {
+        token,
+        URL: CLIENT_ORDERS_URL,
+        headers: { 'Content-Type': 'application/json' },
+      },
+      data,
+      onStart: orderActionTypes.CLIENT_ORDERS_START,
+      onEnd: orderActionTypes.CLIENT_ORDERS_END,
+      onSuccess: orderActionTypes.CLIENT_ORDERS_SUCCESS,
+      onFailure: orderActionTypes.CLIENT_ORDERS_FAILURE,
+    })
+  );
+
+  export default {addOrder, getClientOrders}

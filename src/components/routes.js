@@ -8,6 +8,7 @@ import Order from './order/createOrder/createOrder';
 import AddingAdvert from './advert';
 import AddingAnnouncement from './announcement';
 import AddingNews from './news';
+import ClientOrders from './order/clientOrders/clientOrders';
 
 const Routes = () => (
   <Switch>
@@ -25,6 +26,10 @@ const Routes = () => (
     <Route exact path='/addannouncement' component={AddingAnnouncement} />
     {/* News routes*/}
     <Route exact path='/addnews' component={AddingNews} />
+    {/* Adding Advertisement */}
+    <Route exact path='/addadvertisement' component={AddingAdvert} />
+
+    <Route exact path='/displayclientorders' component={ClientOrders} />
   </Switch>
 );
 
