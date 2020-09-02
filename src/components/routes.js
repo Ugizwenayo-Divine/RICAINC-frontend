@@ -4,9 +4,10 @@ import Signup from './signup';
 import Login from './login';
 import AddingProduct from './adding-product';
 import Landing from './landing/landing';
-
 import Order from './order/createOrder/createOrder';
 import AddingAdvert from './advert';
+import AddingAnnouncement from './announcement';
+import AddingNews from './news';
 
 const Routes = () => (
   <Switch>
@@ -15,11 +16,15 @@ const Routes = () => (
     <Route exact path='/signup' component={Signup} />
     <Route exact path='/login' component={Login} />
 
-    {/* Adding Product */}
+    {/* Product routes*/}
     <Route exact path='/addproduct' component={AddingProduct} />
     <Route exact path='/order' component={Order} />
-    {/* Adding Advertisement */}
+    {/* Advertisement routes*/}
     <Route exact path='/addadvert' component={AddingAdvert} />
+    {/* Announcement routes*/}
+    <Route exact path='/addannouncement' component={AddingAnnouncement} />
+    {/* News routes*/}
+    <Route exact path='/addnews' component={AddingNews} />
   </Switch>
 );
 

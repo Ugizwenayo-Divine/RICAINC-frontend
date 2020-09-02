@@ -4,6 +4,8 @@ const SIGNUP_URL = `${BASE_URL}/auth/signup`;
 const LOGIN_URL = `${BASE_URL}/auth/login`;
 const NEW_PRODUCT = `${BASE_URL}/product/add`;
 const NEW_ADVERT = `${BASE_URL}/advertisement/add`;
+const NEW_ANNOUNCEMENT = `${BASE_URL}/announcement/add`;
+const NEW_NEWS = `${BASE_URL}/news/add`;
 const SEARCH_NAME_URL = `${BASE_URL}/product/any`;
 const SEARCH_ALL_URL = `${BASE_URL}/product/available`;
 const ADVERTISEMENT_URL = `${BASE_URL}/advertisement/internal`;
@@ -25,4 +27,6 @@ export {
   NEW_PRODUCT,
   ORDER_URL,
   NEW_ADVERT,
+  NEW_ANNOUNCEMENT,
+  NEW_NEWS,
 };

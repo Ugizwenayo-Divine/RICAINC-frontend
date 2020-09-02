@@ -2,18 +2,16 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { ToastContainer, toast } from 'react-toastify';
-import { newAdvert } from '../../actions/advert';
-import './addadvert.css';
+import { newNews } from '../../actions/news';
+import './addnews.css';
 
-class AddingAdvert extends Component {
+class AddingNews extends Component {
   constructor() {
     super();
     this.state = {
       title: '',
       description: '',
       image: '',
-      type: '',
-      advertisingCompany: '',
     };
   }
   handleSubmit = (e) => {
@@ -24,10 +22,8 @@ class AddingAdvert extends Component {
     if (this.state.image) {
       formData.append('image', this.state.image);
     }
-    formData.append('type', this.state.type);
-    formData.append('advertisingCompany', this.state.advertisingCompany);
 
-    this.props.newAdvert(formData);
+    this.props.newNews(formData);
   };
   titleChange = (event) => {
     this.setState({ title: event.target.value });
@@ -44,19 +40,10 @@ class AddingAdvert extends Component {
     }
   };
 
-  typeChange = (event) => {
-    this.setState({ type: event.target.value });
-  };
-
-  advertisingCompanyChange = (event) => {
-    this.setState({ advertisingCompany: event.target.value });
-  };
-
   componentWillReceiveProps = (nextProps) => {
     const alertMessage =
       (nextProps.message && toast.success(nextProps.message)) ||
-      (nextProps.advertisementErrors &&
-        toast.error(nextProps.advertisementErrors));
+      (nextProps.newsErrors && toast.error(nextProps.newsErrors));
 
     return !nextProps.loading && alertMessage;
   };
@@ -69,11 +56,11 @@ class AddingAdvert extends Component {
             className='toastMessages'
             style={{ width: '700px' }}
           />
-          <div className='formAdvert'>
-            <div className='headerAdvert'>
-              <h3 className='text-center font-weight-light my-4'>New Advert</h3>
+          <div className='formNews'>
+            <div className='headerNews'>
+              <h3 className='text-center font-weight-light my-4'>New News</h3>
             </div>
-            <div className='bodyAdvert'>
+            <div className='bodyNews'>
               <form className='form-group' onSubmit={this.handleSubmit}>
                 <div className='form-row'>
                   <div className='col-md-6'>
@@ -81,38 +68,8 @@ class AddingAdvert extends Component {
                     <input
                       name='title'
                       className='form-control py-4'
-                      placeholder='Enter the title of the Advert'
+                      placeholder='Enter the title of the News'
                       onChange={this.titleChange}
-                    ></input>
-                  </div>
-                  <div className='col-md-6'>
-                    <label className='small mb-1'>Type</label>
-                    <input
-                      name='type'
-                      className='form-control py-4'
-                      placeholder='Enter the type(Internal/External)'
-                      onChange={this.typeChange}
-                    ></input>
-                  </div>
-                  <div className='col-md-12'>
-                    <label className='small mb-1'>Description</label>
-                    <textarea
-                      rows='7'
-                      cols='20'
-                      name='description'
-                      className='form-control py-4'
-                      placeholder='Enter the description'
-                      onChange={this.descriptionChange}
-                    ></textarea>
-                  </div>
-
-                  <div className='col-md-6'>
-                    <label className='small mb-1'>Advertising Company</label>
-                    <input
-                      name='advertisingCompany'
-                      className='form-control py-4'
-                      placeholder='Enter the brand'
-                      onChange={this.advertisingCompanyChange}
                     ></input>
                   </div>
                   <div className='col-md-6'>
@@ -120,16 +77,26 @@ class AddingAdvert extends Component {
                     <br></br>
                     <input
                       type='file'
-                      className=''
                       id='image'
                       onChange={this.imageChange}
                     ></input>
+                  </div>
+                  <div className='col-md-12'>
+                    <label className='small mb-1'>Description</label>
+                    <textarea
+                      rows='4'
+                      cols='20'
+                      name='description'
+                      className='form-control py-4'
+                      placeholder='Enter the description'
+                      onChange={this.descriptionChange}
+                    ></textarea>
                   </div>
                 </div>
                 <br />
                 <div className='form-group'>
                   <button className='btn btn-secondary btn-block'>
-                    Add Advert
+                    Add News
                   </button>
                 </div>
               </form>
@@ -140,17 +107,15 @@ class AddingAdvert extends Component {
     );
   }
 }
-AddingAdvert.propTypes = {
-  advertisementErrors: PropTypes.string,
+AddingNews.propTypes = {
+  newsErrors: PropTypes.string,
   message: PropTypes.string,
 };
-const mapStateToProps = ({
-  advert: { loading, advertisementErrors, message },
-}) => ({
+const mapStateToProps = ({ news: { loading, newsErrors, message } }) => ({
   loading,
-  advertisementErrors,
+  newsErrors,
   message,
 });
 export default connect(mapStateToProps, {
-  newAdvert,
-})(AddingAdvert);
+  newNews,
+})(AddingNews);

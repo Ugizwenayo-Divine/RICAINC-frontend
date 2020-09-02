@@ -13,7 +13,7 @@ html {
   background-position: center;
   background-color: white;
 }
-.formProduct {
+.formNews {
   position: relative;
   display: flex;
   flex-direction: column;
@@ -25,10 +25,10 @@ html {
   border-radius: 0.3rem;
   box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.175) !important;
   border: 0 !important;
-  margin-top: 4rem !important;
+  margin-top: 6rem !important;
   margin-left: 14rem;
 }
-.headerProduct {
+.headerNews {
   text-align: center !important;
   font-weight: 300 !important;
   margin-top: 0rem !important;
@@ -38,10 +38,10 @@ html {
   background-color: rgba(0, 0, 0, 0.1);
   border-bottom: 1px solid rgba(0, 0, 0, 0.125);
 }
-.headerProduct:last-child {
+.headerNews:last-child {
   border-radius: calc(0.25rem - 1px) calc(0.25rem - 1px) 0 0;
 }
-.bodyProduct {
+.bodyNews {
   flex: 1 1 auto;
   min-height: 1px;
   padding: 1.25rem;
