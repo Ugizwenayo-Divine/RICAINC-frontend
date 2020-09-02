@@ -18,68 +18,60 @@ const skeleton = () =>{
         </thead>
       <tbody>
         <tr>
-          <td><Skeleton  height={45} width={172}/></td>
-          <td><Skeleton  height={45} width={172}/></td>
-          <td><Skeleton  height={45} width={172}/></td>
-          <td><Skeleton  height={45} width={172}/></td>
-          <td><Skeleton  height={45} width={172}/></td>
-          <td><Skeleton  height={45} width={172}/></td>            
+          <td><Skeleton  height={33} width={172}/></td>
+          <td><Skeleton  height={33} width={172}/></td>
+          <td><Skeleton  height={33} width={172}/></td>
+          <td><Skeleton  height={33} width={172}/></td>
+          <td><Skeleton  height={33} width={172}/></td>
+          <td><Skeleton  height={33} width={172}/></td>            
         </tr>
         <tr>
-          <td><Skeleton  height={45} width={172}/></td>
-          <td><Skeleton  height={45} width={172}/></td>
-          <td><Skeleton  height={45} width={172}/></td>
-          <td><Skeleton  height={45} width={172}/></td>
-          <td><Skeleton  height={45} width={172}/></td>
-          <td><Skeleton  height={45} width={172}/></td>            
+          <td><Skeleton  height={33} width={172}/></td>
+          <td><Skeleton  height={33} width={172}/></td>
+          <td><Skeleton  height={33} width={172}/></td>
+          <td><Skeleton  height={33} width={172}/></td>
+          <td><Skeleton  height={33} width={172}/></td>
+          <td><Skeleton  height={33} width={172}/></td>            
         </tr>
         <tr>
-          <td><Skeleton  height={45} width={172}/></td>
-          <td><Skeleton  height={45} width={172}/></td>
-          <td><Skeleton  height={45} width={172}/></td>
-          <td><Skeleton  height={45} width={172}/></td>
-          <td><Skeleton  height={45} width={172}/></td>
-          <td><Skeleton  height={45} width={172}/></td>            
+          <td><Skeleton  height={33} width={172}/></td>
+          <td><Skeleton  height={33} width={172}/></td>
+          <td><Skeleton  height={33} width={172}/></td>
+          <td><Skeleton  height={33} width={172}/></td>
+          <td><Skeleton  height={33} width={172}/></td>
+          <td><Skeleton  height={33} width={172}/></td>            
         </tr>
         <tr>
-          <td><Skeleton  height={45} width={172}/></td>
-          <td><Skeleton  height={45} width={172}/></td>
-          <td><Skeleton  height={45} width={172}/></td>
-          <td><Skeleton  height={45} width={172}/></td>
-          <td><Skeleton  height={45} width={172}/></td>
-          <td><Skeleton  height={45} width={172}/></td>            
+          <td><Skeleton  height={33} width={172}/></td>
+          <td><Skeleton  height={33} width={172}/></td>
+          <td><Skeleton  height={33} width={172}/></td>
+          <td><Skeleton  height={33} width={172}/></td>
+          <td><Skeleton  height={33} width={172}/></td>
+          <td><Skeleton  height={33} width={172}/></td>            
         </tr>
         <tr>
-          <td><Skeleton  height={45} width={172}/></td>
-          <td><Skeleton  height={45} width={172}/></td>
-          <td><Skeleton  height={45} width={172}/></td>
-          <td><Skeleton  height={45} width={172}/></td>
-          <td><Skeleton  height={45} width={172}/></td>
-          <td><Skeleton  height={45} width={172}/></td>            
+          <td><Skeleton  height={33} width={172}/></td>
+          <td><Skeleton  height={33} width={172}/></td>
+          <td><Skeleton  height={33} width={172}/></td>
+          <td><Skeleton  height={33} width={172}/></td>
+          <td><Skeleton  height={33} width={172}/></td>
+          <td><Skeleton  height={33} width={172}/></td>            
         </tr>
         <tr>
-          <td><Skeleton  height={45} width={172}/></td>
-          <td><Skeleton  height={45} width={172}/></td>
-          <td><Skeleton  height={45} width={172}/></td>
-          <td><Skeleton  height={45} width={172}/></td>
-          <td><Skeleton  height={45} width={172}/></td>
-          <td><Skeleton  height={45} width={172}/></td>            
+          <td><Skeleton  height={33} width={172}/></td>
+          <td><Skeleton  height={33} width={172}/></td>
+          <td><Skeleton  height={33} width={172}/></td>
+          <td><Skeleton  height={33} width={172}/></td>
+          <td><Skeleton  height={33} width={172}/></td>
+          <td><Skeleton  height={33} width={172}/></td>            
         </tr>
         <tr>
-          <td><Skeleton  height={45} width={172}/></td>
-          <td><Skeleton  height={45} width={172}/></td>
-          <td><Skeleton  height={45} width={172}/></td>
-          <td><Skeleton  height={45} width={172}/></td>
-          <td><Skeleton  height={45} width={172}/></td>
-          <td><Skeleton  height={45} width={172}/></td>            
-        </tr>
-        <tr>
-          <td><Skeleton  height={45} width={172}/></td>
-          <td><Skeleton  height={45} width={172}/></td>
-          <td><Skeleton  height={45} width={172}/></td>
-          <td><Skeleton  height={45} width={172}/></td>
-          <td><Skeleton  height={45} width={172}/></td>
-          <td><Skeleton  height={45} width={172}/></td>            
+          <td><Skeleton  height={33} width={172}/></td>
+          <td><Skeleton  height={33} width={172}/></td>
+          <td><Skeleton  height={33} width={172}/></td>
+          <td><Skeleton  height={33} width={172}/></td>
+          <td><Skeleton  height={33} width={172}/></td>
+          <td><Skeleton  height={33} width={172}/></td>            
         </tr>
         </tbody>
         </table>

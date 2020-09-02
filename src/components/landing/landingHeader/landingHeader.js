@@ -8,6 +8,11 @@ import PropTypes from 'prop-types';
 import { withRouter } from "react-router-dom";
 import { ToastContainer, toast } from 'react-toastify';
 import search from '../../../actions/landing/search';
+import userHelper from '../../../actions/user/allUsers';
+
+const {
+  userLogout,
+} = userHelper;
 
 const {
   searchAny,
@@ -67,10 +72,12 @@ class LandingHeader extends Component {
     });
   }
   handleLogout = () =>{
+    const token = localStorage.getItem('token');
     localStorage.removeItem('token');
     localStorage.removeItem('user');
-    this.props.history.go('/');
+    this.props.userLogout(token);
   }
+
   componentWillReceiveProps = (nextProps) => {
     const {searchAllProducts} = this.props;
     let alertMessage='';
@@ -92,6 +99,9 @@ class LandingHeader extends Component {
   render(){
     const visibility = this.state.serviceClicked?'visible':'hidden';
     const localToken = localStorage.getItem('token');
+    if(!this.props.loadingLogout && this.props.messageLogout){
+      this.props.history.go('/');
+    }
     return (
       <div>
         <ToastContainer
@@ -138,8 +148,8 @@ class LandingHeader extends Component {
               services
             </span>
             <Link to='#'>videos</Link>
-            <Link to='#'>news</Link>
-            {localToken&&this.state.loggedInUser.type ==='admin'?<Link to='/addproduct'>Admin</Link>:null}
+            <Link to='/displaynews'>news</Link>
+            {this.state.loggedInUser?(this.state.loggedInUser.type ==='admin'?<Link to='/addproduct'>Admin</Link>:null):null}
             <div className='pop-modal' style={{visibility:visibility}} 
             onMouseOver={this.handleServiceHover}
             onMouseOut= {this.handleServiceUnHover}>
@@ -157,11 +167,15 @@ LandingHeader.propTypes = {
   message: PropTypes.string
 };
 const mapStateToProps = (state) => {
+  console.log('logou',state.userLogout.message)
   return {
   token:state.search.token,
   loading:state.search.loading,
   searchErrors:state.search.searchErrors,
   message:state.search.message,
   data:state.search.data,
+  loadingLogout:state.userLogout.loading,
+  messageLogout:state.userLogout.message,
+  userLogoutErrors:state.userLogout.userErrors
 }};
-export default connect(mapStateToProps,{search:searchAny, searchAllProducts:searchAll})(withRouter(LandingHeader));
+export default connect(mapStateToProps,{search:searchAny, searchAllProducts:searchAll, userLogout:userLogout})(withRouter(LandingHeader));

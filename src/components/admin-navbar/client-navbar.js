@@ -1,15 +1,27 @@
 import React,{Component} from 'react';
 import {withRouter} from 'react-router-dom';
+import {connect} from 'react-redux';
 import './admin-navbar.css';
+import userHelper from '../../actions/user/allUsers';
 
-class AdminNavbar extends Component {
+const {
+  userLogout,
+} = userHelper;
+
+class ClientNavbar extends Component {
+  
   handleLogout = () =>{
+    const token = localStorage.getItem('token');
     localStorage.removeItem('token');
     localStorage.removeItem('user');
-    this.props.history.push('/');
-    window.location.reload();
+    this.props.userLogout(token);
   }
   render(){
+    const {loading,message} = this.props;
+    if(!loading && message){
+      this.props.history.push('/');
+      window.location.reload();
+    }
       return (
         <div 
           className='navbar navbar-expand-xl navbar-light client-nav' 
@@ -32,4 +44,11 @@ class AdminNavbar extends Component {
       )
   }
 }
-export default withRouter(AdminNavbar);
+const mapStateToProps = (state)=>{
+  console.log(state.userLogout,'logout');
+  return({
+  loading:state.userLogout.loading,
+  message:state.userLogout.message,
+  userLogoutErrors:state.userLogout.userErrors
+})}
+export default connect(mapStateToProps,{userLogout:userLogout})(withRouter(ClientNavbar));
