@@ -19,27 +19,29 @@ import deleteAnnouncement from './initialStates/deleteAnnounceInitialState';
 import deleteProduct from './initialStates/deleteProductInitialState';
 import deleteNews from './initialStates/deleteNewsInitialState';
 import deliverOrder from './initialStates/deliverOrderInitialState';
+import feedback from './initialStates/feedbackInitialState';
 
-export default { 
-    user, 
-    search, 
-    advertisement, 
-    externalAdvertisement, 
-    announcement, 
-    sidebar, 
-    bestProducts, 
-    product, 
-    createOrder,
-    payment,
-    allAdverts,
-    allUsers,
-    allNews,
-    cancelOrder,
-    userLogout,
-    deleteUser,
-    deleteAdvertisement,
-    deleteAnnouncement,
-    deleteNews,
-    deleteProduct,
-    deliverOrder,
- };
+export default {
+  user,
+  search,
+  advertisement,
+  externalAdvertisement,
+  announcement,
+  sidebar,
+  bestProducts,
+  product,
+  createOrder,
+  payment,
+  allAdverts,
+  allUsers,
+  allNews,
+  cancelOrder,
+  userLogout,
+  deleteUser,
+  deleteAdvertisement,
+  deleteAnnouncement,
+  deleteNews,
+  deleteProduct,
+  deliverOrder,
+  feedback,
+};

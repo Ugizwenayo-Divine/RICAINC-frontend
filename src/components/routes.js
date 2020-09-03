@@ -15,6 +15,7 @@ import AllAdverts from './display-adverts/display-adverts';
 import AllAnnounce from './display-announce/display-annouce';
 import AllUsers from './display-users/display-users';
 import AllNews from './display-news/display-news';
+import AddingFeedback from './feedback';
 
 const Routes = () => (
   <Switch>
@@ -49,6 +50,9 @@ const Routes = () => (
     <Route exact path='/displayuser' component={AllUsers} />
     {/* all news */}
     <Route exact path='/displaynews' component={AllNews} />
+    <Route exact path='/displayclientorders' component={ClientOrders} />
+    {/* Feedback Routes */}
+    <Route exact path='/addfeedback' component={AddingFeedback} />
   </Switch>
 );
 

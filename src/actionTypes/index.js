@@ -3,6 +3,7 @@ import * as userActionTypes from './userActionTypes';
 import * as productActionTypes from './productActionTypes';
 import * as searchActionTypes from './searchActionTypes';
 import * as newsActionTypes from './newsActionTypes';
+import * as feedbackActionTypes from './feedbackActionTypes';
 import * as advertisementActionTypes from './advertisementActionTypes';
 import * as announcementActionTypes from './announcementActionTypes';
 import * as externalAdvertActionTypes from './externalAdvertActionTypes';
@@ -24,4 +25,5 @@ export {
   orderActionTypes,
   newsActionTypes,
   paymentActionTypes,
+  feedbackActionTypes,
 };

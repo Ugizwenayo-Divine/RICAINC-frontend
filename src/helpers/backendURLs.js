@@ -6,6 +6,7 @@ const NEW_PRODUCT = `${BASE_URL}/product/add`;
 const NEW_ADVERT = `${BASE_URL}/advertisement/add`;
 const NEW_ANNOUNCEMENT = `${BASE_URL}/announcement/add`;
 const NEW_NEWS = `${BASE_URL}/news/add`;
+const NEW_FEEDBACK = `${BASE_URL}/feedback/add`;
 const SEARCH_NAME_URL = `${BASE_URL}/product/any`;
 const SEARCH_ALL_URL = `${BASE_URL}/product/available`;
 const ADVERTISEMENT_URL = `${BASE_URL}/advertisement/internal`;
@@ -28,7 +29,7 @@ const DELETE_PRODUCT_URL = `${BASE_URL}/product`;
 const DELETE_NEWS_URL = `${BASE_URL}/news`;
 const DELETE_ANNOUNCEMENT_URL = `${BASE_URL}/announcement`;
 const DELETE_ADVERTISEMENT_URL = `${BASE_URL}/advertisement`;
-const DELIVER_ORDER_URL =`${BASE_URL}/orders/delivered`;
+const DELIVER_ORDER_URL = `${BASE_URL}/orders/delivered`;
 
 export {
   BASE_URL,
@@ -62,4 +63,5 @@ export {
   DELETE_NEWS_URL,
   DELETE_PRODUCT_URL,
   DELIVER_ORDER_URL,
+  NEW_FEEDBACK,
 };
