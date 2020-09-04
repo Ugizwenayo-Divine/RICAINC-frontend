@@ -11,7 +11,7 @@ const dropDown =(props)=>{
       onMouseOver={hover}
       onMouseOut={unHover}>
         <ul>
-          {details.map(dt=><li key={dt}><Link to={`/add${dt}`} 
+          {details.map(dt=><li key={dt}><Link to={`/${props.action}${dt}`} 
           style={{color: 'white',textDecoration:'none'}} 
           activestyle={{color: 'red'}}
           >{dt}</Link></li>)}

@@ -1,8 +1,9 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
-import {getClientOrders} from '../../../actions/order';
+import {getClientOrders,cancelOrder} from '../../../actions/order';
 import ClientOrdersSkeleton from './clientOrdersSkeleton';
 import ClietNavbar from '../../admin-navbar/client-navbar';
+import AdminNavbar from '../../admin-navbar/admin-navbar';
 import {orderPayment} from '../../../actions/order';
 import './clientOrders.css';
 
@@ -26,19 +27,31 @@ class ClientOrders extends Component{
     };
     orderPay(data);
   }
+  handleCancel(event,id){
+    const {cancelOrder} = this.props;
+    event.preventDefault();
+    cancelOrder(id);
+  }
   render (){
-    const {loading, data}=this.props;
+    const {loading, data, cancelLoading, canceledMessage}=this.props;
+    const margTop = this.state.user.type === 'admin'?'5%':'2%';
     if(this.props.paymentData){      
      window.location=this.props.paymentData.redirect;
     }
+    if(!cancelLoading && canceledMessage){
+      window.location.reload();
+    }
+    console.log(this.props.canceledMessage,'for cancel');
     return (
       <div style={{width:'100%'}}>
-        <ClietNavbar />
+        {this.state.user.type === 'client'?<ClietNavbar />:null}
         <div className='table-responsive-md container'>
+        {this.state.user.type === 'admin'?<AdminNavbar />:null}
           <h4 style={
             {
               textAlign: 'center',
-              fontFamily: 'Montserrat'
+              fontFamily: 'Montserrat',
+              marginTop:margTop
           }
           }>{this.state.user.firstName} {this.state.user.lastName} orders</h4>
           {((!loading && data) ? <table style={{width:'100%'}} className='table table-bordered table-hover table-sm'>
@@ -66,7 +79,11 @@ class ClientOrders extends Component{
                   style={{width:'35%'}}
                   onClick={()=>{this.handlePay(dt.id)}}
                   >PAY</button> &nbsp;
-                <button type="button" className='btn btn-danger py-0'>CANCEL</button>
+                <button 
+                  type="button" 
+                  className='btn btn-danger py-0'
+                  onClick={(event)=>{this.handleCancel(event,dt.id)}}
+                  >CANCEL</button>
               </td>            
               </tr>
             </tbody>)}
@@ -83,7 +100,9 @@ const mapStateToProps = (state) => {
       orderErrors:state.clientOrders.orderErrors,
       data:state.clientOrders.data,
       message:state.clientOrders.message,
-      paymentData:state.payment.data
+      paymentData:state.payment.data,
+      cancelLoading:state.cancelOrder.loading,
+      canceledMessage:state.cancelOrder.message,
     }
   }
-export default connect(mapStateToProps, {getClientOrders:getClientOrders,orderPay:orderPayment})(ClientOrders);
+export default connect(mapStateToProps, {getClientOrders:getClientOrders,orderPay:orderPayment, cancelOrder:cancelOrder})(ClientOrders);

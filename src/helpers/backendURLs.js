@@ -15,6 +15,20 @@ const BEST_PRODUCT_URL = `${BASE_URL}/product/product-type`;
 const ORDER_URL = `${BASE_URL}/orders/add`;
 const ORDER_PAYMENT_URL = `${BASE_URL}/orders/pay`;
 const CLIENT_ORDERS_URL = `${BASE_URL}/orders/client-orders`;
+const ALL_ORDERS_URL = `${BASE_URL}/orders`;
+const SEARCH_ORDER_URL = `${BASE_URL}/orders/status-based`;
+const ALL_ADVERTISEMENTS_URL = `${BASE_URL}/advertisement`;
+const GET_ADVERTISEMENT_URL = `${BASE_URL}/advertisement`;
+const ALL_USERS_URL = `${BASE_URL}/auth/all`;
+const ALL_NEWS_URL = `${BASE_URL}/news`;
+const CANCEL_ORDER_URL = `${BASE_URL}/orders/cancel`;
+const USER_LOGOUT_URL = `${BASE_URL}/auth/logout`;
+const DELETE_USER_URL = `${BASE_URL}/auth/delete-user`;
+const DELETE_PRODUCT_URL = `${BASE_URL}/product`;
+const DELETE_NEWS_URL = `${BASE_URL}/news`;
+const DELETE_ANNOUNCEMENT_URL = `${BASE_URL}/announcement`;
+const DELETE_ADVERTISEMENT_URL = `${BASE_URL}/advertisement`;
+const DELIVER_ORDER_URL =`${BASE_URL}/orders/delivered`;
 
 export {
   BASE_URL,
@@ -33,5 +47,19 @@ export {
   NEW_ANNOUNCEMENT,
   NEW_NEWS,
   ORDER_PAYMENT_URL,
-  CLIENT_ORDERS_URL
+  CLIENT_ORDERS_URL,
+  ALL_ORDERS_URL,
+  SEARCH_ORDER_URL,
+  ALL_ADVERTISEMENTS_URL,
+  GET_ADVERTISEMENT_URL,
+  ALL_USERS_URL,
+  ALL_NEWS_URL,
+  CANCEL_ORDER_URL,
+  USER_LOGOUT_URL,
+  DELETE_USER_URL,
+  DELETE_ADVERTISEMENT_URL,
+  DELETE_ANNOUNCEMENT_URL,
+  DELETE_NEWS_URL,
+  DELETE_PRODUCT_URL,
+  DELIVER_ORDER_URL,
 };

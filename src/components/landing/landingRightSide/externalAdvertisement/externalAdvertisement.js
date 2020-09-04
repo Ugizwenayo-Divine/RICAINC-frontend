@@ -63,8 +63,8 @@ class ExternaAdvertisement extends Component {
           <div className='image-externalAdverts'>
           <Image
             src={`${advertisements[this.state.advertisementIndex].image}`}
-            width={90}
-            height={90}
+            width={120}
+            height={120}
             style={style.image}
           />
                 </div>

@@ -1,7 +1,13 @@
 import React,{Component} from 'react';
+import {connect} from 'react-redux';
 import {Link, withRouter} from 'react-router-dom';
 import './admin-navbar.css';
 import DropDown from './drop-down';
+import userHelper from '../../actions/user/allUsers';
+
+const {
+  userLogout,
+} = userHelper;
 class AdminNavbar extends Component {
   constructor(){
     super();
@@ -34,32 +40,37 @@ class AdminNavbar extends Component {
     });
   }
   handleLogout = () =>{
+    const token = localStorage.getItem('token');
     localStorage.removeItem('token');
     localStorage.removeItem('user');
-    this.props.history.push('/');
-    window.location.reload();
+    this.props.userLogout(token);
   }
   render(){
+    const {loading,message} = this.props;
     const visibility = this.state.clicked?'visible':'hidden';
+    if(!loading && message){
+      this.props.history.push('/');
+      window.location.reload();
+    }
       return (
         <div className='admin-navbar'>
           <div className='admin-navbar-left'>
             <Link to='/'>HOME</Link>
             <span 
-              onClick={()=>{this.handleClick(['product','news','advertisement','announcement'],'add')}} 
-              onMouseOver={()=>{this.handleHover(['product','news','advertisement','announcement'],'add')}} 
+              onClick={()=>{this.handleClick(['news','product','advertisement','announcement'],'add')}} 
+              onMouseOver={()=>{this.handleHover(['news','product','advertisement','announcement'],'add')}} 
               onMouseOut= {this.handleUnHover} >
               ADD
             </span>
             <span  
-              onClick={()=>{this.handleClick(['product','advertisement','announcement','user'],'update')}} 
-              onMouseOver={()=>{this.handleHover(['product','advertisement','announcement','user'],'update')}}  
+              onClick={()=>{this.handleClick(['user','product','advertisement','announcement'],'update')}} 
+              onMouseOver={()=>{this.handleHover(['user','product','advertisement','announcement'],'update')}}  
               onMouseOut= {this.handleUnHover} >
               UPDATE
             </span>
             <span 
-              onClick={()=>{this.handleClick(['product','advertisement','announcement','user','order'],'display')}} 
-              onMouseOver={()=>{this.handleHover(['product','advertisement','announcement','user','order'],'display')}}  
+              onClick={()=>{this.handleClick(['user','order','news','product','advertisement','announcement'],'display')}} 
+              onMouseOver={()=>{this.handleHover(['user','order','news','product','advertisement','announcement'],'display')}}  
               onMouseOut= {this.handleUnHover} >
               DISPLAY
             </span>
@@ -69,6 +80,7 @@ class AdminNavbar extends Component {
             hover={()=>{this.handleHover(this.state.details,this.state.action)}}
             unHover={this.handleUnHover}
             coordinates={this.state.leftLength}
+            action={this.state.action}
           />
           </div>
           <div className='admin-navbar-right'>
@@ -78,4 +90,11 @@ class AdminNavbar extends Component {
       )
   }
 }
-export default withRouter(AdminNavbar);
+const mapStateToProps = (state)=>{
+  console.log(state.userLogout,'logout');
+  return({
+  loading:state.userLogout.loading,
+  message:state.userLogout.message,
+  userLogoutErrors:state.userLogout.userErrors
+})}
+export default connect(mapStateToProps,{userLogout:userLogout})(withRouter(AdminNavbar));

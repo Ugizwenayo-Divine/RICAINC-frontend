@@ -2,6 +2,10 @@ import initialState from '../../store/initialState';
 import orderReducer from './createOrderReducer';
 import paymentReducer from './orderPaymentReducer';
 import clientOrdersReducer from './clientOrdersReducer';
+import allOrdersReducer from './allOrdersReducer';
+import searchOrderReducer from './searchOrder';
+import cancelOrderReducer from './cancelOrderReducer';
+import deliverOrderReducer from './deliverOrderReducer';
 
 const createOrder = (state = initialState, action) => {
   const order = orderReducer(state, action);
@@ -18,5 +22,25 @@ const clientOrders = (state = initialState, action) => {
 
   return order || state;
 };
+const allOrders = (state = initialState, action) => {
+  const order = allOrdersReducer(state, action);
 
-export default {createOrder, payment, clientOrders};
+  return order || state;
+};
+const searchOrder = (state = initialState, action) => {
+  const order = searchOrderReducer(state, action);
+
+  return order || state;
+};
+const cancelOrder = (state = initialState, action) => {
+  const order = cancelOrderReducer(state, action);
+
+  return order || state;
+};
+const deliverOrder = (state = initialState, action) => {
+  const order = deliverOrderReducer(state, action);
+
+  return order || state;
+};
+
+export default {createOrder, payment, clientOrders, allOrders, searchOrder, cancelOrder, deliverOrder};

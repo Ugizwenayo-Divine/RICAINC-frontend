@@ -1,10 +1,10 @@
-import user from './user';
-import product from './product';
+import users from './user';
+import productReducers from './product';
 import landing from './landing';
 import order from './order';
-import advert from './advert';
-import announcements from './announcement';
-import news from './news';
+import adverts from './advert';
+import announcementReducers from './announcement';
+import newsRe from './news';
 
 const {
   advertisement,
@@ -14,11 +14,40 @@ const {
   sidebar,
   bestProducts,
 } = landing;
+const {
+allAdverts,
+advert,
+deleteAdvertisement,
+} = adverts;
 const { 
   createOrder,
   payment,
-  clientOrders
+  clientOrders,
+  allOrders,
+  searchOrder,
+  cancelOrder,
+  deliverOrder,
 } = order;
+const {
+  allUsers,
+  user,
+  userLogout,
+  deleteUser,
+} = users;
+const {
+  allNews,
+  news,
+  deleteNews,
+} = newsRe;
+const {
+ deleteProduct,
+ product
+} = productReducers;
+const {
+announcements,
+deleteAnnouncement
+} = announcementReducers;
+
 export default {
   user,
   search,
@@ -34,4 +63,17 @@ export default {
   news,
   payment,
   clientOrders,
+  allOrders,
+  searchOrder,
+  allAdverts,
+  allUsers,
+  allNews,
+  cancelOrder,
+  userLogout,
+  deleteUser,
+  deleteProduct,
+  deleteNews,
+  deleteAnnouncement,
+  deleteAdvertisement,
+  deliverOrder,
 };
