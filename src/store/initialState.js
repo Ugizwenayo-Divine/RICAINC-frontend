@@ -21,6 +21,18 @@ import deleteNews from './initialStates/deleteNewsInitialState';
 import deliverOrder from './initialStates/deliverOrderInitialState';
 import feedback from './initialStates/feedbackInitialState';
 import refund from './initialStates/refundInitialState';
+import updateUser from './initialStates/updateUserInitialState';
+import updateProduct from './initialStates/updateProductInitialState';
+import updateNews from './initialStates/updateNewsInitialState';
+import updateAdvertisement from './initialStates/updateAdvertsInitialState';
+import updateAnnouncement from './initialStates/updateAnnounceInitialState';
+import bestProduct from './initialStates/addRemoveBestInitialState';
+import addQty from './initialStates/addQtyInitialState';
+import clientRefund from './initialStates/client-refunds';
+import displayRefund from './initialStates/display-refunds';
+import displayFeedback from './initialStates/display-feedback';
+import deleteFeedback from './initialStates/deleteFeedbackInitialState';
+import refundStatus from './initialStates/refundStatusInitialState';
 
 export default {
   user,
@@ -46,4 +58,16 @@ export default {
   deliverOrder,
   feedback,
   refund,
+  updateUser,
+  updateProduct,
+  updateNews,
+  updateAdvertisement,
+  updateAnnouncement,
+  bestProduct,
+  addQty,
+  clientRefund,
+  displayFeedback,
+  displayRefund,
+  deleteFeedback,
+  refundStatus
 };

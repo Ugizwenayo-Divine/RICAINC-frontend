@@ -7,7 +7,7 @@ import search from '../../actions/landing/search';
 import product from '../../actions/product/deleteProduct';
 
 const {
-    searchAll,
+    displayAllProducts,
     searchAny,
 } = search;
 const {
@@ -49,6 +49,19 @@ class AllProducts extends Component{
   handleDelete(id){
     const {deleteProduct} = this.props;
     deleteProduct(id);
+  }
+  handleUpdate = (pathToMyComponent, data) => {
+    console.log('dataaa',data);
+    const token = localStorage.getItem('token');
+    if(token === undefined || token === ' ' || token === null){
+      return alert('not logged in');      
+    }
+    else{
+      this.props.history.push({
+        pathname: pathToMyComponent,
+        state: {product: data}
+      });
+    }
   }
   componentWillReceiveProps(nextProps){
     const {deleteLoading, deleteMessage}=this.props;
@@ -112,15 +125,21 @@ class AllProducts extends Component{
               <td>{dt.type}</td>
               <td>{dt.due_time}</td>
               <td>
+              <button 
+                  type="button" 
+                  className='btn btn-secondary py-0 mr-sm-2' 
+                  style={{width:'35%'}}
+                  onClick={()=>{this.handleUpdate('/updatequantity',dt)}}
+                  >ADD QTY</button>
                 <button 
                   type="button" 
                   className='btn btn-secondary py-0 mr-sm-2' 
                   style={{width:'35%'}}
-                  onClick={()=>{}}
+                  onClick={()=>{this.handleUpdate('/updateproduct',dt)}}
                   >UPDATE</button>
                 <button 
                   type="button" 
-                  className='btn btn-danger py-0'
+                  className='btn btn-danger py-0 mr-sm-2'
                   onClick={()=>{this.handleDelete(dt.id)}}>DELETE</button>
               </td>            
               </tr>
@@ -144,4 +163,4 @@ const mapStateToProps = (state) => {
         deleteErrors:state.deleteProduct.productErrors
     }
   }
-export default connect(mapStateToProps,{searchAll:searchAll,searchAny:searchAny,deleteProduct:deleteProduct})(AllProducts);
+export default connect(mapStateToProps,{searchAll:displayAllProducts,searchAny:searchAny,deleteProduct:deleteProduct})(AllProducts);

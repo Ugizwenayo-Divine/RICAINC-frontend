@@ -23,6 +23,19 @@ class AllNews extends Component{
     const {deleteNews} = this.props;
     deleteNews(id);
   }
+  handleUpdate = (pathToMyComponent, data) => {
+    console.log('dataaa',data);
+    const token = localStorage.getItem('token');
+    if(token === undefined || token === ' ' || token === null){
+      return alert('not logged in');      
+    }
+    else{
+      this.props.history.push({
+        pathname: pathToMyComponent,
+        state: {news: data}
+      });
+    }
+  }
   componentWillReceiveProps(nextProps){
     const {deleteLoading, deleteMessage}=this.props;
     if(!deleteLoading && deleteMessage){
@@ -73,6 +86,7 @@ class AllNews extends Component{
                 {this.state.user?(this.state.user.type === 'admin' ? <div style={{marginBottom:'0'}}>
                 <button 
                 className="btn btn-outline-secondary my-2 my-sm-0 mr-sm-2"
+                onClick={()=>{this.handleUpdate('/updatenews',dt)}}
                 type="button">UPDATE</button>
                 <button 
                 className="btn btn-outline-danger my-2 my-sm-0"

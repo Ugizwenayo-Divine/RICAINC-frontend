@@ -24,7 +24,6 @@ class LandingHeader extends Component {
     this.state={
       searchedItem : '',
       allProducts: [],
-      serviceClicked :false,
       token: '',
       loggedInUser:{}
     }
@@ -56,21 +55,6 @@ class LandingHeader extends Component {
     const { searchAllProducts } = this.props;
       searchAllProducts();
   };
-  handleService = () => {
-    this.setState({
-      serviceClicked: !this.state.serviceClicked,
-    });
-  }
-  handleServiceHover = () => {
-    this.setState({
-      serviceClicked: true,
-    });
-  }
-  handleServiceUnHover = () => {
-    this.setState({
-      serviceClicked: false,
-    });
-  }
   handleLogout = () =>{
     const token = localStorage.getItem('token');
     localStorage.removeItem('token');
@@ -97,7 +81,6 @@ class LandingHeader extends Component {
   }
 
   render(){
-    const visibility = this.state.serviceClicked?'visible':'hidden';
     const localToken = localStorage.getItem('token');
     if(!this.props.loadingLogout && this.props.messageLogout){
       this.props.history.go('/');
@@ -139,24 +122,11 @@ class LandingHeader extends Component {
              (<div className='grid-item'><Link to='/displayclientorders'> My orders &nbsp;&nbsp;</Link>
             <Link to='' onClick={this.handleLogout}> Logout</Link></div>)}
           <div className='grid-item navbar'>
-            <Link to='#'>home</Link>
-            <span 
-              className='serv-span'
-              onClick={this.handleService} 
-              onMouseOver={this.handleServiceHover} 
-              onMouseOut= {this.handleServiceUnHover} >
-              services
-            </span>
+            <Link to='/'>home</Link>
             <Link to='#'>videos</Link>
+            <Link to='#'>consultant</Link>
             <Link to='/displaynews'>news</Link>
             {this.state.loggedInUser?(this.state.loggedInUser.type ==='admin'?<Link to='/addproduct'>Admin</Link>:null):null}
-            <div className='pop-modal' style={{visibility:visibility}} 
-            onMouseOver={this.handleServiceHover}
-            onMouseOut= {this.handleServiceUnHover}>
-              <ul>
-                <li><Link to='#'>consultant</Link></li>
-              </ul>
-            </div>
           </div>
       </div>
       </div>

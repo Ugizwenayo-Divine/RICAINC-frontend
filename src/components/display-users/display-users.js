@@ -39,6 +39,19 @@ class AllUsers extends Component{
     const {deleteUser} = this.props;
     deleteUser(id);
   }
+  handleUpdate = (pathToMyComponent, data) => {
+    console.log('dataaa',data);
+    const token = localStorage.getItem('token');
+    if(token === undefined || token === ' ' || token === null){
+      return alert('not logged in');      
+    }
+    else{
+      this.props.history.push({
+        pathname: pathToMyComponent,
+        state: {user: data}
+      });
+    }
+  }
   render (){
     const {loading, data }=this.props;
     return (
@@ -77,7 +90,7 @@ class AllUsers extends Component{
                   type="button" 
                   className='btn btn-secondary py-0 mr-sm-2' 
                   style={{width:'35%'}}
-                  onClick={()=>{}}
+                  onClick={()=>{this.handleUpdate('/updateuser',dt)}}
                   >UPDATE</button>
                 <button 
                   type="button" 

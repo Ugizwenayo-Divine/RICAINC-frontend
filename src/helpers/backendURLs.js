@@ -31,6 +31,19 @@ const DELETE_NEWS_URL = `${BASE_URL}/news`;
 const DELETE_ANNOUNCEMENT_URL = `${BASE_URL}/announcement`;
 const DELETE_ADVERTISEMENT_URL = `${BASE_URL}/advertisement`;
 const DELIVER_ORDER_URL = `${BASE_URL}/orders/delivered`;
+const UPDATE_USER_URL = `${BASE_URL}/auth/update-user`;
+const UPDATE_PRODUCT_URL = `${BASE_URL}/product`;
+const UPDATE_ADVERTISEMENT_URL =`${BASE_URL}/advertisement`;
+const UPDATE_ANNOUNCEMENT_URL =`${BASE_URL}/announcement`;
+const UPDATE_NEWS_URL = `${BASE_URL}/news`;
+const ADD_REMOVE_BEST_PRODUCT_URL = `${BASE_URL}/product/best`;
+const ADD_QTY_URL = `${BASE_URL}/product/add-quantity`;
+const DISPLAY_PRODUCTS = `${BASE_URL}/product`;
+const CLIENT_REFUND_URL = `${BASE_URL}/refund/customer`;
+const DISPLAY_REFUNDS_URL =`${BASE_URL}/refund`;
+const DISPLAY_FEEDBACKS_URL = `${BASE_URL}/feedback`;
+const DELETE_FEEDBACK_URL = `${BASE_URL}/feedback`;
+const REFUND_STATUS_URL = `${BASE_URL}/refund/status`;
 
 export {
   BASE_URL,
@@ -66,4 +79,17 @@ export {
   DELIVER_ORDER_URL,
   NEW_FEEDBACK,
   NEW_REFUND,
+  UPDATE_USER_URL,
+  UPDATE_PRODUCT_URL,
+  UPDATE_ADVERTISEMENT_URL,
+  UPDATE_ANNOUNCEMENT_URL,
+  UPDATE_NEWS_URL,
+  ADD_REMOVE_BEST_PRODUCT_URL,
+  ADD_QTY_URL,
+  DISPLAY_PRODUCTS,
+  CLIENT_REFUND_URL,
+  DISPLAY_FEEDBACKS_URL,
+  DISPLAY_REFUNDS_URL,
+  DELETE_FEEDBACK_URL,
+  REFUND_STATUS_URL,
 };

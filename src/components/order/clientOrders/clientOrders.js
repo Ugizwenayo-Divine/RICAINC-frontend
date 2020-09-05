@@ -58,6 +58,7 @@ class ClientOrders extends Component{
           <thead className='thead-dark'>
             <tr>
             <th>Product</th>
+            <th>OrderNumber</th>
             <th>Ordered Qty</th>
             <th>Total price</th>
             <th>status</th>
@@ -68,6 +69,7 @@ class ClientOrders extends Component{
           {data.map(dt=><tbody  key={dt.id}>
               <tr>
               <td>{dt.productId}</td>
+              <td>{dt.id}</td>
               <td>{dt.ordered_quantity}</td>
               <td>{dt.amount}{dt.currency}</td>
               <td>{dt.status}</td>
@@ -77,11 +79,13 @@ class ClientOrders extends Component{
                   type="button" 
                   className='btn btn-secondary py-0' 
                   style={{width:'35%'}}
+                  disabled={(dt.status==='payed'||dt.status==='delivered')?true:false}
                   onClick={()=>{this.handlePay(dt.id)}}
                   >PAY</button> &nbsp;
                 <button 
                   type="button" 
                   className='btn btn-danger py-0'
+                  disabled={(dt.status==='payed'||dt.status==='delivered')?true:false}
                   onClick={(event)=>{this.handleCancel(event,dt.id)}}
                   >CANCEL</button>
               </td>            

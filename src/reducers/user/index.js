@@ -4,6 +4,7 @@ import loginReducer from './loginReducer';
 import allUsersReducer from './displayUsersReducer';
 import userLogoutReducer from './userLogoutReducer';
 import deleteUserReducer from './deleteUserReducer';
+import updateUserReducer from './updateUserReducer';
 
 const user = (state = initialState, action) => {
   const signup = signupReducer(state, action);
@@ -26,5 +27,10 @@ const deleteUser = (state = initialState, action) => {
 
   return users || state;
 };
+const updateUser = (state = initialState, action) => {
+  const users = updateUserReducer(state, action);
 
-export default {user, allUsers, userLogout, deleteUser};
+  return users || state;
+};
+
+export default {user, allUsers, userLogout, deleteUser, updateUser};

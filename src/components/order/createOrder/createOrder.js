@@ -4,6 +4,8 @@ import { ToastContainer, toast } from 'react-toastify';
 import Select from 'react-select';
 import {addOrder} from '../../../actions/order';
 import ProductOrder from '../productOrder/productOrder';
+import ClietNavbar from '../../admin-navbar/client-navbar';
+import AdminNavbar from '../../admin-navbar/admin-navbar';
 import './createOrder.css';
 
 class CreateOrders extends Component {
@@ -17,10 +19,14 @@ class CreateOrders extends Component {
       user:{},
     }
   }
+  componentDidMount(){
+    const user = JSON.parse(localStorage.getItem('user'));
+    this.setState({user:user});
+  }
 	componentWillReceiveProps = (nextProps) => {
     if(!this.props.loading && this.props.data){
-      const user = JSON.parse(localStorage.getItem('user')); 
-      this.setState({visible:!this.state.visible,order:this.props.data?this.props.data:null, user:user});
+      // const user = JSON.parse(localStorage.getItem('user')); 
+      this.setState({visible:!this.state.visible,order:this.props.data?this.props.data:null});
     }   
     const alertMessage =
       (nextProps.orderErrors && toast.error(nextProps.orderErrors));
@@ -61,8 +67,11 @@ class CreateOrders extends Component {
       { value: 'momo', label: 'momo' }
     ]
 		return (
+        <div>
+        {this.state.user.type === 'client'?<ClietNavbar />:null}
 				<div id='layout'>
         <div className='container'>
+        {this.state.user.type === 'admin'?<AdminNavbar />:null}
           <ToastContainer
             position={toast.POSITION.TOP_CENTER}
             className='toastMessages'
@@ -132,6 +141,7 @@ class CreateOrders extends Component {
           product={product}
           clicked={this.viewProductOrder} />
         </div>
+      </div>
       </div>
     )
     

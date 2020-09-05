@@ -23,6 +23,19 @@ class AllAnnouncements extends Component{
     const {deleteAnnouncement} = this.props;
     deleteAnnouncement(id);
   }
+  handleUpdate = (pathToMyComponent, data) => {
+    console.log('dataaa',data);
+    const token = localStorage.getItem('token');
+    if(token === undefined || token === ' ' || token === null){
+      return alert('not logged in');      
+    }
+    else{
+      this.props.history.push({
+        pathname: pathToMyComponent,
+        state: {announcement: data}
+      });
+    }
+  }
   componentWillReceiveProps(nextProps){
     const {deleteLoading, deleteMessage}=this.props;
     if(!deleteLoading && deleteMessage){
@@ -68,6 +81,7 @@ class AllAnnouncements extends Component{
                 <div className="card-text" style={{marginBottom:'2%'}}>{dt.announcement}</div>
                 <button 
                 className="btn btn-outline-secondary my-2 my-sm-0 mr-sm-2"
+                onClick={()=>{this.handleUpdate('updateannouncement',dt)}}
                 type="button">UPDATE</button>
                 <button 
                 className="btn btn-outline-danger my-2 my-sm-0"

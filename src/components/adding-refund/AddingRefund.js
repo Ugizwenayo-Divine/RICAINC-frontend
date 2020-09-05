@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
+import {Redirect} from 'react-router-dom';
 import { ToastContainer, toast } from 'react-toastify';
 import { newRefund } from '../../actions/refund';
+import ClietNavbar from '../admin-navbar/client-navbar';
 import AdminNavbar from '../admin-navbar/admin-navbar';
 import './addrefund.css';
 
@@ -12,6 +14,7 @@ class AddingRefund extends Component {
     this.state = {
       refundOrder: '',
       description: '',
+      user:{}
     };
   }
   handleSubmit = (e) => {
@@ -29,7 +32,10 @@ class AddingRefund extends Component {
   descriptionChange = (event) => {
     this.setState({ description: event.target.value });
   };
-
+  componentDidMount(){
+    const user = JSON.parse(localStorage.getItem('user'));
+    this.setState({user:user});;
+  }
   componentWillReceiveProps = (nextProps) => {
     const alertMessage =
       (nextProps.message && toast.success(nextProps.message)) ||
@@ -38,7 +44,13 @@ class AddingRefund extends Component {
     return !nextProps.loading && alertMessage;
   };
   render() {
+    const token = localStorage.getItem('token');
+    if (!token) {
+      return <Redirect to='/'/>
+    }
     return (
+      <div>
+      {this.state.user.type === 'client'?<ClietNavbar />:null}
       <div id='layout'>
         <div className='container'>
           <ToastContainer
@@ -46,7 +58,7 @@ class AddingRefund extends Component {
             className='toastMessages'
             style={{ width: '700px' }}
           />
-          <AdminNavbar />
+          {this.state.user.type === 'admin'?<AdminNavbar />:null}
           <div className='formRefund'>
             <div className='headerRefund'>
               <h3 className='text-center font-weight-light my-4'>
@@ -62,7 +74,7 @@ class AddingRefund extends Component {
                       type='number'
                       name='refundOrder'
                       className='form-control py-4'
-                      placeholder='Enter the OrderID'
+                      placeholder='Enter the OrderNumber'
                       onChange={this.refundOrderChange}
                     ></input>
                   </div>
@@ -88,6 +100,7 @@ class AddingRefund extends Component {
             </div>
           </div>
         </div>
+      </div>
       </div>
     );
   }

@@ -1,6 +1,6 @@
 import { searchActionTypes } from '../../actionTypes';
 import { apiAction } from '../../helpers';
-import { SEARCH_NAME_URL, SEARCH_ALL_URL } from '../../helpers/backendURLs';
+import { SEARCH_NAME_URL, SEARCH_ALL_URL, DISPLAY_PRODUCTS } from '../../helpers/backendURLs';
 
 const searchAny =  (data) => (dispatch) =>
   dispatch(
@@ -31,5 +31,19 @@ const searchAny =  (data) => (dispatch) =>
       onFailure: searchActionTypes.USER_SEARCH_FAILURE,
     })
   );
+  const displayAllProducts =  () => (dispatch) =>
+  dispatch(
+    apiAction({
+      method: 'get',
+      httpOptions: {
+        URL: `${DISPLAY_PRODUCTS}`,
+        headers: { 'Content-Type': 'application/json' },
+      },
+      onStart: searchActionTypes.USER_SEARCH_START,
+      onEnd: searchActionTypes.USER_SEARCH_END,
+      onSuccess: searchActionTypes.USER_SEARCH_SUCCESS,
+      onFailure: searchActionTypes.USER_SEARCH_FAILURE,
+    })
+  );
 
-  export default {searchAny, searchAll}
+  export default {searchAny, searchAll,displayAllProducts}

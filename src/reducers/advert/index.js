@@ -2,6 +2,7 @@ import initialState from '../../store/initialState';
 import newAdvertReducer from './newAdvertReducer';
 import allAdvertsReducer from './displayAllAdverts';
 import deleteAdvertReducer from './deleteAdvertReducer';
+import updateAdvertReducer from './updateAdvertReducer';
 
 const advert = (state = initialState, action) => {
   const newAdvert = newAdvertReducer(state, action);
@@ -18,4 +19,9 @@ const deleteAdvertisement = (state = initialState, action) => {
 
   return newAdvert || state;
 };
-export default{advert, allAdverts, deleteAdvertisement};
+const updateAdvertisement = (state = initialState, action) => {
+  const newAdvert = updateAdvertReducer(state, action);
+
+  return newAdvert || state;
+};
+export default{advert, allAdverts, deleteAdvertisement,updateAdvertisement};
