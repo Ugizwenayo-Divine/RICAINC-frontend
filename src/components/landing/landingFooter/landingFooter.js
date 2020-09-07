@@ -9,8 +9,8 @@ const landingFooter = () => {
         <div className='footer-container'>
             <div className='footer-left'>
                 <h4 className='footer-head'>Customer services</h4>
-                <p><Link to='#'>Refund</Link></p>
-                <p><Link to='#'>Feedback</Link></p>
+                <p><Link to='/addrefund'>Refund</Link></p>
+                <p><Link to='/addfeedback'>Feedback</Link></p>
             </div>
             <div className='footer-middle'>
                 <h4 className='footer-head'>About us</h4>

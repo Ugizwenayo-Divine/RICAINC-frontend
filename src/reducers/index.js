@@ -5,8 +5,8 @@ import order from './order';
 import adverts from './advert';
 import announcementReducers from './announcement';
 import newsRe from './news';
-import feedback from './feedback';
-import refund from './refund';
+import feedbackReducers from './feedback';
+import refundReducers from './refund';
 
 const {
   advertisement,
@@ -16,8 +16,8 @@ const {
   sidebar,
   bestProducts,
 } = landing;
-const { allAdverts, advert, deleteAdvertisement } = adverts;
-const {
+const { allAdverts, advert, deleteAdvertisement,updateAdvertisement, } = adverts;
+const { 
   createOrder,
   payment,
   clientOrders,
@@ -26,10 +26,21 @@ const {
   cancelOrder,
   deliverOrder,
 } = order;
-const { allUsers, user, userLogout, deleteUser } = users;
-const { allNews, news, deleteNews } = newsRe;
-const { deleteProduct, product } = productReducers;
-const { announcements, deleteAnnouncement } = announcementReducers;
+const { allUsers, user, userLogout, deleteUser,updateUser, } = users;
+const { allNews, news, deleteNews,updateNews, } = newsRe;
+const { deleteProduct, product, updateProduct,bestProduct,addQty, } = productReducers;
+const { announcements, deleteAnnouncement,updateAnnouncement, } = announcementReducers;
+const {
+  clientRefund,
+  refund,
+  displayRefund,
+  refundStatus,
+}= refundReducers;
+const {
+  displayFeedback,
+  feedback,
+  deleteFeedback,
+} = feedbackReducers;
 
 export default {
   user,
@@ -61,4 +72,16 @@ export default {
   deliverOrder,
   feedback,
   refund,
+  updateUser,
+  updateProduct,
+  updateAdvertisement,
+  updateAnnouncement,
+  updateNews,
+  bestProduct,
+  addQty,
+  clientRefund,
+  displayFeedback,
+  displayRefund,
+  deleteFeedback,
+  refundStatus
 };

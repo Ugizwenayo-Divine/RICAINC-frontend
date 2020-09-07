@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
+import {Redirect} from 'react-router-dom';
 import { ToastContainer, toast } from 'react-toastify';
 import { newFeedback } from '../../actions/feedback';
+import ClietNavbar from '../admin-navbar/client-navbar';
 import AdminNavbar from '../admin-navbar/admin-navbar';
 import './addfeedback.css';
 
@@ -11,6 +13,7 @@ class AddingFeedback extends Component {
     super();
     this.state = {
       feedback: '',
+      user:{}
     };
   }
   handleSubmit = (e) => {
@@ -23,16 +26,26 @@ class AddingFeedback extends Component {
   feedbackChange = (event) => {
     this.setState({ feedback: event.target.value });
   };
-
+  componentDidMount(){
+    const user = JSON.parse(localStorage.getItem('user'));
+    this.setState({user:user});;
+  }
   componentWillReceiveProps = (nextProps) => {
+    console.log('messaggege',nextProps.message);
     const alertMessage =
-      (nextProps.message && toast.success(nextProps.message)) ||
+      (nextProps.message && toast.success('Thank you for feedback')) ||
       (nextProps.feedbackErrors && toast.error(nextProps.feedbackErrors));
 
     return !nextProps.loading && alertMessage;
   };
   render() {
+    const token = localStorage.getItem('token');
+    if (!token) {
+      return <Redirect to='/'/>
+    }
     return (
+      <div>
+      {this.state.user.type === 'client'?<ClietNavbar />:null}
       <div id='layout'>
         <div className='container'>
           <ToastContainer
@@ -40,7 +53,7 @@ class AddingFeedback extends Component {
             className='toastMessages'
             style={{ width: '700px' }}
           />
-          <AdminNavbar />
+          {this.state.user.type === 'admin'?<AdminNavbar />:null}
           <div className='formfeedback'>
             <div className='headerfeedback'>
               <h3 className='text-center font-weight-light my-4'>
@@ -72,6 +85,7 @@ class AddingFeedback extends Component {
             </div>
           </div>
         </div>
+      </div>
       </div>
     );
   }

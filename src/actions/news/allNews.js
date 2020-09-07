@@ -1,6 +1,6 @@
 import { newsActionTypes } from '../../actionTypes';
 import { apiAction } from '../../helpers';
-import { ALL_NEWS_URL,DELETE_NEWS_URL } from '../../helpers/backendURLs';
+import { ALL_NEWS_URL,DELETE_NEWS_URL,UPDATE_NEWS_URL } from '../../helpers/backendURLs';
 
 const token = localStorage.getItem('token');
 const getAllNews = (data) => (dispatch) =>
@@ -35,4 +35,20 @@ const getAllNews = (data) => (dispatch) =>
       onFailure: newsActionTypes.DELETE_NEWS_FAILURE,
     })
   );
-export default {getAllNews, deleteNews};
+  const updateNews = (id,data) => (dispatch) =>
+  dispatch(
+    apiAction({
+      method: 'patch',
+      httpOptions: {
+        token,
+        URL: `${UPDATE_NEWS_URL}/${id}`,
+        headers: { 'Content-Type': 'application/json' },
+      },
+      data,
+      onStart: newsActionTypes.UPDATE_NEWS_START,
+      onEnd: newsActionTypes.UPDATE_NEWS_END,
+      onSuccess: newsActionTypes.UPDATE_NEWS_SUCCESS,
+      onFailure: newsActionTypes.UPDATE_NEWS_FAILURE,
+    })
+  );
+export default {getAllNews, deleteNews,updateNews};

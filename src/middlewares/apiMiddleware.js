@@ -8,6 +8,7 @@ const apiMiddleware = ({ dispatch, getState }) => (next) => async ({
   if (type !== apiActionsTypes.API_REQUEST) {
     return next({ type, payload });
   }
+  console.log(payload,'payloaddd');
   try {
     dispatch({ type: payload.onStart, payload: { loading: true } });
     const { data } = await axiosHelper(payload.httpOptions)[payload.method](

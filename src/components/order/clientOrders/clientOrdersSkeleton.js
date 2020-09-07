@@ -73,6 +73,30 @@ const skeleton = () =>{
           <td><Skeleton  height={33} width={172}/></td>
           <td><Skeleton  height={33} width={172}/></td>            
         </tr>
+        <tr>
+          <td><Skeleton  height={33} width={172}/></td>
+          <td><Skeleton  height={33} width={172}/></td>
+          <td><Skeleton  height={33} width={172}/></td>
+          <td><Skeleton  height={33} width={172}/></td>
+          <td><Skeleton  height={33} width={172}/></td>
+          <td><Skeleton  height={33} width={172}/></td>            
+        </tr>
+        <tr>
+          <td><Skeleton  height={33} width={172}/></td>
+          <td><Skeleton  height={33} width={172}/></td>
+          <td><Skeleton  height={33} width={172}/></td>
+          <td><Skeleton  height={33} width={172}/></td>
+          <td><Skeleton  height={33} width={172}/></td>
+          <td><Skeleton  height={33} width={172}/></td>            
+        </tr>
+        <tr>
+          <td><Skeleton  height={33} width={172}/></td>
+          <td><Skeleton  height={33} width={172}/></td>
+          <td><Skeleton  height={33} width={172}/></td>
+          <td><Skeleton  height={33} width={172}/></td>
+          <td><Skeleton  height={33} width={172}/></td>
+          <td><Skeleton  height={33} width={172}/></td>            
+        </tr>
         </tbody>
         </table>
     </div>

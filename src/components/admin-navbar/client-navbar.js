@@ -32,7 +32,7 @@ class ClientNavbar extends Component {
             <a className="nav-link" href="/">HOME</a>
           </span>
           <span className="nav-item">
-            <a className="nav-link" href="/">REFUNDS</a>
+            <a className="nav-link" href="/clientrefund">REFUNDS</a>
           </span>
           <span className="nav-item">
             <a className="nav-link" href="/displayclientorders">ORDERS</a>

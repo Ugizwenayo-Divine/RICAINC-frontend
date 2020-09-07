@@ -71,8 +71,8 @@ class RicaAdvertisement extends Component{
                 <div className='image'>
                   <Image
                     src={`${advertisements[this.state.currentAdvertIndex].image}`}
-                    width={160}
-                    height={160}
+                    width={180}
+                    height={180}
                     style={style.image}
                   />
                 </div>

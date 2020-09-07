@@ -1,6 +1,6 @@
 import { advertisementActionTypes } from '../../actionTypes';
 import { apiAction } from '../../helpers';
-import { ALL_ADVERTISEMENTS_URL,GET_ADVERTISEMENT_URL,DELETE_ADVERTISEMENT_URL } from '../../helpers/backendURLs';
+import { ALL_ADVERTISEMENTS_URL,GET_ADVERTISEMENT_URL,DELETE_ADVERTISEMENT_URL, UPDATE_ADVERTISEMENT_URL } from '../../helpers/backendURLs';
 
 const token = localStorage.getItem('token');
 const getAllAdverts = (data) => (dispatch) =>
@@ -51,5 +51,21 @@ const getAllAdverts = (data) => (dispatch) =>
       onFailure: advertisementActionTypes.DELETE_ADVERTISEMENT_FAILURE,
     })
   );
+  const updateAdvert = (id,data) => (dispatch) =>
+  dispatch(
+    apiAction({
+      method: 'patch',
+      httpOptions: {
+        token,
+        URL: `${UPDATE_ADVERTISEMENT_URL}/${id}`,
+        headers: { 'Content-Type': 'application/json' },
+      },
+      data,
+      onStart: advertisementActionTypes.UPDATE_ADVERTISEMENT_START,
+      onEnd: advertisementActionTypes.UPDATE_ADVERTISEMENT_END,
+      onSuccess: advertisementActionTypes.UPDATE_ADVERTISEMENT_SUCCESS,
+      onFailure: advertisementActionTypes.UPDATE_ADVERTISEMENT_FAILURE,
+    })
+  );
 
-  export default {getAllAdverts,getAdvertsType,deleteAdvert};
+  export default {getAllAdverts,getAdvertsType,deleteAdvert, updateAdvert};

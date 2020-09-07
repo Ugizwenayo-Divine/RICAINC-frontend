@@ -1,6 +1,6 @@
 import { userActionTypes } from '../../actionTypes';
 import { apiAction } from '../../helpers';
-import { ALL_USERS_URL,USER_LOGOUT_URL, DELETE_USER_URL } from '../../helpers/backendURLs';
+import { ALL_USERS_URL,USER_LOGOUT_URL, DELETE_USER_URL, UPDATE_USER_URL } from '../../helpers/backendURLs';
 
 const token = localStorage.getItem('token');
 const getAllUsers = (data) => (dispatch) =>
@@ -51,4 +51,20 @@ const getAllUsers = (data) => (dispatch) =>
       onFailure: userActionTypes.DELETE_USER_FAILURE,
     })
   );
-export default {getAllUsers,userLogout,deleteUser};
+  const updateUser = (data) => (dispatch) =>
+  dispatch(
+    apiAction({
+      method: 'patch',
+      httpOptions: {
+        token,
+        URL: `${UPDATE_USER_URL}`,
+        headers: { 'Content-Type': 'application/json' },
+      },
+      data,
+      onStart: userActionTypes.UPDATE_USER_START,
+      onEnd: userActionTypes.UPDATE_USER_END,
+      onSuccess: userActionTypes.UPDATE_USER_SUCCESS,
+      onFailure: userActionTypes.UPDATE_USER_FAILURE,
+    })
+  );
+export default {getAllUsers,userLogout,deleteUser, updateUser};

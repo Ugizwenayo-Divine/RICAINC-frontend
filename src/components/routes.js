@@ -17,6 +17,15 @@ import AllUsers from './display-users/display-users';
 import AllNews from './display-news/display-news';
 import AddingFeedback from './feedback';
 import AddingRefund from './adding-refund';
+import UpdateUser from './update-user/update-user';
+import UpdateProduct from './update-product/update-product';
+import UpdateNews from './update-news/update-news';
+import UpdateAnnouncement from './update-announcement/update-announcement';
+import UpdateAdvertisement from './update-advertisement/update-advertisement';
+import AddQuantity from './add-quantity/add-quantity';
+import ClientRefund from './display-refund/display-client-refunds/client-refunds';
+import DisplayRefunds from './display-refund/display-all/display-all';
+import DisplayFeedback from './display-feedback/display-feedback';
 
 const Routes = () => (
   <Switch>
@@ -56,6 +65,24 @@ const Routes = () => (
     <Route exact path='/addfeedback' component={AddingFeedback} />
     {/* Refund Routes */}
     <Route exact path='/addrefund' component={AddingRefund} />
+    {/* update user */}
+    <Route exact path='/updateuser' component={UpdateUser} />
+    {/* update product */}
+    <Route exact path='/updateproduct' component={UpdateProduct} />
+    {/* update news */}
+    <Route exact path='/updatenews' component={UpdateNews} />
+    {/* update announcement */}
+    <Route exact path='/updateannouncement' component={UpdateAnnouncement} />
+    {/* update advertisement */}
+    <Route exact path='/updateadvertisement' component={UpdateAdvertisement} />
+    {/* add product qty */}
+    <Route exact path='/updatequantity' component={AddQuantity} />
+    {/* client refunds */}
+    <Route exact path='/clientrefund' component={ClientRefund} />
+    {/* all refunds */}
+    <Route exact path='/displayrefund' component={DisplayRefunds} />
+    {/* all feedback */}
+    <Route exact path='/displayfeedback' component={DisplayFeedback} />
   </Switch>
 );
 

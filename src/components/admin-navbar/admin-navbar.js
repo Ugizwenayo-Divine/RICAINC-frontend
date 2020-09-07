@@ -22,8 +22,9 @@ class AdminNavbar extends Component {
     this.setState({
       clicked: !this.state.clicked,
       details: details,
-      action:action,
-      leftLength:action==='display'?174:(action === 'add'?68:115)
+      action:action,      
+      leftLength:(action==='display'?128:68)
+      // leftLength:action==='display'?174:(action === 'add'?68:115)
     });
   }
   handleHover = (details=[], actions=null) => {
@@ -31,7 +32,8 @@ class AdminNavbar extends Component {
       clicked: true,
       details:details,
       action:actions,      
-      leftLength:actions==='display'?174:(actions === 'add'?68:115)
+      leftLength:(actions==='display'?128:68)
+      // leftLength:actions==='display'?174:(actions === 'add'?68:115)
     });
   }
   handleUnHover = () => {
@@ -62,15 +64,15 @@ class AdminNavbar extends Component {
               onMouseOut= {this.handleUnHover} >
               ADD
             </span>
-            <span  
-              onClick={()=>{this.handleClick(['user','product','advertisement','announcement'],'update')}} 
-              onMouseOver={()=>{this.handleHover(['user','product','advertisement','announcement'],'update')}}  
+            {/* <span  
+              onClick={()=>{this.handleClick(['user'],'update')}} 
+              onMouseOver={()=>{this.handleHover(['user'],'update')}}  
               onMouseOut= {this.handleUnHover} >
               UPDATE
-            </span>
+            </span> */}
             <span 
-              onClick={()=>{this.handleClick(['user','order','news','product','advertisement','announcement'],'display')}} 
-              onMouseOver={()=>{this.handleHover(['user','order','news','product','advertisement','announcement'],'display')}}  
+              onClick={()=>{this.handleClick(['user','order','news','product','refund','feedback','advertisement','announcement'],'display')}} 
+              onMouseOver={()=>{this.handleHover(['user','order','news','product','refund','feedback','advertisement','announcement'],'display')}}  
               onMouseOut= {this.handleUnHover} >
               DISPLAY
             </span>

@@ -39,6 +39,19 @@ class AllAdvertisements extends Component{
     const {deleteAdvertisement} = this.props;
     deleteAdvertisement(id);
   }
+  handleUpdate = (pathToMyComponent, data) => {
+    console.log('dataaa',data);
+    const token = localStorage.getItem('token');
+    if(token === undefined || token === ' ' || token === null){
+      return alert('not logged in');      
+    }
+    else{
+      this.props.history.push({
+        pathname: pathToMyComponent,
+        state: {advertisement: data}
+      });
+    }
+  }
   handleChange = (event) => {
     this.setState({
       search: event.target.value,
@@ -98,6 +111,7 @@ class AllAdvertisements extends Component{
                 <div className="card-text" style={{marginBottom:'2%'}}>{dt.description}</div>
                 <button 
                 className="btn btn-outline-secondary my-2 my-sm-0 mr-sm-2"
+                onClick={()=>{this.handleUpdate('/updateadvertisement',dt)}}
                 type="button">UPDATE</button>
                 <button 
                 className="btn btn-outline-danger my-2 my-sm-0"
