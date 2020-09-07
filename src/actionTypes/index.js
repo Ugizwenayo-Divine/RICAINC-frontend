@@ -11,6 +11,7 @@ import * as sidebarActionTypes from './sidebarActionTypes';
 import * as bestProductsActionTypes from './bestProductsActionTypes';
 import * as orderActionTypes from './orderActionTypes';
 import * as paymentActionTypes from './paymentActionTypes';
+import * as refundActionTypes from './refundActionTypes';
 
 export {
   apiActionsTypes,
@@ -26,4 +27,5 @@ export {
   newsActionTypes,
   paymentActionTypes,
   feedbackActionTypes,
+  refundActionTypes,
 };

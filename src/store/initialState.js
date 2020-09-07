@@ -20,6 +20,7 @@ import deleteProduct from './initialStates/deleteProductInitialState';
 import deleteNews from './initialStates/deleteNewsInitialState';
 import deliverOrder from './initialStates/deliverOrderInitialState';
 import feedback from './initialStates/feedbackInitialState';
+import refund from './initialStates/refundInitialState';
 
 export default {
   user,
@@ -44,4 +45,5 @@ export default {
   deleteProduct,
   deliverOrder,
   feedback,
+  refund,
 };
