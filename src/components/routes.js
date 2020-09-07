@@ -16,6 +16,7 @@ import AllAnnounce from './display-announce/display-annouce';
 import AllUsers from './display-users/display-users';
 import AllNews from './display-news/display-news';
 import AddingFeedback from './feedback';
+import AddingRefund from './adding-refund';
 
 const Routes = () => (
   <Switch>
@@ -53,6 +54,8 @@ const Routes = () => (
     <Route exact path='/displayclientorders' component={ClientOrders} />
     {/* Feedback Routes */}
     <Route exact path='/addfeedback' component={AddingFeedback} />
+    {/* Refund Routes */}
+    <Route exact path='/addrefund' component={AddingRefund} />
   </Switch>
 );
 

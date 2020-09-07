@@ -6,6 +6,7 @@ import adverts from './advert';
 import announcementReducers from './announcement';
 import newsRe from './news';
 import feedback from './feedback';
+import refund from './refund';
 
 const {
   advertisement,
@@ -59,4 +60,5 @@ export default {
   deleteAdvertisement,
   deliverOrder,
   feedback,
+  refund,
 };

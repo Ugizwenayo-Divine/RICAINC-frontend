@@ -15,6 +15,7 @@ const ANNOUNCEMENT_URL = `${BASE_URL}/announcement`;
 const BEST_PRODUCT_URL = `${BASE_URL}/product/product-type`;
 const ORDER_URL = `${BASE_URL}/orders/add`;
 const ORDER_PAYMENT_URL = `${BASE_URL}/orders/pay`;
+const NEW_REFUND = `${BASE_URL}/refund/add`;
 const CLIENT_ORDERS_URL = `${BASE_URL}/orders/client-orders`;
 const ALL_ORDERS_URL = `${BASE_URL}/orders`;
 const SEARCH_ORDER_URL = `${BASE_URL}/orders/status-based`;
@@ -64,4 +65,5 @@ export {
   DELETE_PRODUCT_URL,
   DELIVER_ORDER_URL,
   NEW_FEEDBACK,
+  NEW_REFUND,
 };
