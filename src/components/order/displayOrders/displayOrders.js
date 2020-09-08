@@ -84,7 +84,7 @@ class AllOrders extends Component{
           </thead>
           {data.map(dt=><tbody  key={dt.id}>
               <tr>
-              <td>{dt.productId}</td>
+              <td>{dt.product}</td>
               <td>{dt.ordered_quantity}</td>
               <td>{dt.amount}{dt.currency}</td>
               <td>{dt.status}</td>

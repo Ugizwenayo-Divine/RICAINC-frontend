@@ -23,7 +23,7 @@ class AdminNavbar extends Component {
       clicked: !this.state.clicked,
       details: details,
       action:action,      
-      leftLength:(action==='display'?128:68)
+      leftLength:(action==='display'?128:70)
       // leftLength:action==='display'?174:(action === 'add'?68:115)
     });
   }
@@ -32,7 +32,7 @@ class AdminNavbar extends Component {
       clicked: true,
       details:details,
       action:actions,      
-      leftLength:(actions==='display'?128:68)
+      leftLength:(actions==='display'?128:70)
       // leftLength:actions==='display'?174:(actions === 'add'?68:115)
     });
   }
@@ -59,8 +59,8 @@ class AdminNavbar extends Component {
           <div className='admin-navbar-left'>
             <Link to='/'>HOME</Link>
             <span 
-              onClick={()=>{this.handleClick(['news','product','advertisement','announcement'],'add')}} 
-              onMouseOver={()=>{this.handleHover(['news','product','advertisement','announcement'],'add')}} 
+              onClick={()=>{this.handleClick(['news','design','study','product','advertisement','announcement'],'add')}} 
+              onMouseOver={()=>{this.handleHover(['news','design','study','product','advertisement','announcement'],'add')}} 
               onMouseOut= {this.handleUnHover} >
               ADD
             </span>

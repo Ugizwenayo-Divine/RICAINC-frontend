@@ -9,6 +9,7 @@ import { withRouter } from "react-router-dom";
 import { ToastContainer, toast } from 'react-toastify';
 import search from '../../../actions/landing/search';
 import userHelper from '../../../actions/user/allUsers';
+import DropDown from '../../admin-navbar/drop-down';
 
 const {
   userLogout,
@@ -25,7 +26,8 @@ class LandingHeader extends Component {
       searchedItem : '',
       allProducts: [],
       token: '',
-      loggedInUser:{}
+      loggedInUser:{},
+      clicked:false,
     }
   }
   handleChange = (event) => {
@@ -55,6 +57,21 @@ class LandingHeader extends Component {
     const { searchAllProducts } = this.props;
       searchAllProducts();
   };
+  handleClick = () => {
+    this.setState({
+      clicked: !this.state.clicked,
+    });
+  }
+  handleHover = () => {
+    this.setState({
+      clicked: true,
+    });
+  }
+  handleUnHover = () => {
+    this.setState({
+      clicked: false,
+    });
+  }
   handleLogout = () =>{
     const token = localStorage.getItem('token');
     localStorage.removeItem('token');
@@ -82,6 +99,7 @@ class LandingHeader extends Component {
 
   render(){
     const localToken = localStorage.getItem('token');
+    const visibility = this.state.clicked === true ?'visible':'hidden';
     if(!this.props.loadingLogout && this.props.messageLogout){
       this.props.history.go('/');
     }
@@ -124,9 +142,18 @@ class LandingHeader extends Component {
           <div className='grid-item navbar'>
             <Link to='/'>home</Link>
             <Link to='#'>videos</Link>
-            <Link to='#'>consultant</Link>
+            <span style={{fontWeight:'500'}} onClick={this.handleClick}>consultant</span>
             <Link to='/displaynews'>news</Link>
-            {this.state.loggedInUser?(this.state.loggedInUser.type ==='admin'?<Link to='/addproduct'>Admin</Link>:null):null}
+            {this.state.loggedInUser?(this.state.loggedInUser.type ==='admin'?<Link to='/addproduct'>admin</Link>:null):null}
+            <DropDown 
+            visibility={visibility} 
+            details={['design','study']}
+            hover={this.handleHover}
+            unHover={this.handleUnHover}
+            coordinates={40}
+            home={true}
+            action='display'
+          />
           </div>
       </div>
       </div>

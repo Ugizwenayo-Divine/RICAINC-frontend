@@ -33,6 +33,8 @@ import displayRefund from './initialStates/display-refunds';
 import displayFeedback from './initialStates/display-feedback';
 import deleteFeedback from './initialStates/deleteFeedbackInitialState';
 import refundStatus from './initialStates/refundStatusInitialState';
+import addDesign from './initialStates/addDesignInitialState';
+import addStudy from './initialStates/addStudyInitialState';
 
 export default {
   user,
@@ -69,5 +71,7 @@ export default {
   displayFeedback,
   displayRefund,
   deleteFeedback,
-  refundStatus
+  refundStatus,
+  addDesign,
+  addStudy
 };
