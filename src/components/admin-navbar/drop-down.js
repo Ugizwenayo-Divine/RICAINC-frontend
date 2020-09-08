@@ -4,10 +4,18 @@ import './admin-navbar.css';
 
 const dropDown =(props)=>{
     const {visibility,details,hover,unHover} = props;
+    let top='';
+    if(props.home){
+      top='20%';
+    }
+    else{
+      top='-3%';
+    }
     return(
       <div 
       className='drop-down'
-      style={{visibility:visibility,left:`${props.coordinates}%`}}
+      style={{visibility:visibility,left:`${props.coordinates}%`,
+      marginTop: top}}
       onMouseOver={hover}
       onMouseOut={unHover}>
         <ul>

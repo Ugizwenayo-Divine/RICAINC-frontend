@@ -26,6 +26,8 @@ import AddQuantity from './add-quantity/add-quantity';
 import ClientRefund from './display-refund/display-client-refunds/client-refunds';
 import DisplayRefunds from './display-refund/display-all/display-all';
 import DisplayFeedback from './display-feedback/display-feedback';
+import AddingDesign from './add-design/add-design';
+import AddingStudy from './add-study/add-study';
 
 const Routes = () => (
   <Switch>
@@ -83,6 +85,10 @@ const Routes = () => (
     <Route exact path='/displayrefund' component={DisplayRefunds} />
     {/* all feedback */}
     <Route exact path='/displayfeedback' component={DisplayFeedback} />
+    {/* all feedback */}
+    <Route exact path='/adddesign' component={AddingDesign} />    
+    {/* all feedback */}
+    <Route exact path='/addstudy' component={AddingStudy} />
   </Switch>
 );
 

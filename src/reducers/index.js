@@ -7,6 +7,8 @@ import announcementReducers from './announcement';
 import newsRe from './news';
 import feedbackReducers from './feedback';
 import refundReducers from './refund';
+import designReducers from './design';
+import studyReducers from './study';
 
 const {
   advertisement,
@@ -41,6 +43,12 @@ const {
   feedback,
   deleteFeedback,
 } = feedbackReducers;
+const {
+  addDesign,
+} = designReducers;
+const {
+  addStudy,
+} = studyReducers;
 
 export default {
   user,
@@ -83,5 +91,7 @@ export default {
   displayFeedback,
   displayRefund,
   deleteFeedback,
-  refundStatus
+  refundStatus,
+  addStudy,
+  addDesign
 };

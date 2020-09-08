@@ -44,6 +44,8 @@ const DISPLAY_REFUNDS_URL =`${BASE_URL}/refund`;
 const DISPLAY_FEEDBACKS_URL = `${BASE_URL}/feedback`;
 const DELETE_FEEDBACK_URL = `${BASE_URL}/feedback`;
 const REFUND_STATUS_URL = `${BASE_URL}/refund/status`;
+const ADD_DESIGN_URL =`${BASE_URL}/design/add`;
+const ADD_STUDY_URL = `${BASE_URL}/study/add`;
 
 export {
   BASE_URL,
@@ -92,4 +94,6 @@ export {
   DISPLAY_REFUNDS_URL,
   DELETE_FEEDBACK_URL,
   REFUND_STATUS_URL,
+  ADD_DESIGN_URL,
+  ADD_STUDY_URL,
 };
