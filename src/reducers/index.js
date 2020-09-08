@@ -18,8 +18,13 @@ const {
   sidebar,
   bestProducts,
 } = landing;
-const { allAdverts, advert, deleteAdvertisement,updateAdvertisement, } = adverts;
-const { 
+const {
+  allAdverts,
+  advert,
+  deleteAdvertisement,
+  updateAdvertisement,
+} = adverts;
+const {
   createOrder,
   payment,
   clientOrders,
@@ -28,21 +33,8 @@ const {
   cancelOrder,
   deliverOrder,
 } = order;
-const { allUsers, user, userLogout, deleteUser,updateUser, } = users;
-const { allNews, news, deleteNews,updateNews, } = newsRe;
-const { deleteProduct, product, updateProduct,bestProduct,addQty, } = productReducers;
-const { announcements, deleteAnnouncement,updateAnnouncement, } = announcementReducers;
-const {
-  clientRefund,
-  refund,
-  displayRefund,
-  refundStatus,
-}= refundReducers;
-const {
-  displayFeedback,
-  feedback,
-  deleteFeedback,
-} = feedbackReducers;
+const { allUsers, user, userLogout, deleteUser, updateUser } = users;
+const { allNews, news, deleteNews, updateNews } = newsRe;
 const {
   addDesign,
   deleteDesign,
@@ -55,7 +47,21 @@ const {
   displayStudy,
   updateStudy,
 } = studyReducers;
-
+const {  
+deleteProduct,
+product,
+updateProduct,
+bestProduct,
+addQty,
+} = productReducers;
+const {
+announcements,
+deleteAnnouncement,
+updateAnnouncement,
+} = announcementReducers;
+const { clientRefund, refund, displayRefund, refundStatus } = refundReducers;
+const { displayFeedback, feedback, deleteFeedback } = feedbackReducers;
+const { designs, singleDesign } = designReducers;
 export default {
   user,
   search,
@@ -106,4 +112,6 @@ export default {
   deleteDesign,
   displayDesign,
   updateDesign,
+  designs,
+  singleDesign,
 };

@@ -35,6 +35,7 @@ import deleteFeedback from './initialStates/deleteFeedbackInitialState';
 import refundStatus from './initialStates/refundStatusInitialState';
 import addDesign from './initialStates/addDesignInitialState';
 import addStudy from './initialStates/addStudyInitialState';
+import designs from './initialStates/designInitialState';
 
 export default {
   user,
@@ -73,5 +74,6 @@ export default {
   deleteFeedback,
   refundStatus,
   addDesign,
-  addStudy
+  addStudy,
+  designs,
 };

@@ -5,6 +5,7 @@ import * as newsAction from './news';
 import * as announcementAction from './announcement';
 import * as feedbackAction from './feedback';
 import * as refundAction from './refund';
+import * as designAction from './design';
 
 export {
   userAction,
@@ -14,4 +15,5 @@ export {
   announcementAction,
   feedbackAction,
   refundAction,
+  designAction,
 };
