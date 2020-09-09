@@ -28,6 +28,10 @@ import DisplayRefunds from './display-refund/display-all/display-all';
 import DisplayFeedback from './display-feedback/display-feedback';
 import AddingDesign from './add-design/add-design';
 import AddingStudy from './add-study/add-study';
+import AllDesign from './display-design/display-design';
+import AllStudy from './display-study/display-study';
+import UpdateDesign from './update-design/update-design';
+import UpdateStudy from './update-study/update-study';
 
 const Routes = () => (
   <Switch>
@@ -88,7 +92,16 @@ const Routes = () => (
     {/* all feedback */}
     <Route exact path='/adddesign' component={AddingDesign} />    
     {/* all feedback */}
-    <Route exact path='/addstudy' component={AddingStudy} />
+    <Route exact path='/addstudy' component={AddingStudy} />  
+    {/* all design */}
+    <Route exact path='/displaydesigns' component={AllDesign} />
+    {/* all study */}
+    <Route exact path='/displaystudies' component={AllStudy} />
+    {/* update design */}
+    <Route exact path='/updatedesign' component={UpdateDesign} />
+    {/* update study */}
+    <Route exact path='/updatestudy' component={UpdateStudy} />
+
   </Switch>
 );
 

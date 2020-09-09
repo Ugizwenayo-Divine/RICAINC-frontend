@@ -16,6 +16,7 @@ import {
           message: null,
         };
       case DELETE_NEWS_SUCCESS:
+        window.location.replace('/displaynews');
         return {
           ...state,
           loading: false,
