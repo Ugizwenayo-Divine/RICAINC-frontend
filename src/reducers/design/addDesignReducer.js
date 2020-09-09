@@ -15,7 +15,7 @@ const reducer = (state, { type, payload }) => {
         message: null,
       };
     case ADD_DESIGN_SUCCESS:
-      window.location.replace('/designs');
+      window.location.replace('/displaydesign');
       return {
         ...state,
         loading: false,

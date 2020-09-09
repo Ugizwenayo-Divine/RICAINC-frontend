@@ -4,26 +4,43 @@ import { connect } from 'react-redux';
 import { ToastContainer, toast } from 'react-toastify';
 import { fetchDesignsAction } from '../../actions/design';
 import AdminNavbar from '../admin-navbar/admin-navbar';
+import ClietNavbar from '../admin-navbar/client-navbar';
+import SingleDesign from './oneDesign';
 import './alldesigns.css';
 
 class AllDesigns extends Component {
+  constructor(){
+    super();
+    this.state={
+      clicked:false,
+      image:null,
+      description:null,
+      user:{}
+    }
+  }
   componentWillReceiveProps = (nextProps) => {
-    const alertMessage =
-      (nextProps.message && toast.success(nextProps.message)) ||
-      (nextProps.designErrors && toast.error(nextProps.designErrors));
+    const alertMessage = (nextProps.designErrors && toast.error(nextProps.designErrors));
 
     return !nextProps.loading && alertMessage;
   };
 
   componentDidMount() {
+    const user = JSON.parse(localStorage.getItem('user'));
+    this.setState({user:user});
     this.props.fetchDesignsAction();
   }
 
-  single = (id) => {
-    window.location.replace(`/designs/${id}`);
+  single = (data) => {
+    console.log(data,'single')
+    this.setState({
+      clicked:!this.state.clicked,
+      image:data.image,
+      description:data.description
+    });
   };
 
   render() {
+    const visibility = this.state.clicked?'visible':'hidden';
     const { designList } = this.props;
     const designs = designList.map((data) => ({
       id: data.id,
@@ -31,6 +48,8 @@ class AllDesigns extends Component {
       image: data.image,
     }));
     return (
+      <div>
+      {this.state.user.type === 'client'?<ClietNavbar />:null}
       <div className='container'>
         <div className='Design'>
           <ToastContainer
@@ -38,17 +57,30 @@ class AllDesigns extends Component {
             className='toastMessages'
             style={{ width: '700px' }}
           />
-          <AdminNavbar />
+          {this.state.user.type === 'admin'?<AdminNavbar />:null}
           <br></br>
           <br></br>
           <div className='designGrid'>
             {designs.map((data) => (
-              <div className='DesignList' onClick={() => this.single(data.id)}>
-                <img src={data.image} alt=''></img>
+              <div className='DesignList'>
+                <img 
+                  src={data.image} 
+                  alt='' 
+                  onClick={() => {this.single(data)}}
+                  style={{width: '100%',height: '200px'}}></img>
               </div>
             ))}
+            <div className="contact">
+            </div>
           </div>
+          <SingleDesign
+            visibility={visibility}
+            image={this.state.image}
+            description={this.state.description}
+            clicked={()=>{this.setState({clicked:!this.state.clicked})}}
+            />
         </div>
+      </div>
       </div>
     );
   }

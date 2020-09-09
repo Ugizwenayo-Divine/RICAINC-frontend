@@ -1,19 +1,19 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { ToastContainer, toast } from 'react-toastify';
+// import { ToastContainer, toast } from 'react-toastify';
 import { fetchSingleDesignAction } from '../../actions/design';
-import AdminNavbar from '../admin-navbar/admin-navbar';
+// import AdminNavbar from '../admin-navbar/admin-navbar';
 import './alldesigns.css';
 
 class SingleDesign extends Component {
-  componentWillReceiveProps = (nextProps) => {
-    const alertMessage =
-      (nextProps.message && toast.success(nextProps.message)) ||
-      (nextProps.designErrors && toast.error(nextProps.designErrors));
+  // componentWillReceiveProps = (nextProps) => {
+  //   const alertMessage =
+  //     (nextProps.message && toast.success(nextProps.message)) ||
+  //     (nextProps.designErrors && toast.error(nextProps.designErrors));
 
-    return !nextProps.loading && alertMessage;
-  };
+  //   return !nextProps.loading && alertMessage;
+  // };
 
   componentDidMount() {
     const {
