@@ -15,6 +15,7 @@ import {
           message: null,
         };
       case DELETE_ANNOUNCEMENT_SUCCESS:
+        window.location.replace('/displayannouncement');
         return {
           ...state,
           loading: false,

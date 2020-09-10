@@ -14,7 +14,8 @@ import {
           advertisementErrors: null,
           message: null,
         };
-      case DELETE_ADVERTISEMENT_SUCCESS:
+      case DELETE_ADVERTISEMENT_SUCCESS:        
+      window.location.replace('/displayadvertisement');
         return {
           ...state,
           loading: false,

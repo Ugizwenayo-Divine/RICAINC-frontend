@@ -21,12 +21,12 @@ class AllFeedback extends Component{
     const {getAllFeedbacks} = this.props;
     getAllFeedbacks();
   }
-  componentWillReceiveProps(nextProps){
-    const {deleteLoading, deleteMessage}=this.props;
-    if(!deleteLoading && deleteMessage){
-      window.location.reload();
-    }
-  }
+  // componentWillReceiveProps(nextProps){
+  //   const {deleteLoading, deleteMessage}=this.props;
+  //   if(!deleteLoading && deleteMessage){
+  //     window.location.reload();
+  //   }
+  // }
   handleDelete=(id)=>{
     const {deleteFeedback}=this.props;
     deleteFeedback(id);

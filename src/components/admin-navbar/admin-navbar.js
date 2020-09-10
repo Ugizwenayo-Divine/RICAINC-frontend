@@ -71,8 +71,8 @@ class AdminNavbar extends Component {
               UPDATE
             </span> */}
             <span 
-              onClick={()=>{this.handleClick(['user','order','news','product','refund','feedback','advertisement','announcement'],'display')}} 
-              onMouseOver={()=>{this.handleHover(['user','order','news','product','refund','feedback','advertisement','announcement'],'display')}}  
+              onClick={()=>{this.handleClick(['user','order','news','studies','designs','product','refund','feedback','advertisement','announcement'],'display')}} 
+              onMouseOver={()=>{this.handleHover(['user','order','news','studies','designs','product','refund','feedback','advertisement','announcement'],'display')}}  
               onMouseOut= {this.handleUnHover} >
               DISPLAY
             </span>

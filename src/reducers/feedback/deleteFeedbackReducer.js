@@ -15,6 +15,7 @@ import {
           message: null,
         };
       case DELETE_FEEDBACK_SUCCESS:
+        window.location.replace('/displayfeedback');
         return {
           ...state,
           loading: false,

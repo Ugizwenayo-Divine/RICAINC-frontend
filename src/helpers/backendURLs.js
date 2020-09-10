@@ -46,6 +46,12 @@ const DELETE_FEEDBACK_URL = `${BASE_URL}/feedback`;
 const REFUND_STATUS_URL = `${BASE_URL}/refund/status`;
 const ADD_DESIGN_URL =`${BASE_URL}/design/add`;
 const ADD_STUDY_URL = `${BASE_URL}/study/add`;
+const DELETE_DESIGN_URL = `${BASE_URL}/design`;
+const UPDATE_DESIGN_URL = `${BASE_URL}/design`;
+const DISPLAY_DESIGN_URL = `${BASE_URL}/design`;
+const DELETE_STUDY_URL = `${BASE_URL}/study`;
+const UPDATE_STUDY_URL = `${BASE_URL}/study`;
+const DISPLAY_STUDY_URL = `${BASE_URL}/study`;
 
 export {
   BASE_URL,
@@ -96,4 +102,10 @@ export {
   REFUND_STATUS_URL,
   ADD_DESIGN_URL,
   ADD_STUDY_URL,
+  DELETE_DESIGN_URL,
+  DELETE_STUDY_URL,
+  UPDATE_DESIGN_URL,
+  UPDATE_STUDY_URL,
+  DISPLAY_DESIGN_URL,
+  DISPLAY_STUDY_URL,
 };

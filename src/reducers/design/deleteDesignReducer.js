@@ -1,39 +1,39 @@
 import {
-    DELETE_USER_END,
-    DELETE_USER_SUCCESS,
-    DELETE_USER_FAILURE,
-    DELETE_USER_START,
-  } from '../../actionTypes/userActionTypes';
+    DELETE_DESIGN_START,
+    DELETE_DESIGN_SUCCESS,
+    DELETE_DESIGN_FAILURE,
+    DELETE_DESIGN_END,
+  } from '../../actionTypes/addDesignActionTypes';
   
   const reducer = (state, { type, payload }) => {
     switch (type) {
-      case DELETE_USER_START:
+      case DELETE_DESIGN_START:
         return {
           ...state,
           loading: true,
-          userErrors: null,
+          designErrors: null,
           message: null,
         };
-      case DELETE_USER_SUCCESS:
-        window.location.replace('/displayuser');
+      case DELETE_DESIGN_SUCCESS:
+        window.location.replace('/displaydesigns');
         return {
           ...state,
           loading: false,
-          userErrors: null,
+          designErrors: null,
           message: payload.message,
         };
-      case DELETE_USER_FAILURE:
+      case DELETE_DESIGN_FAILURE:
         return {
           ...state,
           loading: false,
-          userErrors: payload.error,
+          designErrors: payload.error,
           message: null,
         };
-      case DELETE_USER_END:
+      case DELETE_DESIGN_END:
         return {
           ...state,
           loading: false,
-          userErrors: null,
+          designErrors: null,
           message: null,
         };
   

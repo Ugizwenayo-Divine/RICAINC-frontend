@@ -45,9 +45,15 @@ const {
 } = feedbackReducers;
 const {
   addDesign,
+  deleteDesign,
+  displayDesign,
+  updateDesign,
 } = designReducers;
 const {
   addStudy,
+  deleteStudy,
+  displayStudy,
+  updateStudy,
 } = studyReducers;
 
 export default {
@@ -93,5 +99,11 @@ export default {
   deleteFeedback,
   refundStatus,
   addStudy,
-  addDesign
+  addDesign,
+  deleteStudy,
+  displayStudy,
+  updateStudy,
+  deleteDesign,
+  displayDesign,
+  updateDesign,
 };

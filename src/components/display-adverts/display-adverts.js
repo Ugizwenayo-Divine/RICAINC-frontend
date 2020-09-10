@@ -25,10 +25,10 @@ class AllAdvertisements extends Component{
     getAll();
   }
   componentWillReceiveProps(nextProps){
-    const {deleteLoading, deleteMessage}=this.props;
-    if(!deleteLoading && deleteMessage){
-      window.location.reload();
-    }
+    // const {deleteLoading, deleteMessage}=this.props;
+    // if(!deleteLoading && deleteMessage){
+    //   window.location.reload();
+    // }
     const alertMessage =
     (nextProps.deleteErrors && toast.error(nextProps.deleteErrors)) ||
     (nextProps.productErrors && toast.error(nextProps.productErrors));
