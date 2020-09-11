@@ -128,13 +128,13 @@ class AllProducts extends Component{
               <button 
                   type="button" 
                   className='btn btn-secondary py-0 mr-sm-2' 
-                  style={{width:'35%'}}
+                  // style={{width:'35%'}}
                   onClick={()=>{this.handleUpdate('/updatequantity',dt)}}
                   >ADD QTY</button>
                 <button 
                   type="button" 
                   className='btn btn-secondary py-0 mr-sm-2' 
-                  style={{width:'35%'}}
+                  // style={{width:'35%'}}
                   onClick={()=>{this.handleUpdate('/updateproduct',dt)}}
                   >UPDATE</button>
                 <button 

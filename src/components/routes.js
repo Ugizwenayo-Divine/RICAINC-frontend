@@ -34,6 +34,7 @@ import UpdateDesign from './update-design/update-design';
 import UpdateStudy from './update-study/update-study';
 import AllDesigns from './design';
 import SingleDesign from './design/SingleDesign';
+import ConsultantStudy from './cosultant-study/consultant-study';
 
 const Routes = () => (
   <Switch>
@@ -105,6 +106,8 @@ const Routes = () => (
     <Route exact path='/updatedesign' component={UpdateDesign} />
     {/* update study */}
     <Route exact path='/updatestudy' component={UpdateStudy} />
+    {/* consultant study */}
+    <Route exact path='/displaystudy' component={ConsultantStudy} />
 
   </Switch>
 );

@@ -77,7 +77,7 @@ class AllDesign extends Component{
           </nav>
             <div className='container'>
               {((!loading && data) ? data.map((dt)=>
-              <div className="card" style={{width: '100%',marginBottom:'1%'}}>
+              <div className="card" key={dt.id} style={{width: '100%',marginBottom:'1%'}}>
                 <div className='form-row'>
               <div className="card-body col-md-8" style={{marginLeft:'5%'}}>
                 <div className="card-title">

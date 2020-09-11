@@ -4,8 +4,11 @@ import { connect } from 'react-redux';
 import { ToastContainer, toast } from 'react-toastify';
 import { fetchDesignsAction } from '../../actions/design';
 import AdminNavbar from '../admin-navbar/admin-navbar';
-import ClietNavbar from '../admin-navbar/client-navbar';
+import ClientNavbar from '../admin-navbar/client-navbar';
+import MainNavbar from '../admin-navbar/main-navbar';
 import SingleDesign from './oneDesign';
+import Footer from '../contactUs/contactUs';
+import AllDesignSkeleton from './allDesignSkeleton';
 import './alldesigns.css';
 
 class AllDesigns extends Component {
@@ -49,29 +52,32 @@ class AllDesigns extends Component {
     }));
     return (
       <div>
-      {this.state.user.type === 'client'?<ClietNavbar />:null}
+      {this.state.user?(this.state.user.type !== 'admin'?(<ClientNavbar/>):null):null}
       <div className='container'>
-        <div className='Design'>
+        <div>
           <ToastContainer
             position={toast.POSITION.TOP_CENTER}
             className='toastMessages'
             style={{ width: '700px' }}
           />
-          {this.state.user.type === 'admin'?<AdminNavbar />:null}
+          {this.state.user?(this.state.user.type === 'admin'?(<AdminNavbar />):null):<MainNavbar/>}
           <br></br>
           <br></br>
+          <div className='Design'>
           <div className='designGrid'>
-            {designs.map((data) => (
-              <div className='DesignList'>
+            {(!this.props.loading)?designs.map((data) => (
+              <div className='DesignList' key={data.id}>
                 <img 
                   src={data.image} 
                   alt='' 
                   onClick={() => {this.single(data)}}
                   style={{width: '100%',height: '200px'}}></img>
               </div>
-            ))}
-            <div className="contact">
-            </div>
+            )):<AllDesignSkeleton/>}
+          </div>
+          <div className="contact">
+            <Footer/>
+          </div>
           </div>
           <SingleDesign
             visibility={visibility}

@@ -35,29 +35,19 @@ const {
 } = order;
 const { allUsers, user, userLogout, deleteUser, updateUser } = users;
 const { allNews, news, deleteNews, updateNews } = newsRe;
+const { addDesign, deleteDesign, displayDesign, updateDesign } = designReducers;
+const { addStudy, deleteStudy, displayStudy, updateStudy } = studyReducers;
 const {
-  addDesign,
-  deleteDesign,
-  displayDesign,
-  updateDesign,
-} = designReducers;
-const {
-  addStudy,
-  deleteStudy,
-  displayStudy,
-  updateStudy,
-} = studyReducers;
-const {  
-deleteProduct,
-product,
-updateProduct,
-bestProduct,
-addQty,
+  deleteProduct,
+  product,
+  updateProduct,
+  bestProduct,
+  addQty,
 } = productReducers;
 const {
-announcements,
-deleteAnnouncement,
-updateAnnouncement,
+  announcements,
+  deleteAnnouncement,
+  updateAnnouncement,
 } = announcementReducers;
 const { clientRefund, refund, displayRefund, refundStatus } = refundReducers;
 const { displayFeedback, feedback, deleteFeedback } = feedbackReducers;
