@@ -3,6 +3,8 @@ import addDesignReducer from './addDesignReducer';
 import deleteDesignReducer from './deleteDesignReducer';
 import updateDesignReducer from './updateDesignReducer';
 import displayDesignReducer from './allDesignReducer';
+import fetchDesignsReducer from './fetchDesignsReducer';
+import fetchSingleDesignReducer from './fetchSingleDesignReducer';
 
 const addDesign = (state = initialState, action) => {
     const newDesign = addDesignReducer(state, action);
@@ -25,4 +27,13 @@ const displayDesign = (state = initialState, action) => {
   return newDesign || state;
 };
 
-  export default {addDesign, updateDesign, deleteDesign, displayDesign};
+const designs = (state = initialState, action) => {
+  const fetchDesigns = fetchDesignsReducer(state, action);
+  return fetchDesigns || state;
+};
+const singleDesign = (state = initialState, action) => {
+  const fetchSingleDesign = fetchSingleDesignReducer(state, action);
+  return fetchSingleDesign || state;
+};
+
+  export default {addDesign, updateDesign, deleteDesign, displayDesign, designs, singleDesign };

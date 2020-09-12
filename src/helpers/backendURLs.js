@@ -33,18 +33,18 @@ const DELETE_ADVERTISEMENT_URL = `${BASE_URL}/advertisement`;
 const DELIVER_ORDER_URL = `${BASE_URL}/orders/delivered`;
 const UPDATE_USER_URL = `${BASE_URL}/auth/update-user`;
 const UPDATE_PRODUCT_URL = `${BASE_URL}/product`;
-const UPDATE_ADVERTISEMENT_URL =`${BASE_URL}/advertisement`;
-const UPDATE_ANNOUNCEMENT_URL =`${BASE_URL}/announcement`;
+const UPDATE_ADVERTISEMENT_URL = `${BASE_URL}/advertisement`;
+const UPDATE_ANNOUNCEMENT_URL = `${BASE_URL}/announcement`;
 const UPDATE_NEWS_URL = `${BASE_URL}/news`;
 const ADD_REMOVE_BEST_PRODUCT_URL = `${BASE_URL}/product/best`;
 const ADD_QTY_URL = `${BASE_URL}/product/add-quantity`;
 const DISPLAY_PRODUCTS = `${BASE_URL}/product`;
 const CLIENT_REFUND_URL = `${BASE_URL}/refund/customer`;
-const DISPLAY_REFUNDS_URL =`${BASE_URL}/refund`;
+const DISPLAY_REFUNDS_URL = `${BASE_URL}/refund`;
 const DISPLAY_FEEDBACKS_URL = `${BASE_URL}/feedback`;
 const DELETE_FEEDBACK_URL = `${BASE_URL}/feedback`;
 const REFUND_STATUS_URL = `${BASE_URL}/refund/status`;
-const ADD_DESIGN_URL =`${BASE_URL}/design/add`;
+const ADD_DESIGN_URL = `${BASE_URL}/design/add`;
 const ADD_STUDY_URL = `${BASE_URL}/study/add`;
 const DELETE_DESIGN_URL = `${BASE_URL}/design`;
 const UPDATE_DESIGN_URL = `${BASE_URL}/design`;
@@ -52,6 +52,7 @@ const DISPLAY_DESIGN_URL = `${BASE_URL}/design`;
 const DELETE_STUDY_URL = `${BASE_URL}/study`;
 const UPDATE_STUDY_URL = `${BASE_URL}/study`;
 const DISPLAY_STUDY_URL = `${BASE_URL}/study`;
+const DESIGNS = `${BASE_URL}/design`;
 
 export {
   BASE_URL,
@@ -108,4 +109,5 @@ export {
   UPDATE_STUDY_URL,
   DISPLAY_DESIGN_URL,
   DISPLAY_STUDY_URL,
+  DESIGNS,
 };

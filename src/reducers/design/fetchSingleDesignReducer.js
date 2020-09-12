@@ -1,40 +1,40 @@
 import {
-  ADD_DESIGN_START,
-  ADD_DESIGN_SUCCESS,
-  ADD_DESIGN_FAILURE,
-  ADD_DESIGN_END,
-} from '../../actionTypes/addDesignActionTypes';
+  FETCH_SPECIFIC_DESIGN_END,
+  FETCH_SPECIFIC_DESIGN_START,
+  FETCH_SPECIFIC_DESIGN_FAILURE,
+  FETCH_SPECIFIC_DESIGN_SUCCESS,
+} from '../../actionTypes/DesignsActionTypes';
 
 const reducer = (state, { type, payload }) => {
   switch (type) {
-    case ADD_DESIGN_START:
+    case FETCH_SPECIFIC_DESIGN_START:
       return {
         ...state,
         loading: true,
-        designErrors: null,
         message: null,
+        designErrors: null,
       };
-    case ADD_DESIGN_SUCCESS:
-      window.location.replace('/displaydesign');
+    case FETCH_SPECIFIC_DESIGN_SUCCESS:
       return {
         ...state,
         loading: false,
-        designErrors: null,
         message: payload.message,
-      };
-    case ADD_DESIGN_FAILURE:
-      return {
-        ...state,
-        loading: false,
-        designErrors: payload.error,
-        message: null,
-      };
-    case ADD_DESIGN_END:
-      return {
-        ...state,
-        loading: false,
         designErrors: null,
+        single: payload.data,
+      };
+    case FETCH_SPECIFIC_DESIGN_FAILURE:
+      return {
+        ...state,
+        loading: false,
         message: null,
+        designErrors: payload.error,
+      };
+    case FETCH_SPECIFIC_DESIGN_END:
+      return {
+        ...state,
+        loading: false,
+        message: null,
+        designErrors: null,
       };
 
     default:

@@ -1,0 +1,35 @@
+.study{
+  display: grid;
+  grid-template-rows: 1fr 1fr 1fr auto;
+}
+.study-image{
+  position: relative;
+  grid-row-start: 1;
+  grid-row-end: 4;
+  width: 100%;
+  height: 100%;
+}
+.study-next,.study-previous{
+  font-size: 25px;
+  margin: auto auto;
+  box-sizing: border-box;
+  cursor: pointer;
+}
+.study-next{
+  position: absolute;
+  right:-5%;
+  top:30%;
+  width: 30px;
+}
+.study-previous{
+  position: absolute;
+  left:-4%;
+  top:30%;
+  width: 30px;
+}
+@media(max-width: 1000px){
+  .study-image{
+    overflow-x: hidden;
+    overflow-y: scroll;
+  }
+}

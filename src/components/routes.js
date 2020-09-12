@@ -32,6 +32,9 @@ import AllDesign from './display-design/display-design';
 import AllStudy from './display-study/display-study';
 import UpdateDesign from './update-design/update-design';
 import UpdateStudy from './update-study/update-study';
+import AllDesigns from './design';
+import SingleDesign from './design/SingleDesign';
+import ConsultantStudy from './cosultant-study/consultant-study';
 
 const Routes = () => (
   <Switch>
@@ -90,7 +93,9 @@ const Routes = () => (
     {/* all feedback */}
     <Route exact path='/displayfeedback' component={DisplayFeedback} />
     {/* all feedback */}
-    <Route exact path='/adddesign' component={AddingDesign} />    
+    <Route exact path='/adddesign' component={AddingDesign} />
+    <Route exact path='/displaydesign' component={AllDesigns} />
+    <Route exact path='/designs/:id' component={SingleDesign} />
     {/* all feedback */}
     <Route exact path='/addstudy' component={AddingStudy} />  
     {/* all design */}
@@ -101,6 +106,8 @@ const Routes = () => (
     <Route exact path='/updatedesign' component={UpdateDesign} />
     {/* update study */}
     <Route exact path='/updatestudy' component={UpdateStudy} />
+    {/* consultant study */}
+    <Route exact path='/displaystudy' component={ConsultantStudy} />
 
   </Switch>
 );
