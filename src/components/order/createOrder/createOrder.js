@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import { connect } from 'react-redux';
 import { ToastContainer, toast } from 'react-toastify';
+import {Redirect} from 'react-router-dom';
 import Select from 'react-select';
 import {addOrder} from '../../../actions/order';
 import ProductOrder from '../productOrder/productOrder';
@@ -61,6 +62,13 @@ class CreateOrders extends Component {
     this.props.history.push('/');
   }
   render (){
+    const token = localStorage.getItem('token');
+    if (!token) {
+      return <Redirect to='/login'/>
+    }
+    if (!this.props.location.state) {
+      return <Redirect to='/'/>
+    }
     const {product}=this.props.location.state;
     const options = [
       { value: 'card', label: 'card' },

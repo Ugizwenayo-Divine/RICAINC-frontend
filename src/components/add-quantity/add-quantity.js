@@ -1,5 +1,6 @@
 import React,{Component} from 'react';
 import {connect} from 'react-redux';
+import {Redirect} from 'react-router-dom';
 import { ToastContainer, toast } from 'react-toastify';
 import productAction from '../../actions/product/deleteProduct';
 import AdminNavbar from '../admin-navbar/admin-navbar';
@@ -41,6 +42,15 @@ class AddQTY extends Component{
   }
   render(){
     const product=this.props.location.state?this.props.location.state.product:null;
+    const token = localStorage.getItem('token');
+    const user = JSON.parse(localStorage.getItem('user'));
+
+    if (!token) {
+      return <Redirect to='/login'/>
+    }
+    if (user.type === 'client'){
+      return <Redirect to='/'/>
+    }
     // console.log(user,'usersss');
     return(
       <div id='layout'>

@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import { ToastContainer, toast } from 'react-toastify';
-import Image from 'react-image-resizer';
+import {Redirect} from 'react-router-dom';
 import AdminNavbar from '../admin-navbar/admin-navbar';
 import designActions from '../../actions/design/addDesign';
 import DesignSkeleton from './display-designSkeleton';
@@ -55,11 +55,9 @@ class AllDesign extends Component{
   }
   render (){
     const {loading, data }=this.props;
-    console.log(data,'klkl')
-    const style={
-      marginLeft:'auto',
-      marginRight:'0%',
-      marginTop:'0'    
+    const token = localStorage.getItem('token');
+    if (!token) {
+      return <Redirect to='/login'/>
     }
     return (
       <div style={{width:'100%'}}>
@@ -102,12 +100,7 @@ class AllDesign extends Component{
                 </div>:null):null}
               </div>
               <div className='col-md-3' >
-                <Image 
-                  alt='' 
-                  width={250}
-                  height={200}
-                  style={style}
-                  src={dt.image} />
+                      <img alt='' src={dt.image} style={{height:'170px', marginTop:'5%'}} />
                 </div>
                 </div>
               </div>):<DesignSkeleton/>)}

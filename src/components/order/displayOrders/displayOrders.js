@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import {Redirect} from 'react-router-dom';
 import DisplayProductSkeleton from '../clientOrders/clientOrdersSkeleton';
 import AdminNavbar from '../../admin-navbar/admin-navbar';
 import {
@@ -49,6 +50,10 @@ class AllOrders extends Component {
   }
   render() {
     const { loading, data } = this.props;
+    const token = localStorage.getItem('token');
+    if (!token) {
+      return <Redirect to='/login'/>
+    }
     return (
       <div style={{ width: '100%' }}>
         <div className='container'>
@@ -104,6 +109,7 @@ class AllOrders extends Component {
                   <tr>
                     <th>Product</th>
                     <th>Ordered Qty</th>
+                    <th>Ordered By</th>
                     <th>Total price</th>
                     <th>status</th>
                     <th>Expires at</th>
@@ -115,6 +121,7 @@ class AllOrders extends Component {
                     <tr>
                       <td>{dt.product}</td>
                       <td>{dt.ordered_quantity}</td>
+                      <td>{dt.orderedBy}</td>
                       <td>
                         {dt.amount}
                         {dt.currency}

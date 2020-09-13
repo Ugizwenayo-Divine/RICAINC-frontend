@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
+import { Redirect} from 'react-router-dom';
 import { ToastContainer, toast } from 'react-toastify';
 import { newProduct } from '../../actions/product';
 import AdminNavbar from '../admin-navbar/admin-navbar';
@@ -72,6 +73,15 @@ class AddingProduct extends Component {
     return !nextProps.loading && alertMessage;
   };
   render() {
+    const token = localStorage.getItem('token');
+    const user = JSON.parse(localStorage.getItem('user'));
+
+    if (!token) {
+      return <Redirect to='/login'/>
+    }
+    if (user.type === 'client'){
+      return <Redirect to='/'/>
+    }
     return (
       <div id='layout'>
         <div className='container'>

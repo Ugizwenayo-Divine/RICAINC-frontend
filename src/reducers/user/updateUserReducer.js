@@ -15,6 +15,7 @@ import {
           message: null,
         };
       case UPDATE_USER_SUCCESS:
+        window.location.replace('/displayuser');
         return {
           ...state,
           loading: false,

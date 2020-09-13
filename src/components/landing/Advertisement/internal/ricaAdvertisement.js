@@ -52,6 +52,7 @@ class RicaAdvertisement extends Component{
     const spanColor = loading?'#f0f0f0e7':'#000000';
     const style = {
       image: {
+        marginTop:'0',
         marginLeft:'auto',
         marginRight:'auto'
       },
@@ -71,8 +72,8 @@ class RicaAdvertisement extends Component{
                 <div className='image'>
                   <Image
                     src={`${advertisements[this.state.currentAdvertIndex].image}`}
-                    width={180}
-                    height={180}
+                    width={200}
+                    height={200}
                     style={style.image}
                   />
                 </div>

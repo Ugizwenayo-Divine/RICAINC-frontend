@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { ToastContainer, toast } from 'react-toastify';
-import Image from 'react-image-resizer';
 import AdminNavbar from '../admin-navbar/admin-navbar';
 import studyActions from '../../actions/study/addStudy';
 import StudySkeleton from './display-studySkeleton';
@@ -52,11 +51,6 @@ class AllStudy extends Component {
   }
   render() {
     const { loading, data } = this.props;
-    const style = {
-      marginLeft: 'auto',
-      marginRight: '0%',
-      marginTop: '0',
-    };
     return (
       <div style={{ width: '100%' }}>
         {this.state.user ? (
@@ -146,13 +140,14 @@ class AllStudy extends Component {
                         ) : null}
                       </div>
                       <div className='col-md-3'>
-                        <Image
+                      <img alt='' src={dt.image} style={{height:'170px', marginTop:'5%'}} />
+                        {/* <Image
                           alt=''
                           width={250}
                           height={200}
                           style={style}
                           src={dt.image}
-                        />
+                        /> */}
                       </div>
                     </div>
                   </div>

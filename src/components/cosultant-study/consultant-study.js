@@ -62,7 +62,9 @@ class AllStudies extends Component {
     const {data,loading} = this.props;
     const spanColor = loading?'#f0f0f0e7':'#000000';
     return (
-      <div>
+      <div style={{
+        overflowY: 'scroll',
+        overflowX: 'hidden',}}>
       {this.state.user?(this.state.user.type !== 'admin'?(<ClientNavbar/>):null):null}
       <div className='container'>
         <div>
@@ -77,14 +79,14 @@ class AllStudies extends Component {
           <div className='study'>
           <div className='study-image'>
               <span className='study-previous' style={{color:spanColor}} onClick={this.handlePrevious}><FontAwesomeIcon icon={faAngleLeft}/></span>
-            {(!loading && data)?
+            {(!loading && data && data.length>0)?
               <div style={{width:'100%',height:'100%'}}>
                 <img 
                   src={data[this.state.currentIndex].image} 
                   alt=''
-                  style={{width: '100%',height: '70%', marginBottom:'3%', boxSizing:'border-box'}}></img>
+                  style={{width: '100%',height: '500px', marginBottom:'5%', boxSizing:'border-box'}}></img>
                   {/* <Image src={dt.image} width={1200} height={500} style={style}/> */}
-                  <div style={{width:'100%', display:'inline-flex'}}>
+                  <div style={{width:'100%', display:'inline-flex', marginBottom:'5%'}}>
                     <div style={{width:'40%', marginLeft:'0',margin:'auto', textAlign:'center', fontFamily:'Montserrat', fontWeight:'bold', fontSize:'30px'}}>WELCOME TO RICA</div>
                     <div style={{width:'50%', marginLeft:'auto',marginRight:'2%'}}>{data[this.state.currentIndex].description}</div>
                   </div>

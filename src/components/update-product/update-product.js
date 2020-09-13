@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import {Redirect} from 'react-router-dom';
 import { ToastContainer, toast } from 'react-toastify';
 import productActions from '../../actions/product/deleteProduct';
 import AdminNavbar from '../admin-navbar/admin-navbar';
@@ -66,6 +67,7 @@ class UpdateProduct extends Component {
   };
   componentDidMount(){
     const product = this.props.location.state?this.props.location.state.product:null;
+    if(product){
     this.setState({
       name:product.name,
       category:product.category,
@@ -74,7 +76,7 @@ class UpdateProduct extends Component {
       price:product.price,
       due_time:product.due_time,
       quantity:product.quantity
-    });
+    });}
   }
   componentWillReceiveProps = (nextProps) => {
     const alertMessage =
@@ -85,6 +87,18 @@ class UpdateProduct extends Component {
   };
   render() {
     const product = this.props.location.state?this.props.location.state.product:null;
+    const token = localStorage.getItem('token');
+    const user = JSON.parse(localStorage.getItem('user'));
+
+    if (!token) {
+      return <Redirect to='/login'/>
+    }
+    if (user.type === 'client'){
+      return <Redirect to='/'/>
+    }
+    if (!this.props.location.state) {
+      return <Redirect to='/displayproduct'/>
+    }
     return (
       <div id='layout'>
         <div className='container'>

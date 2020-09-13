@@ -16,6 +16,7 @@ import {
           message: null,
         };
       case BEST_PRODUCT_SUCCESS:
+        window.location.replace('/');
         return {
           ...state,
           loading: false,

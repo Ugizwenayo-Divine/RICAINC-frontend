@@ -25,12 +25,13 @@ class LandingLeft extends Component{
         <div className='displayed-products' style={{backgroundColor:backColor}}>
           {!loading&&data.length!==0 ? data.map(dt=>
           <div className='one-image' key={dt.id} onClick={()=>{this.viewAll(dt)}}><img alt='' src={dt.image} />
-          <p style={{cursor:'pointer'}} onClick={()=>{this.viewAll(dt)}}>{dt.name}</p>
+          {/* <p style={{cursor:'pointer'}} onClick={()=>{this.viewAll(dt)}}><strong>{dt.price}</strong></p> */}
+          <p style={{cursor:'pointer'}} onClick={()=>{this.viewAll(dt)}}>{dt.name} <strong>{dt.price}</strong></p>
           <p style={{cursor:'pointer'}} onClick={()=>{this.viewAll(dt)}}>View more</p>
           </div>):<Skeleton/>}
 
           <MiddleModal 
-            product={this.state.product} 
+            product={this.state.product}
             visibility={this.state.show}
             token={token}
             clicked={this.viewAll}

@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
+import {Redirect} from 'react-router-dom';
 import ClientRefundSkeleton from './clientRefundSkeleton';
 import ClietNavbar from '../../admin-navbar/client-navbar';
 import AdminNavbar from '../../admin-navbar/admin-navbar';
@@ -24,6 +25,10 @@ class ClientRefund extends Component{
   }
   render (){
     const {loading, data }=this.props;
+    const token = localStorage.getItem('token');
+    if (!token) {
+      return <Redirect to='/login'/>
+    }
     const margTop = this.state.user.type === 'admin'?'5%':'2%';
     return (
       <div style={{width:'100%'}}>

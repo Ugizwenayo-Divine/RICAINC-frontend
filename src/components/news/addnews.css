@@ -12,6 +12,8 @@ html {
   background-size: contain;
   background-position: center;
   background-color: white;
+  overflow-y: scroll;
+  overflow-x: hidden;
 }
 .formNews {
   position: relative;

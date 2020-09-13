@@ -46,7 +46,7 @@ class AddingRefund extends Component {
   render() {
     const token = localStorage.getItem('token');
     if (!token) {
-      return <Redirect to='/'/>
+      return <Redirect to='/login'/>
     }
     return (
       <div>
