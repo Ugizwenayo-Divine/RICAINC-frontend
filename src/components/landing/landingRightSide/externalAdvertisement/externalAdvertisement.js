@@ -2,7 +2,7 @@ import React,{Component} from 'react';
 import Image from 'react-image-resizer';
 import {connect} from 'react-redux';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faAngleRight,faAngleLeft } from "@fortawesome/free-solid-svg-icons";
+import { faAngleRight,faAngleLeft, faChevronCircleLeft, faChevronCircleRight } from "@fortawesome/free-solid-svg-icons";
 import advertisement from '../../../../actions/landing/advertisement';
 import AdvertsSkeleton from './externalAdvertSkeleton';
 import './externalAdvertisement.css';
@@ -45,7 +45,7 @@ class ExternaAdvertisement extends Component {
   }
   render(){
     const {advertisements,loading} = this.props;
-    const spanColor = loading?'#f0f0f0e7':'#000000';
+    const spanColor = loading?'#f0f0f0e7':'grey';
     const style = {
       image: {
         marginLeft:'auto',
@@ -55,7 +55,7 @@ class ExternaAdvertisement extends Component {
     return (
       <div className='all-externalAdverts'>
         <h3 style={{color:spanColor}}>Advertisements</h3>
-        <span className='previous' style={{color:spanColor}} onClick={this.handlePrevious}><FontAwesomeIcon icon={faAngleLeft}/></span>
+        <span className='previous' style={{color:spanColor}} onClick={this.handlePrevious}><FontAwesomeIcon icon={faChevronCircleLeft}/></span>
         {!loading&&advertisements.length!==0?
         <div className='one-externalAdverts'>
           <h4>{advertisements[this.state.advertisementIndex].title}</h4>
@@ -69,7 +69,7 @@ class ExternaAdvertisement extends Component {
           />
                 </div>
         </div> :<AdvertsSkeleton/>}
-        <span className='next' style={{color:spanColor}} onClick={this.handleNext}><FontAwesomeIcon icon={faAngleRight}/></span>
+        <span className='next' style={{color:spanColor}} onClick={this.handleNext}><FontAwesomeIcon icon={faChevronCircleRight}/></span>
       </div>
     );
 

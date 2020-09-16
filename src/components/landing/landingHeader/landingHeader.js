@@ -117,7 +117,7 @@ class LandingHeader extends Component {
           </div>
           <div className='grid-item search'>
             <form className='search-form' onSubmit={this.handleEnterPress}>
-              <span className='fa-search all'><span onClick={this.handleSubmitAll}>ALL</span><div className = "vertical"></div></span>
+              <span className='all'><span onClick={this.handleSubmitAll}>ALL</span><div className = "vertical"></div></span>
               <input
                 name='searchedItem'
                 type='text'
@@ -126,7 +126,7 @@ class LandingHeader extends Component {
                 onChange={this.handleChange}
                 value={this.state.searchedItem}
               ></input>
-              <span className="fa-search icon" onClick={this.handleSubmit}><FontAwesomeIcon icon={faSearch}/></span>
+              <span className="icon" onClick={this.handleSubmit}><FontAwesomeIcon icon={faSearch}/></span>
             </form>
           </div>
           <div className='grid-item language'>
@@ -135,16 +135,16 @@ class LandingHeader extends Component {
             <Link to='#'>FRAN</Link>
           </div>
             {(!localToken)?
-            (<div className='grid-item'><Link to='/signup'>signup | </Link>
-             <Link to='/login'>login</Link></div>):
-             (<div className='grid-item'><Link to='/displayclientorders'> My orders &nbsp;&nbsp;</Link>
+            (<div className='grid-item'><Link to='/signup'>Signup | </Link>
+             <Link to='/login'>Login</Link></div>):
+             (<div className='grid-item'><Link to='/displayclientorders'> My Orders &nbsp;&nbsp;</Link>
             <Link to='' onClick={this.handleLogout}> Logout</Link></div>)}
           <div className='grid-item navbar'>
-            <Link to='/'>home</Link>
-            <Link to='#'>videos</Link>
-            <span style={{fontWeight:'500'}} onClick={this.handleClick}>consultant</span>
-            <Link to='/displaynews'>news</Link>
-            {this.state.loggedInUser?(this.state.loggedInUser.type ==='admin'?<Link to='/addproduct'>admin</Link>:null):null}
+            <Link to='/'>Home</Link>
+            <Link to='#'>Videos</Link>
+            <span style={{fontWeight:'500'}} onClick={this.handleClick}>Consultant</span>
+            <Link to='/displaynews'>News</Link>
+            {this.state.loggedInUser?(this.state.loggedInUser.type ==='admin'?<Link to='/addproduct'>Admin</Link>:null):null}
             <DropDown 
             visibility={visibility} 
             details={['design','study']}
@@ -164,7 +164,7 @@ LandingHeader.propTypes = {
   message: PropTypes.string
 };
 const mapStateToProps = (state) => {
-  console.log('logou',state.userLogout.message)
+  // console.log('logou',state.userLogout.message)
   return {
   token:state.search.token,
   loading:state.search.loading,

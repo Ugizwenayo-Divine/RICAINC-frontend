@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
+import {Redirect} from 'react-router-dom';
 import { ToastContainer, toast } from 'react-toastify';
 import DisplayProductSkeleton from './display-product-skeleton';
 import AdminNavbar from '../admin-navbar/admin-navbar';
@@ -76,6 +77,15 @@ class AllProducts extends Component{
   }
   render (){
     const {loading, data }=this.props;
+    const token = localStorage.getItem('token');
+    const user = JSON.parse(localStorage.getItem('user'));
+
+    if (!token) {
+      return <Redirect to='/login'/>
+    }
+    if (user.type === 'client'){
+      return <Redirect to='/'/>
+    }
     return (
       <div style={{width:'100%'}}>
         <div className='container'>
@@ -111,7 +121,7 @@ class AllProducts extends Component{
             <th>Category</th>
             <th>Brand</th>
             <th>Type</th>
-            <th>Expires at</th>
+            <th>Expires After</th>
             <th>Action</th>
             </tr>
           </thead>
@@ -123,7 +133,7 @@ class AllProducts extends Component{
               <td>{dt.category}</td>
               <td>{dt.brand}</td>
               <td>{dt.type}</td>
-              <td>{dt.due_time}</td>
+              <td>{dt.due_time} hours</td>
               <td>
               <button 
                   type="button" 

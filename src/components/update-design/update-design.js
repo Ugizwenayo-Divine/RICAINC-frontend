@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
+import {Redirect} from 'react-router-dom';
 import { ToastContainer, toast } from 'react-toastify';
 import designActions from '../../actions/design/addDesign';
 import AdminNavbar from '../admin-navbar/admin-navbar';
@@ -38,10 +39,11 @@ class UpdateDesign extends Component {
   };
   componentDidMount(){
     const design = this.props.location.state?this.props.location.state.design:null;
+    if(design){
     this.setState({
       description:design.description,
       image:design.image
-    });
+    });}
   }
   componentWillReceiveProps = (nextProps) => {
     const alertMessage =
@@ -52,6 +54,18 @@ class UpdateDesign extends Component {
   };
   render() {
     const design = this.props.location.state?this.props.location.state.design:null;
+    const token = localStorage.getItem('token');
+    const user = JSON.parse(localStorage.getItem('user'));
+
+    if (!token) {
+      return <Redirect to='/login'/>
+    }
+    if (user.type === 'client'){
+      return <Redirect to='/'/>
+    }
+    if (!this.props.location.state) {
+      return <Redirect to='/displaydesigns'/>
+    }
     return (
       <div id='layout'>
         <div className='container'>

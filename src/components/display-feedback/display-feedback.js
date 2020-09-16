@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import {Redirect} from 'react-router-dom';
 import FeedbackSkeleton from './feedbackSkeleton';
 import AdminNavbar from '../admin-navbar/admin-navbar';
 import feedbackActions from '../../actions/feedback/displayFeedback';
@@ -30,6 +31,15 @@ class AllFeedback extends Component {
   };
   render() {
     const { loading, data } = this.props;
+    const token = localStorage.getItem('token');
+    const user = JSON.parse(localStorage.getItem('user'));
+
+    if (!token) {
+      return <Redirect to='/login'/>
+    }
+    if (user.type === 'client'){
+      return <Redirect to='/'/>
+    }
     return (
       <div style={{ width: '100%' }}>
         <div className='table-responsive-md container'>

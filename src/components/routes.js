@@ -35,6 +35,7 @@ import UpdateStudy from './update-study/update-study';
 import AllDesigns from './design';
 import SingleDesign from './design/SingleDesign';
 import ConsultantStudy from './cosultant-study/consultant-study';
+import ProductSpecification from './display-specification/display-specification';
 
 const Routes = () => (
   <Switch>
@@ -108,6 +109,8 @@ const Routes = () => (
     <Route exact path='/updatestudy' component={UpdateStudy} />
     {/* consultant study */}
     <Route exact path='/displaystudy' component={ConsultantStudy} />
+    {/* product specification */}
+    <Route exact path='/specification' component={ProductSpecification} />
 
   </Switch>
 );

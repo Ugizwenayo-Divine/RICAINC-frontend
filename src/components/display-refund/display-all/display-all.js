@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
+import {Redirect} from 'react-router-dom';
 import RefundsSkeleton from './allSkeleton';
 import AdminNavbar from '../../admin-navbar/admin-navbar';
 import refundActions from '../../../actions/refund/displayRefund';
@@ -44,6 +45,15 @@ class AllRefund extends Component{
   }
   render (){
     const {loading, data }=this.props;
+    const token = localStorage.getItem('token');
+    const user = JSON.parse(localStorage.getItem('user'));
+
+    if (!token) {
+      return <Redirect to='/login'/>
+    }
+    if (user.type === 'client'){
+      return <Redirect to='/'/>
+    }
     const margTop = this.state.user.type === 'admin'?'5%':'2%';
     return (
       <div style={{width:'100%'}}>
@@ -62,6 +72,7 @@ class AllRefund extends Component{
             <th>OrderNumber</th>
             <th>Description</th>
             <th>Requested At</th>
+            <th>Requested By</th>
             <th>Status</th>
             <th>Action</th>
             </tr>
@@ -71,6 +82,7 @@ class AllRefund extends Component{
               <td>{dt.refundOrder}</td>
               <td>{dt.description}</td>
               <td>{dt.createdAt}</td>
+              <td>{dt.createdBy}</td>
               <td>{dt.status}</td>
               <td>
                 <button 

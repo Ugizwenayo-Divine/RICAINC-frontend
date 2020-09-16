@@ -77,7 +77,7 @@ class MiddleModal extends Component{
           onClick={this.addRemoveBest}
           disabled={disable}
           >ADD/REMOVE BEST</button>):null):null}
-          
+          <div>{!token?<small style={{color:'red'}}>You only order while logged in</small>:null}</div>
         </div>
       </div>
       </div>

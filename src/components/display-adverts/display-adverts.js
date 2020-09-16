@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { ToastContainer, toast } from 'react-toastify';
+import {Redirect} from 'react-router-dom';
 import AdminNavbar from '../admin-navbar/admin-navbar';
 import adverts from '../../actions/displayAdverts/displayAdverts';
 import AdvertsSkeleton from './display-adverts-skeleton';
@@ -63,6 +64,15 @@ class AllAdvertisements extends Component {
   };
   render() {
     const { loading, data } = this.props;
+    const token = localStorage.getItem('token');
+    const user = JSON.parse(localStorage.getItem('user'));
+
+    if (!token) {
+      return <Redirect to='/login'/>
+    }
+    if (user.type === 'client'){
+      return <Redirect to='/'/>
+    }
     console.log(adverts, 'adv', data, 'data');
     return (
       <div style={{ width: '100%' }}>

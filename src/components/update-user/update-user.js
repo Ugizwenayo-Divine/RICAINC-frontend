@@ -1,5 +1,6 @@
 import React,{Component} from 'react';
 import {connect} from 'react-redux';
+import {Redirect} from 'react-router-dom';
 import { ToastContainer, toast } from 'react-toastify';
 import userAction from '../../actions/user/allUsers';
 import AdminNavbar from '../admin-navbar/admin-navbar';
@@ -48,6 +49,18 @@ class UpdateUser extends Component{
   }
   render(){
     const user=this.props.location.state?this.props.location.state.user:null;
+    const token = localStorage.getItem('token');
+    const loggedUser = JSON.parse(localStorage.getItem('user'));
+
+    if (!token) {
+      return <Redirect to='/login'/>
+    }
+    if (loggedUser.type === 'client'){
+      return <Redirect to='/'/>
+    }
+    if (!this.props.location.state) {
+      return <Redirect to='/displayuser'/>
+    }
     console.log(user,'usersss');
     return(
       <div id='layout'>

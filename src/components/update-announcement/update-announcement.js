@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
+import {Redirect} from 'react-router-dom';
 import { ToastContainer, toast } from 'react-toastify';
 import announceActions from '../../actions/announcement/deleteAnnouncement';
 import AdminNavbar from '../admin-navbar/admin-navbar';
@@ -45,12 +46,25 @@ class UpdateAnnouncement extends Component {
   };
   componentDidMount(){
     const announcement = this.props.location.state?this.props.location.state.announcement:null;
+    if(announcement){
     this.setState({
       title:announcement.title,
       announcement:announcement.announcement
-    });
+    });}
   }
   render() {
+    const token = localStorage.getItem('token');
+    const user = JSON.parse(localStorage.getItem('user'));
+
+    if (!token) {
+      return <Redirect to='/login'/>
+    }
+    if (user.type === 'client'){
+      return <Redirect to='/'/>
+    }
+    if (!this.props.location.state) {
+      return <Redirect to='/displayannouncement'/>
+    }
     return (
       <div id='layout'>
         <div className='container'>

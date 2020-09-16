@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { ToastContainer, toast } from 'react-toastify';
+import {Redirect} from 'react-router-dom';
 import DisplayUsersSkeleton from './display-usersSkeleton';
 import AdminNavbar from '../admin-navbar/admin-navbar';
 import users from '../../actions/user/allUsers';
@@ -50,6 +51,16 @@ class AllUsers extends Component {
   };
   render() {
     const { loading, data } = this.props;
+    const token = localStorage.getItem('token');
+    const user = JSON.parse(localStorage.getItem('user'));
+
+    if (!token) {
+      return <Redirect to='/login'/>
+    }
+    if (user.type === 'client'){
+      return <Redirect to='/'/>
+    }
+    
     return (
       <div style={{ width: '100%' }}>
         <div className='container'>

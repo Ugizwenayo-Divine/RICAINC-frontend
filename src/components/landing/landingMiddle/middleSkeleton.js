@@ -9,7 +9,7 @@ const skeleton = () =>{
         style={
           {
             display:'grid',
-            gridTemplateColumns:'repeat(4,1fr)', 
+            gridTemplateColumns:'repeat(3,1fr)', 
             gridColumnGap:'3px',
             border:'1px #f0f0f0e7 solid', 
             paddingLeft:'8px',paddingRight:'10px', 
@@ -17,14 +17,15 @@ const skeleton = () =>{
           }
         }
       >
-        <div><Skeleton  height={250} width={195}/></div>
-        <div><Skeleton  height={250} width={195}/></div>
-        <div><Skeleton  height={250} width={195}/></div>
-        <div><Skeleton  height={250} width={195}/></div>
-        <div><Skeleton  height={250} width={195}/></div>
-        <div><Skeleton  height={250} width={195}/></div>
-        <div><Skeleton  height={250} width={195}/></div>
-        <div><Skeleton  height={250} width={195}/></div>
+        <div><Skeleton  height={250} width={250}/></div>
+        <div><Skeleton  height={250} width={250}/></div>
+        <div><Skeleton  height={250} width={250}/></div>
+        <div><Skeleton  height={250} width={250}/></div>
+        <div><Skeleton  height={250} width={250}/></div>
+        <div><Skeleton  height={250} width={250}/></div>
+        <div><Skeleton  height={250} width={250}/></div>
+        <div><Skeleton  height={250} width={250}/></div>
+        <div><Skeleton  height={250} width={250}/></div>
       </div>
     )
 }

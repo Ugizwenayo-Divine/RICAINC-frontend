@@ -3,7 +3,7 @@ import {connect} from 'react-redux';
 import PropTypes from 'prop-types';
 import Image from 'react-image-resizer';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faAngleRight,faAngleLeft } from "@fortawesome/free-solid-svg-icons";
+import { faAngleRight,faAngleLeft,faChevronCircleLeft, faChevronCircleRight } from "@fortawesome/free-solid-svg-icons";
 import advertisement from '../../../../actions/landing/advertisement';
 import './ricaAdvertisement.css';
 import Prototype from './ricaPrototype';
@@ -49,9 +49,10 @@ class RicaAdvertisement extends Component{
   }
   render (){
     const {advertisements, loading}=this.props;
-    const spanColor = loading?'#f0f0f0e7':'#000000';
+    const spanColor = loading?'#f0f0f0e7':'grey';
     const style = {
       image: {
+        marginTop:'0',
         marginLeft:'auto',
         marginRight:'auto'
       },
@@ -59,7 +60,7 @@ class RicaAdvertisement extends Component{
     return (
       <div style={{backgroundColor:' #f0f0f0e7',padding:'1% 0'}}>
         <div className='outer'>
-              <span className='previous-advert' style={{color:spanColor}} onClick={this.handlePrevious}><FontAwesomeIcon icon={faAngleLeft}/></span>
+              <span className='previous-advert' style={{color:spanColor}} onClick={this.handlePrevious}><FontAwesomeIcon icon={faChevronCircleLeft}/></span>
          {!loading&&advertisements.length>0 ?
           (<div className='advertisement'>
           <div className='inner'>
@@ -71,14 +72,14 @@ class RicaAdvertisement extends Component{
                 <div className='image'>
                   <Image
                     src={`${advertisements[this.state.currentAdvertIndex].image}`}
-                    width={180}
-                    height={180}
+                    width={200}
+                    height={200}
                     style={style.image}
                   />
                 </div>
             </div>
           </div>): <Prototype/>}
-              <span className='next-advert' style={{color:spanColor}} onClick={this.handleNext}><FontAwesomeIcon icon={faAngleRight}/></span>
+              <span className='next-advert' style={{color:spanColor}} onClick={this.handleNext}><FontAwesomeIcon icon={faChevronCircleRight}/></span>
           </div>
         </div>
     );

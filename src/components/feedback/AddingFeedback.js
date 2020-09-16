@@ -31,9 +31,8 @@ class AddingFeedback extends Component {
     this.setState({user:user});;
   }
   componentWillReceiveProps = (nextProps) => {
-    console.log('messaggege',nextProps.message);
     const alertMessage =
-      (nextProps.message && toast.success('Thank you for feedback')) ||
+      (!nextProps.feedbackErrors && toast.success('Thank you for feedback')) ||
       (nextProps.feedbackErrors && toast.error(nextProps.feedbackErrors));
 
     return !nextProps.loading && alertMessage;
@@ -41,7 +40,7 @@ class AddingFeedback extends Component {
   render() {
     const token = localStorage.getItem('token');
     if (!token) {
-      return <Redirect to='/'/>
+      return <Redirect to='/login'/>
     }
     return (
       <div>

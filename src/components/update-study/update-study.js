@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
+import {Redirect} from 'react-router-dom';
 import { ToastContainer, toast } from 'react-toastify';
 import studyActions from '../../actions/study/addStudy';
 import AdminNavbar from '../admin-navbar/admin-navbar';
@@ -38,10 +39,12 @@ class UpdateStudy extends Component {
   };
   componentDidMount(){
     const study = this.props.location.state?this.props.location.state.study:null;
+    if(study){
     this.setState({
       description:study.description,
       image:study.image
     });
+  }
   }
   componentWillReceiveProps = (nextProps) => {
     const alertMessage =
@@ -52,6 +55,18 @@ class UpdateStudy extends Component {
   };
   render() {
     const study = this.props.location.state?this.props.location.state.study:null;
+    const token = localStorage.getItem('token');
+    const user = JSON.parse(localStorage.getItem('user'));
+
+    if (!token) {
+      return <Redirect to='/login'/>
+    }
+    if (user.type === 'client'){
+      return <Redirect to='/'/>
+    }
+    if (!this.props.location.state) {
+      return <Redirect to='/displaystudies'/>
+    }
     return (
       <div id='layout'>
         <div className='container'>

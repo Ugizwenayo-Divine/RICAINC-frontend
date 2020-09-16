@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
+import {Redirect} from 'react-router-dom';
 import { ToastContainer, toast } from 'react-toastify';
 import advertActions from '../../actions/displayAdverts/displayAdverts';
 import AdminNavbar from '../admin-navbar/admin-navbar';
@@ -59,13 +60,14 @@ console.log('state',this.state,'formadata',formData);
 	};
 	componentDidMount(){
     const advertisement = this.props.location.state?this.props.location.state.advertisement:null;
+    if(advertisement){
     this.setState({
       title:advertisement.title,
       description:advertisement.description,
       type:advertisement.type,
       image:advertisement.image,
       advertisingCompany:advertisement.advertisingCompany
-    });
+    });}
   }
   componentWillReceiveProps = (nextProps) => {
     const alertMessage =
@@ -76,6 +78,18 @@ console.log('state',this.state,'formadata',formData);
     return !nextProps.loading && alertMessage;
   };
   render() {
+    const token = localStorage.getItem('token');
+    const user = JSON.parse(localStorage.getItem('user'));
+
+    if (!token) {
+      return <Redirect to='/login'/>
+    }
+    if (user.type === 'client'){
+      return <Redirect to='/'/>
+    }
+    if (!this.props.location.state) {
+      return <Redirect to='/displayadvertisement'/>
+    }
     return (
       <div id='layout'>
         <div className='container'>

@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import {Redirect} from 'react-router-dom';
 import { ToastContainer, toast } from 'react-toastify';
+import {EditorState, convertToRaw, convertFromRaw} from 'draft-js';
+import { Editor } from 'react-draft-wysiwyg';
 import productActions from '../../actions/product/deleteProduct';
 import AdminNavbar from '../admin-navbar/admin-navbar';
 
@@ -18,10 +21,13 @@ class UpdateProduct extends Component {
       brand: '',
       due_time: '',
       quantity: '',
+      description: EditorState.createEmpty()
     };
   }
   handleSubmit = (e,id) => {
     e.preventDefault();
+    const des = convertToRaw(this.state.description.getCurrentContent())
+    console.log('update', des);
     const formData = new FormData();
     formData.append('name', this.state.name);
     formData.append('category', this.state.category);
@@ -32,6 +38,7 @@ class UpdateProduct extends Component {
     formData.append('brand', this.state.brand);
     formData.append('due_time', this.state.due_time);
     formData.append('quantity', this.state.quantity);
+    formData.append('description', JSON.stringify(des));
     this.props.updateProduct(id,formData);
   };
   nameChange = (event) => {
@@ -64,8 +71,18 @@ class UpdateProduct extends Component {
   quantityChange = (event) => {
     this.setState({ quantity: event.target.value });
   };
+  onChange = (value) => {
+    this.setState({description:value});
+  };
   componentDidMount(){
+    let description='';
     const product = this.props.location.state?this.props.location.state.product:null;
+    if (product.description){
+      description = JSON.parse(product.description);
+      const contentState = convertFromRaw(description);
+      description = EditorState.createWithContent(contentState);
+    }
+    if(product){
     this.setState({
       name:product.name,
       category:product.category,
@@ -73,8 +90,9 @@ class UpdateProduct extends Component {
       image:product.image,
       price:product.price,
       due_time:product.due_time,
-      quantity:product.quantity
-    });
+      quantity:product.quantity,
+      description:description,
+    });}
   }
   componentWillReceiveProps = (nextProps) => {
     const alertMessage =
@@ -85,6 +103,47 @@ class UpdateProduct extends Component {
   };
   render() {
     const product = this.props.location.state?this.props.location.state.product:null;
+    const token = localStorage.getItem('token');
+    const user = JSON.parse(localStorage.getItem('user'));
+    const toolbarConfig = {
+      options: [
+        'inline', 
+        'blockType', 
+        'fontSize', 
+        'fontFamily', 
+        'list',
+        'textAlign',
+        'history'
+      ],
+      inline: {
+        inDropdown: false,
+        options: ['bold', 'italic', 'underline', 'strikethrough'],
+      },
+      list: {
+        inDropdown: false,
+        options: ['unordered', 'ordered'],
+      },
+      blockType: {
+        inDropdown: true,
+        options: ['Normal', 'H1', 'H2', 'H3', 'H4', 'H5', 'H6', 'Blockquote', 'Code'],
+      },
+      fontFamily: {
+        options: ['Arial', 'Georgia', 'Impact', 'Tahoma', 'Times New Roman', 'Verdana'],
+      },
+      textAlign: {
+        inDropdown: false,
+        options: ['left', 'center', 'right', 'justify'],
+      },       
+    }
+    if (!token) {
+      return <Redirect to='/login'/>
+    }
+    if (user.type === 'client'){
+      return <Redirect to='/'/>
+    }
+    if (!this.props.location.state) {
+      return <Redirect to='/displayproduct'/>
+    }
     return (
       <div id='layout'>
         <div className='container'>
@@ -176,6 +235,14 @@ class UpdateProduct extends Component {
                       onChange={this.quantityChange}
                     ></input>
                   </div>
+                </div>
+                <br />
+                <div style={{border:'1px solid #8f8d8d', borderRadius:'1%'}}>
+                  <Editor
+                    toolbar={toolbarConfig}
+                    editorState={this.state.description}
+                    onEditorStateChange={this.onChange}
+                  />
                 </div>
                 <br />
                 <div className='form-group'>

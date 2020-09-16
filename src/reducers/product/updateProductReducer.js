@@ -16,6 +16,7 @@ import {
           message: null,
         };
       case UPDATE_PRODUCT_SUCCESS:
+        window.location.replace('/displayproduct');
         return {
           ...state,
           loading: false,

@@ -28,6 +28,12 @@ body{
   cursor: pointer;
 }
 .image{
+  margin-top: -2%;
+  margin-left: 5%;
+  height: 100%;
+  width: 200px;
+}
+.imageSke{
   margin-left: 5%;
   height: 100%;
   width: 200px;

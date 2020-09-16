@@ -15,6 +15,7 @@ import {
           message: null,
         };
       case UPDATE_ADVERTISEMENT_SUCCESS:
+        window.location.replace('/displayadvertisement');
         return {
           ...state,
           loading: false,
