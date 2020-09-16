@@ -116,7 +116,9 @@ class AllOrders extends Component {
                     <th>Action</th>
                   </tr>
                 </thead>
-                {data.map((dt) => (
+                {data.map((dt) => {
+                const date= new Date(dt.due_time);
+                  return (
                   <tbody key={dt.id}>
                     <tr>
                       <td>{dt.product}</td>
@@ -127,7 +129,7 @@ class AllOrders extends Component {
                         {dt.currency}
                       </td>
                       <td>{dt.status}</td>
-                      <td>{dt.due_time}</td>
+                      <td>{dt.status==='pending'?`${date.getFullYear()}-${date.getMonth()}-${date.getDate()},  ${date.getHours()}:${date.getMinutes()}`:'Never'}</td>
                       <td>
                         <button
                           type='button'
@@ -147,7 +149,7 @@ class AllOrders extends Component {
                       </td>
                     </tr>
                   </tbody>
-                ))}
+                )})}
               </table>
             ) : (
               <DisplayProductSkeleton />

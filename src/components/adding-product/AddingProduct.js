@@ -2,9 +2,13 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { Redirect} from 'react-router-dom';
+// import RichTextEditor from 'react-rte';
+import {EditorState, convertToRaw} from 'draft-js';
+import { Editor } from 'react-draft-wysiwyg';
 import { ToastContainer, toast } from 'react-toastify';
 import { newProduct } from '../../actions/product';
 import AdminNavbar from '../admin-navbar/admin-navbar';
+import 'react-draft-wysiwyg/dist/react-draft-wysiwyg.css';
 import './addproduct.css';
 
 class AddingProduct extends Component {
@@ -18,10 +22,16 @@ class AddingProduct extends Component {
       brand: '',
       due_time: '',
       quantity: '',
+      description: EditorState.createEmpty()
     };
   }
+  static propTypes = {
+    onChange: PropTypes.func
+  };
   handleSubmit = (e) => {
     e.preventDefault();
+    console.log('statess', this.state);
+    const des = convertToRaw(this.state.description.getCurrentContent())
     const formData = new FormData();
     formData.append('name', this.state.name);
     formData.append('category', this.state.category);
@@ -32,6 +42,7 @@ class AddingProduct extends Component {
     formData.append('brand', this.state.brand);
     formData.append('due_time', this.state.due_time);
     formData.append('quantity', this.state.quantity);
+    formData.append('description', JSON.stringify(des));
 
     this.props.newProduct(formData);
   };
@@ -65,6 +76,9 @@ class AddingProduct extends Component {
   quantityChange = (event) => {
     this.setState({ quantity: event.target.value });
   };
+  onChange = (value) => {
+    this.setState({description:value});
+  };
   componentWillReceiveProps = (nextProps) => {
     const alertMessage =
       (nextProps.message && toast.success(nextProps.message)) ||
@@ -75,7 +89,36 @@ class AddingProduct extends Component {
   render() {
     const token = localStorage.getItem('token');
     const user = JSON.parse(localStorage.getItem('user'));
-
+    const toolbarConfig = {
+        options: [
+          'inline', 
+          'blockType', 
+          'fontSize', 
+          'fontFamily', 
+          'list',
+          'textAlign',
+          'history'
+        ],
+        inline: {
+          inDropdown: false,
+          options: ['bold', 'italic', 'underline', 'strikethrough'],
+        },
+        list: {
+          inDropdown: false,
+          options: ['unordered', 'ordered'],
+        },
+        blockType: {
+          inDropdown: true,
+          options: ['Normal', 'H1', 'H2', 'H3', 'H4', 'H5', 'H6', 'Blockquote', 'Code'],
+        },
+        fontFamily: {
+          options: ['Arial', 'Georgia', 'Impact', 'Tahoma', 'Times New Roman', 'Verdana'],
+        },
+        textAlign: {
+          inDropdown: false,
+          options: ['left', 'center', 'right', 'justify'],
+        },       
+      }
     if (!token) {
       return <Redirect to='/login'/>
     }
@@ -167,6 +210,14 @@ class AddingProduct extends Component {
                       onChange={this.quantityChange}
                     ></input>
                   </div>
+                </div>
+                <br />
+                <div style={{border:'1px solid #8f8d8d', borderRadius:'1%'}}>
+                  <Editor
+                    toolbar={toolbarConfig}
+                    editorState={this.state.description}
+                    onEditorStateChange={this.onChange}
+                  />
                 </div>
                 <br />
                 <div className='form-group'>

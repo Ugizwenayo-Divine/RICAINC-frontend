@@ -1,10 +1,11 @@
 import React,{Component} from 'react';
 import {connect} from 'react-redux';
+import { withRouter } from "react-router-dom";
 import Skeleton from './middleSkeleton';
 import MiddleModal from './middleModal';
 import './landingMiddle.css';
 
-class LandingLeft extends Component{
+class LandingMiddle extends Component{
   constructor(){
     super();
     this.state={
@@ -16,6 +17,13 @@ class LandingLeft extends Component{
   viewAll = (data) =>{
     this.setState({show:!this.state.show,product:data});
   }
+  handleButtonClick = (pathToMyComponent, data) => {
+    
+      this.props.history.push({
+        pathname: pathToMyComponent,
+        state: {product: data}
+      });
+  }
   render(){
     const {loading, data} = this.props;
     const token = localStorage.getItem('token');
@@ -24,7 +32,8 @@ class LandingLeft extends Component{
       <div>
         <div className='displayed-products' style={{backgroundColor:backColor}}>
           {!loading&&data.length!==0 ? data.map(dt=>
-          <div className='one-image' key={dt.id} onClick={()=>{this.viewAll(dt)}}><img alt='' src={dt.image} />
+          <div className='one-image' key={dt.id}>
+            <img alt='' src={dt.image} onClick={()=>{this.handleButtonClick('/specification',dt)}} />
           {/* <p style={{cursor:'pointer'}} onClick={()=>{this.viewAll(dt)}}><strong>{dt.price}</strong></p> */}
           <p style={{cursor:'pointer'}} onClick={()=>{this.viewAll(dt)}}>{dt.name} <strong>{dt.price}</strong></p>
           <p style={{cursor:'pointer'}} onClick={()=>{this.viewAll(dt)}}>View more</p>
@@ -36,6 +45,7 @@ class LandingLeft extends Component{
             token={token}
             clicked={this.viewAll}
           />
+          
         </div>        
       </div>
     )
@@ -49,4 +59,4 @@ const mapStateToProps= (state) =>(
   data:state.search.data,
 }
 );
-export default connect(mapStateToProps)(LandingLeft);
+export default connect(mapStateToProps)(withRouter(LandingMiddle));

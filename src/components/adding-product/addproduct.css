@@ -17,7 +17,7 @@ html {
   position: relative;
   display: flex;
   flex-direction: column;
-  width: 60%;
+  width: 70%;
   word-wrap: break-word;
   background-color: #fff;
   background-clip: border-box;
@@ -26,7 +26,8 @@ html {
   box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.175) !important;
   border: 0 !important;
   margin-top: 4rem !important;
-  margin-left: 14rem;
+  margin-left: auto;
+  margin-right: auto;
 }
 .headerProduct {
   text-align: center !important;

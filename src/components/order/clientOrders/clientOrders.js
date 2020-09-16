@@ -67,7 +67,10 @@ class ClientOrders extends Component{
             <th>Action</th>
             </tr>
           </thead>
-          {data.map(dt=><tbody  key={dt.id}>
+          {data.map(dt=>{
+            const date= new Date(dt.due_time);
+            console.log(date.getFullYear(),date.getMonth(),date.getDay(), date.getHours(),date.getMinutes(),'date');
+          return (<tbody  key={dt.id}>
               <tr>
               <td>{dt.product}</td>
               <td>{dt.id}</td>
@@ -75,7 +78,7 @@ class ClientOrders extends Component{
               <td>{dt.orderedBy}</td>
               <td>{dt.amount}{dt.currency}</td>
               <td>{dt.status}</td>
-              <td>{dt.due_time}</td>
+              <td>{dt.status==='pending'?`${date.getFullYear()}-${date.getMonth()}-${date.getDate()},  ${date.getHours()}:${date.getMinutes()}`:'Never'}</td>
               <td>
                 <button 
                   type="button" 
@@ -92,7 +95,7 @@ class ClientOrders extends Component{
                   >CANCEL</button>
               </td>            
               </tr>
-            </tbody>)}
+          </tbody>)})}
           </table>:<ClientOrdersSkeleton/>)}
         </div>
       </div>
