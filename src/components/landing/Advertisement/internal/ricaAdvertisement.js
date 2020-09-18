@@ -3,7 +3,7 @@ import {connect} from 'react-redux';
 import PropTypes from 'prop-types';
 import Image from 'react-image-resizer';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faAngleRight,faAngleLeft,faChevronCircleLeft, faChevronCircleRight } from "@fortawesome/free-solid-svg-icons";
+import { faChevronCircleLeft, faChevronCircleRight } from "@fortawesome/free-solid-svg-icons";
 import advertisement from '../../../../actions/landing/advertisement';
 import './ricaAdvertisement.css';
 import Prototype from './ricaPrototype';

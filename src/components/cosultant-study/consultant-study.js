@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { ToastContainer, toast } from 'react-toastify';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faAngleRight,faAngleLeft } from "@fortawesome/free-solid-svg-icons";
+// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+// import { faAngleRight,faAngleLeft } from "@fortawesome/free-solid-svg-icons";
 import studyActions from '../../actions/study/addStudy';
 import AdminNavbar from '../admin-navbar/admin-navbar';
 import ClientNavbar from '../admin-navbar/client-navbar';
@@ -60,7 +60,7 @@ class AllStudies extends Component {
 
   render() {
     const {data,loading} = this.props;
-    const spanColor = loading?'#f0f0f0e7':'#000000';
+    // const spanColor = loading?'#f0f0f0e7':'#000000';
     return (
       <div style={{
         overflowY: 'scroll',
@@ -78,21 +78,21 @@ class AllStudies extends Component {
           <br></br>
           <div className='study'>
           <div className='study-image'>
-              <span className='study-previous' style={{color:spanColor}} onClick={this.handlePrevious}><FontAwesomeIcon icon={faAngleLeft}/></span>
+          <div style={{width:'100%', marginLeft:'0', textAlign:'center', fontFamily:'Montserrat', fontWeight:'bold', fontSize:'30px'}}>WELCOME TO RICA</div>
             {(!loading && data && data.length>0)?
-              <div style={{width:'100%',height:'100%'}}>
+              data.map(data=>(<div style={{width:'100%',height:'auto'}} key={data.id}>
                 <img 
-                  src={data[this.state.currentIndex].image} 
+                  src={data.image} 
                   alt=''
-                  style={{width: '100%',height: '500px', marginBottom:'5%', boxSizing:'border-box'}}></img>
-                  {/* <Image src={dt.image} width={1200} height={500} style={style}/> */}
-                  <div style={{width:'100%', display:'inline-flex', marginBottom:'5%'}}>
-                    <div style={{width:'40%', marginLeft:'0',margin:'auto', textAlign:'center', fontFamily:'Montserrat', fontWeight:'bold', fontSize:'30px'}}>WELCOME TO RICA</div>
-                    <div style={{width:'50%', marginLeft:'auto',marginRight:'2%'}}>{data[this.state.currentIndex].description}</div>
+                  style={{width: '98%',height: '450px', margin:'auto', boxSizing:'border-box'}}>
+                </img>
+                  <div style={{width:'100%', marginBottom:'3%', marginTop:'2%', marginLeft:'2%',marginRight:'auto'}}>
+                    <h4>Description <i className='fas fa-info-circle'></i></h4>
+                    <div style={{width:'100%'}}>{data.description}</div>
+                    <hr/>
                   </div>
-              </div>:<StudySkeleton/>}
-            <span className='study-next' style={{color:spanColor}} onClick={this.handleNext}><FontAwesomeIcon icon={faAngleRight}/></span>
-          </div>
+              </div>)):<StudySkeleton/>}
+            </div>
           <div className="contact">
             <Footer/>
           </div>

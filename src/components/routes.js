@@ -107,7 +107,7 @@ const Routes = () => (
     <Route exact path='/updatedesign' component={UpdateDesign} />
     {/* update study */}
     <Route exact path='/updatestudy' component={UpdateStudy} />
-    {/* consultant study */}
+    {/* display consultant study */}
     <Route exact path='/displaystudy' component={ConsultantStudy} />
     {/* product specification */}
     <Route exact path='/specification' component={ProductSpecification} />
