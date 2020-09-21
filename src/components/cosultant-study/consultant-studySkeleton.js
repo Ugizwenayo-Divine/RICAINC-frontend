@@ -8,21 +8,14 @@ const skeleton = () => {
           <div className='study'>
           <div className='study-image'>
               <div style={{width:'100%',height:'100%'}}>
-                <Skeleton height={580} width={1100} />
-                  <div style={{width:'100%', display:'inline-flex', marginTop:'4%', marginBottom:'2%'}}>
-                    <div style={{width:'40%', marginLeft:'0',margin:'auto'}}>
-                      <Skeleton height={20} width={300} />
+                <Skeleton height={450} width={1100} />
+                  <div style={{width:'100%', marginTop:'4%', marginBottom:'2%'}}>
+                    <div style={{width:'100%', marginLeft:'0',margin:'auto'}}>
+                    <h4 style={{color:'#f0f0f0e7'}}>Description <i className='fas fa-info-circle' style={{color:'#f0f0f0e7'}}></i></h4>
+                      <Skeleton height={10} width={800} />
+                      <Skeleton height={10} width={800} />
                     </div>
-                    <div style={{
-                      width:'50%', 
-                      marginLeft:'auto',
-                      marginRight:'2%'
-                    }}>
-                      <Skeleton height={10} width={500} />
-                      <Skeleton height={10} width={500} />
-                      <Skeleton height={10} width={500} />
-                      <Skeleton height={10} width={500} />
-                    </div>
+                    <hr/>
                   </div>          
               </div>
               </div>

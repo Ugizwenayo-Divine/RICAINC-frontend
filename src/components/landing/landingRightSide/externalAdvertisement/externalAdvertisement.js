@@ -2,7 +2,7 @@ import React,{Component} from 'react';
 import Image from 'react-image-resizer';
 import {connect} from 'react-redux';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faAngleRight,faAngleLeft, faChevronCircleLeft, faChevronCircleRight } from "@fortawesome/free-solid-svg-icons";
+import { faChevronCircleLeft, faChevronCircleRight } from "@fortawesome/free-solid-svg-icons";
 import advertisement from '../../../../actions/landing/advertisement';
 import AdvertsSkeleton from './externalAdvertSkeleton';
 import './externalAdvertisement.css';

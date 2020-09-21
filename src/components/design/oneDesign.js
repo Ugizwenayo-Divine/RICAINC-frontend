@@ -1,26 +1,32 @@
 import React from 'react';
-import Image from 'react-image-resizer';
+// import Image from 'react-image-resizer';
 import './alldesigns.css';
 
 const SingleDesign = (props) => {
-  const style = {
-    marginLeft: 'auto',
-    marginRight: 'auto',
-    marginBottom: '2%',
-  };
+  // const style = {
+  //   marginLeft: 'auto',
+  //   marginRight: 'auto',
+  //   marginBottom: '2%',
+  // };
   return (
     <div className='design-modal' style={{ visibility: props.visibility }}>
       <div className='design-modal-content'>
         <span className='close' onClick={props.clicked}>
           &times;
         </span>
-        <Image
+        {/* <Image
           class='thumbnail'
           src={props.image}
           width={1200}
           height={500}
           style={style}
-        />
+        /> */}
+        <img 
+          class='thumbnail'
+          src={props.image} 
+          alt=''
+          style={{width: '70%',height: '450px', margin:'2%', boxSizing:'border-box'}}>
+        </img>
         <br></br>
         <div className='labels'>
           <h2>
