@@ -70,18 +70,20 @@ class AllRefund extends Component{
           <thead className='thead-dark'>
             <tr>
             <th>OrderNumber</th>
-            <th>Description</th>
+            <th style={{width:'30%'}}>Description</th>
             <th>Requested At</th>
             <th>Requested By</th>
             <th>Status</th>
             <th>Action</th>
             </tr>
           </thead>
-          {data.map(dt=><tbody  key={dt.id}>
+          {data.map(dt=>{
+            const date= new Date(dt.createdAt);
+            return (<tbody  key={dt.id}>
               <tr>
               <td>{dt.refundOrder}</td>
               <td>{dt.description}</td>
-              <td>{dt.createdAt}</td>
+              <td>{`${date.getFullYear()}-${date.getMonth()}-${date.getDate()},  ${date.getHours()}:${date.getMinutes()}`}</td>
               <td>{dt.createdBy}</td>
               <td>{dt.status}</td>
               <td>
@@ -99,7 +101,7 @@ class AllRefund extends Component{
                   >REJECT</button>
               </td>     
               </tr>
-            </tbody>)}
+          </tbody>)})}
           </table>:<RefundsSkeleton/>)}
         </div>
       </div>

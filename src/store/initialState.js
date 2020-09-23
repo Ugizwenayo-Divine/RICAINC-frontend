@@ -36,6 +36,8 @@ import refundStatus from './initialStates/refundStatusInitialState';
 import addDesign from './initialStates/addDesignInitialState';
 import addStudy from './initialStates/addStudyInitialState';
 import designs from './initialStates/designInitialState';
+import transport from './initialStates/transportInitialState';
+import bonus from './initialStates/bonusInitialState';
 
 export default {
   user,
@@ -76,4 +78,6 @@ export default {
   addDesign,
   addStudy,
   designs,
+  transport,
+  bonus,
 };

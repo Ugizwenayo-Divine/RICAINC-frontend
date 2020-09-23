@@ -57,10 +57,10 @@ class AdminNavbar extends Component {
       return (
         <div className='admin-navbar'>
           <div className='admin-navbar-left'>
-            <Link to='/'>HOME</Link>
+            <Link to='/'>RICA</Link>
             <span 
-              onClick={()=>{this.handleClick(['news','design','study','product','advertisement','announcement'],'add')}} 
-              onMouseOver={()=>{this.handleHover(['news','design','study','product','advertisement','announcement'],'add')}} 
+              onClick={()=>{this.handleClick(['news','bonus','design','study','product','advertisement','announcement','transport'],'add')}} 
+              onMouseOver={()=>{this.handleHover(['news','bonus','design','study','product','advertisement','announcement','transport'],'add')}} 
               onMouseOut= {this.handleUnHover} >
               ADD
             </span>
@@ -71,8 +71,8 @@ class AdminNavbar extends Component {
               UPDATE
             </span> */}
             <span 
-              onClick={()=>{this.handleClick(['user','order','news','studies','designs','product','refund','feedback','advertisement','announcement'],'display')}} 
-              onMouseOver={()=>{this.handleHover(['user','order','news','studies','designs','product','refund','feedback','advertisement','announcement'],'display')}}  
+              onClick={()=>{this.handleClick(['user','order','news','bonus','studies','designs','product','refund','feedback','advertisement','announcement','transport'],'display')}} 
+              onMouseOver={()=>{this.handleHover(['user','order','news','bonus','studies','designs','product','refund','feedback','advertisement','announcement','transport'],'display')}}  
               onMouseOut= {this.handleUnHover} >
               DISPLAY
             </span>

@@ -57,8 +57,8 @@ class ClientOrders extends Component{
           {((!loading && data) ? <table style={{width:'100%'}} className='table table-bordered table-hover table-sm'>
           <thead className='thead-dark'>
             <tr>
-            <th>Product</th>
             <th>OrderNumber</th>
+            <th>Product</th>
             <th>Ordered Qty</th>
             <th>Ordered By</th>
             <th>Total price</th>
@@ -72,8 +72,8 @@ class ClientOrders extends Component{
             console.log(date.getFullYear(),date.getMonth(),date.getDay(), date.getHours(),date.getMinutes(),'date');
           return (<tbody  key={dt.id}>
               <tr>
-              <td>{dt.product}</td>
               <td>{dt.id}</td>
+              <td>{dt.product}</td>
               <td>{dt.ordered_quantity}</td>
               <td>{dt.orderedBy}</td>
               <td>{dt.amount}{dt.currency}</td>
@@ -83,14 +83,14 @@ class ClientOrders extends Component{
                 <button 
                   type="button" 
                   className='btn btn-secondary py-0' 
-                  style={{width:'35%'}}
-                  disabled={(dt.status==='payed'||dt.status==='delivered')?true:false}
+                  style={{width:'80px'}}
+                  disabled={(dt.status==='payed'||dt.status==='delivered'||dt.status==='discounted')?true:false}
                   onClick={()=>{this.handlePay(dt.id)}}
                   >PAY</button> &nbsp;
                 <button 
                   type="button" 
                   className='btn btn-danger py-0'
-                  disabled={(dt.status==='payed'||dt.status==='delivered')?true:false}
+                  disabled={(dt.status==='payed'||dt.status==='delivered'||dt.status==='discounted')?true:false}
                   onClick={(event)=>{this.handleCancel(event,dt.id)}}
                   >CANCEL</button>
               </td>            

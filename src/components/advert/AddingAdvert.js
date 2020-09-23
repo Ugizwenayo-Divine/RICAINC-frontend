@@ -123,7 +123,7 @@ class AddingAdvert extends Component {
                     <input
                       name='advertisingCompany'
                       className='form-control py-4'
-                      placeholder='Enter the brand'
+                      placeholder='Enter the advertising company'
                       onChange={this.advertisingCompanyChange}
                     ></input>
                   </div>

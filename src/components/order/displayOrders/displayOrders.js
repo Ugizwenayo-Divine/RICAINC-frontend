@@ -71,7 +71,7 @@ class AllOrders extends Component {
                   fontFamily: 'Montserrat',
                 }}
               >
-                Rica Orders <i class='fa fa-shopping-cart'></i>
+                Rica Orders <i className='fa fa-shopping-cart'></i>
               </h4>
               <form className='form-inline' onSubmit={this.handleSubmit}>
                 <div className='input-group mr-sm-2'>
@@ -83,6 +83,7 @@ class AllOrders extends Component {
                     <option value='pending'>pending</option>
                     <option value='payed'>payed</option>
                     <option value='canceled'>canceled</option>
+                    <option value='discounted'>discounted</option>
                     <option value='delivered'>delivered</option>
                   </select>
                   <div className='input-group-append'>
@@ -107,29 +108,36 @@ class AllOrders extends Component {
               >
                 <thead className='thead-dark'>
                   <tr>
+                    <th>Nº</th>
                     <th>Product</th>
-                    <th>Ordered Qty</th>
+                    <th>Units</th>
                     <th>Ordered By</th>
                     <th>Total price</th>
+                    <th>Bonus</th>
+                    <th>District</th>
+                    <th>Neighbourhood</th>
                     <th>status</th>
-                    <th>Expires at</th>
                     <th>Action</th>
                   </tr>
                 </thead>
                 {data.map((dt) => {
-                const date= new Date(dt.due_time);
+                // const date= new Date(dt.due_time);
                   return (
                   <tbody key={dt.id}>
                     <tr>
+                      <td>{dt.id}</td>
                       <td>{dt.product}</td>
                       <td>{dt.ordered_quantity}</td>
-                      <td>{dt.orderedBy}</td>
+                      <td>{dt.User?dt.User.email:dt.orderedBy}</td>
                       <td>
                         {dt.amount}
                         {dt.currency}
                       </td>
+                      <td>{dt.bonus}</td>
+                      <td>{dt.deliveredDistrict}</td>
+                      <td>{dt.deliveredLocation}</td>
                       <td>{dt.status}</td>
-                      <td>{dt.status==='pending'?`${date.getFullYear()}-${date.getMonth()}-${date.getDate()},  ${date.getHours()}:${date.getMinutes()}`:'Never'}</td>
+                      {/* <td>{dt.status==='pending'?`${date.getFullYear()}-${date.getMonth()}-${date.getDate()},  ${date.getHours()}:${date.getMinutes()}`:'Never'}</td> */}
                       <td>
                         <button
                           type='button'

@@ -86,6 +86,7 @@ class AllUsers extends Component {
               >
                 <thead className='thead-dark'>
                   <tr>
+                    <th>Nº</th>
                     <th>Names</th>
                     <th>Email</th>
                     <th>Phonenumber</th>
@@ -97,6 +98,7 @@ class AllUsers extends Component {
                 {data.map((dt) => (
                   <tbody key={dt.id}>
                     <tr>
+                      <td>{dt.id}</td>
                       <td>
                         {dt.firstName} {dt.lastName}
                       </td>

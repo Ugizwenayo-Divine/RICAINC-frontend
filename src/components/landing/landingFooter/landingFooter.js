@@ -20,14 +20,14 @@ const landingFooter = () => {
             </div>
             <div className='footer-right'>
             <h4 className='footer-head'>Contact Us</h4>
-                <p>Tel:+2507893135945</p>
+                <p>Tel:+250780502050</p>
                 <p>E:ricainc@gmail.com</p>
                 <p>Location:kigali</p>
             </div>
             <div className='footer-social'>
-                <div className='facebook'><Link to=''><FontAwesomeIcon icon={faFacebook}/></Link></div>
-                <div className='twitter'><Link to=''><FontAwesomeIcon icon={faTwitter}/></Link></div>
-                <div className='instagram'><Link to=''><FontAwesomeIcon icon={faInstagram}/></Link></div>
+                <div className='facebook'><a href='https://www.facebook.com/Ricainc.ltd'><FontAwesomeIcon icon={faFacebook}/></a></div>
+                <div className='twitter'><a href='https://www.twitter.com/@rica_inc'><FontAwesomeIcon icon={faTwitter}/></a></div>
+                <div className='instagram'><a href='https://www.instagram.com/ricainc.ltd'><FontAwesomeIcon icon={faInstagram}/></a></div>
                 <hr style={{width:'100%'}}/>
             </div>
             <hr/>

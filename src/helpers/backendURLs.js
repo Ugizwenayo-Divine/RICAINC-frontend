@@ -53,6 +53,10 @@ const DELETE_STUDY_URL = `${BASE_URL}/study`;
 const UPDATE_STUDY_URL = `${BASE_URL}/study`;
 const DISPLAY_STUDY_URL = `${BASE_URL}/study`;
 const DESIGNS = `${BASE_URL}/design`;
+const TRANSPORT_URL = `${BASE_URL}/location`;
+const ADD_BONUS_URL = `${BASE_URL}/bonus/add`;
+const BONUS_URL = `${BASE_URL}/bonus`;
+const CHECK_BONUS_URL = `${BASE_URL}/orders/allowed-bonus`;
 
 export {
   BASE_URL,
@@ -110,4 +114,8 @@ export {
   DISPLAY_DESIGN_URL,
   DISPLAY_STUDY_URL,
   DESIGNS,
+  TRANSPORT_URL,
+  ADD_BONUS_URL,
+  BONUS_URL,
+  CHECK_BONUS_URL,
 };

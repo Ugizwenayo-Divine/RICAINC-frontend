@@ -18,6 +18,7 @@ const apiMiddleware = ({ dispatch, getState }) => (next) => async ({
     console.log(data,'middleware');
     dispatch({ type: payload.onSuccess, payload: data });
   } catch (error) {
+    console.log(error.message,'error');
     dispatch({
       type: payload.onFailure,
       payload: (error.response && error.response.data) || {

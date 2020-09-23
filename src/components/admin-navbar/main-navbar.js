@@ -9,7 +9,7 @@ const AdminNavbar= () => {
             width:'123.3%',
             marginLeft:'-12%',}}>
           <span className="nav-item active">
-            <a className="nav-link" href="/">HOME</a>
+            <a className="nav-link" href="/">RICA</a>
           </span>
           <span className="nav-item ml-auto">
             <a className="nav-link" href="/signup">SIGNUP</a>

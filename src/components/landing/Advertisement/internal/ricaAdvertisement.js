@@ -67,7 +67,7 @@ class RicaAdvertisement extends Component{
                 <div className='content'>
                   <h2>{advertisements[this.state.currentAdvertIndex].title}</h2>
                   <h4>{advertisements[this.state.currentAdvertIndex].description}</h4>
-                  <p>Advertising company: {advertisements[this.state.currentAdvertIndex].advertisingCompany}</p>
+                  {/* <p>Advertising company: {advertisements[this.state.currentAdvertIndex].advertisingCompany}</p> */}
                 </div>
                 <div className='image'>
                   <Image
