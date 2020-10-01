@@ -115,6 +115,7 @@ class AllProducts extends Component{
           {((!loading && data) ? <table style={{width:'100%'}} className='table table-bordered table-hover table-sm'>
           <thead className='thead-dark'>
             <tr>
+              <th>Nº</th>
             <th>Product</th>
             <th>Available Qty</th>
             <th>Unit price</th>
@@ -127,6 +128,7 @@ class AllProducts extends Component{
           </thead>
           {data.map(dt=><tbody  key={dt.id}>
               <tr>
+                <td>{dt.id}</td>
               <td>{dt.name}</td>
               <td>{dt.quantity}</td>
               <td>{dt.price}</td>

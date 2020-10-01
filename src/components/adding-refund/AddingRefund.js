@@ -39,7 +39,7 @@ class AddingRefund extends Component {
   componentWillReceiveProps = (nextProps) => {
     const alertMessage =
       (nextProps.message && toast.success(nextProps.message)) ||
-      (nextProps.refundErrors && toast.error(nextProps.refundErrors));
+      (nextProps.refundErrors && toast.error('The refund request is not allowed for this order'));
 
     return !nextProps.loading && alertMessage;
   };

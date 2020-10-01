@@ -130,9 +130,9 @@ class LandingHeader extends Component {
             </form>
           </div>
           <div className='grid-item language'>
-            <Link to='#'>ENG | </Link>
-            <Link to='#'>KINYA | </Link>
-            <Link to='#'>FRAN</Link>
+            <a href="http://localhost:3000/">ENG | </a>
+            <a href="http://localhost:3001/">KINYA | </a>
+            <a href="http://localhost:3002/">FRAN</a>
           </div>
             {(!localToken)?
             (<div className='grid-item'><Link to='/signup'>Signup | </Link>

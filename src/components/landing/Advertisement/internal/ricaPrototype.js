@@ -15,7 +15,7 @@ const prototype = () =>{
             </h4>
             <br/>
             <br/>
-            <p><Skeleton height={10} width={200}/></p>
+            {/* <p><Skeleton height={10} width={200}/></p> */}
           </div>
           <div className='imageSke'>
             <Skeleton  height={160} width={200}/>

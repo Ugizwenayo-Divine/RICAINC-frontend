@@ -8,6 +8,7 @@ const skeleton = () =>{
         <table style={{width:'100%'}} className='table table-bordered table-hover table-sm'>
         <thead className='thead-dark'>
           <tr style={{color:'#f0f0f0e7'}}>
+            <th>Nº</th>
             <th>Names</th>
             <th>Email</th>
             <th>PhoneNumber</th>
@@ -22,6 +23,7 @@ const skeleton = () =>{
           <td><Skeleton  height={33} width={100}/></td>
           <td><Skeleton  height={33} width={100}/></td>
           <td><Skeleton  height={33} width={100}/></td>
+          <td><Skeleton  height={33} width={100}/></td>
           <td><Skeleton  height={33} width={80}/></td>
           <td><Skeleton  height={33} width={250}/></td>              
         </tr>
@@ -30,18 +32,21 @@ const skeleton = () =>{
           <td><Skeleton  height={33} width={100}/></td>
           <td><Skeleton  height={33} width={100}/></td>
           <td><Skeleton  height={33} width={100}/></td>
-          <td><Skeleton  height={33} width={80}/></td>
-          <td><Skeleton  height={33} width={250}/></td>               
-        </tr>
-        <tr>
-          <td><Skeleton  height={33} width={100}/></td>
-          <td><Skeleton  height={33} width={100}/></td>
-          <td><Skeleton  height={33} width={100}/></td>
           <td><Skeleton  height={33} width={100}/></td>
           <td><Skeleton  height={33} width={80}/></td>
           <td><Skeleton  height={33} width={250}/></td>               
         </tr>
         <tr>
+          <td><Skeleton  height={33} width={100}/></td>
+          <td><Skeleton  height={33} width={100}/></td>
+          <td><Skeleton  height={33} width={100}/></td>
+          <td><Skeleton  height={33} width={100}/></td>
+          <td><Skeleton  height={33} width={100}/></td>
+          <td><Skeleton  height={33} width={80}/></td>
+          <td><Skeleton  height={33} width={250}/></td>               
+        </tr>
+        <tr>
+          <td><Skeleton  height={33} width={100}/></td>
           <td><Skeleton  height={33} width={100}/></td>
           <td><Skeleton  height={33} width={100}/></td>
           <td><Skeleton  height={33} width={100}/></td>
@@ -54,6 +59,7 @@ const skeleton = () =>{
           <td><Skeleton  height={33} width={100}/></td>
           <td><Skeleton  height={33} width={100}/></td>
           <td><Skeleton  height={33} width={100}/></td>
+          <td><Skeleton  height={33} width={100}/></td>
           <td><Skeleton  height={33} width={80}/></td>
           <td><Skeleton  height={33} width={250}/></td>               
         </tr>
@@ -62,10 +68,12 @@ const skeleton = () =>{
           <td><Skeleton  height={33} width={100}/></td>
           <td><Skeleton  height={33} width={100}/></td>
           <td><Skeleton  height={33} width={100}/></td>
+          <td><Skeleton  height={33} width={100}/></td>
           <td><Skeleton  height={33} width={80}/></td>
           <td><Skeleton  height={33} width={250}/></td>                
         </tr>
         <tr>
+          <td><Skeleton  height={33} width={100}/></td>
           <td><Skeleton  height={33} width={100}/></td>
           <td><Skeleton  height={33} width={100}/></td>
           <td><Skeleton  height={33} width={100}/></td>

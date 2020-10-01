@@ -36,6 +36,10 @@ import AllDesigns from './design';
 import SingleDesign from './design/SingleDesign';
 import ConsultantStudy from './cosultant-study/consultant-study';
 import ProductSpecification from './display-specification/display-specification';
+import UpdateTransport from './transportPrice/updateTransport';
+import DisplayTransport from './display-transport/display-transport';
+import AddBonus from './add-bonus/addBonus';
+import AllBonus from './display-bonus/displayBonus';
 
 const Routes = () => (
   <Switch>
@@ -111,6 +115,14 @@ const Routes = () => (
     <Route exact path='/displaystudy' component={ConsultantStudy} />
     {/* product specification */}
     <Route exact path='/specification' component={ProductSpecification} />
+    {/* product specification */}
+    <Route exact path='/addtransport' component={UpdateTransport} />
+    {/* product specification */}
+    <Route exact path='/displaytransport' component={DisplayTransport} />
+    {/* add bonus */}
+    <Route exact path='/addbonus' component={AddBonus} />
+    {/* display bonus */}
+    <Route exact path='/displaybonus' component={AllBonus} />
 
   </Switch>
 );

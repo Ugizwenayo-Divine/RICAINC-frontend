@@ -30,7 +30,7 @@ class ProductOrder extends Component{
     if(this.props.data){
       return window.location=this.props.data.redirect;
     }
-    const {order,visible,user,product} = this.props;
+    const {order,visible,user,product,transportCost,bonus} = this.props;
     const visibility = visible?'visible':'hidden';
     return(
         <div id="myModal" className="order-modal" style={{visibility:visibility}} onClick={this.props.clicked}>
@@ -48,8 +48,11 @@ class ProductOrder extends Component{
             <p><strong>Email: </strong>{user.email}</p>
             <p><strong>Ordered product: </strong>{product.name}</p>
             <p><strong>Ordered quantity: </strong>{order.ordered_quantity}</p>
+          <p><strong>Product Price: </strong>{product.price}/unit</p>
+            <p><strong>Transport Cost: </strong>{transportCost}</p>
             <p><strong>Total price: </strong>{order.amount} {order.currency}</p>
             <hr/>
+          {bonus?<p>You will receive a bonus of <strong>{bonus}</strong></p>:null}
             <p><strong>N.B: </strong>if you do not pay within {product.due_time} hours the order will be canceled</p>
             <div className='button-div'>
               <button 

@@ -15,6 +15,8 @@ import * as refundActionTypes from './refundActionTypes';
 import * as addDesignActionTypes from './addDesignActionTypes';
 import * as addStudyActionTypes from './addStudyActionTypes';
 import * as DesignsAtionTypes from './DesignsActionTypes';
+import * as transportActionTypes from './transportActionTypes';
+import * as bonusActionTypes from './bonusActionTypes';
 
 export {
   apiActionsTypes,
@@ -34,4 +36,6 @@ export {
   addDesignActionTypes,
   addStudyActionTypes,
   DesignsAtionTypes,
+  transportActionTypes,
+  bonusActionTypes,
 };

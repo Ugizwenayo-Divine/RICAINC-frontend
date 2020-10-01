@@ -50,13 +50,15 @@ class ClientRefund extends Component{
             <th>Status</th>
             </tr>
           </thead>
-          {data.map(dt=><tbody  key={dt.id}>
+          {data.map(dt=>{
+            const date= new Date(dt.createdAt);
+            return(<tbody  key={dt.id}>
               <tr>
               <td>{dt.refundOrder}</td>
-              <td>{dt.createdAt}</td>
+              <td>{`${date.getFullYear()}-${date.getMonth()}-${date.getDate()},  ${date.getHours()}:${date.getMinutes()}`}</td>
               <td>{dt.status}</td>         
               </tr>
-            </tbody>)}
+            </tbody>)})}
           </table>:<ClientRefundSkeleton/>)}
         </div>
       </div>

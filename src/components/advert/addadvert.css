@@ -26,7 +26,8 @@ html {
   box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.175) !important;
   border: 0 !important;
   margin-top: 5.8%;
-  margin-left: 14rem;
+  margin-left: auto;
+  margin-right: auto;
 }
 .headerAdvert {
   text-align: center !important;
@@ -45,4 +46,9 @@ html {
   flex: 1 1 auto;
   min-height: 1px;
   padding: 1.25rem;
+}
+@media (max-width: 1000px) {
+  .formAdvert{
+    width: 80%;
+  }
 }

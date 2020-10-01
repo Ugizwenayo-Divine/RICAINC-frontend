@@ -9,6 +9,8 @@ import feedbackReducers from './feedback';
 import refundReducers from './refund';
 import designReducers from './design';
 import studyReducers from './study';
+import transportReducers from './transport';
+import bonusReducers from './bonus';
 
 const {
   advertisement,
@@ -52,6 +54,18 @@ const {
 const { clientRefund, refund, displayRefund, refundStatus } = refundReducers;
 const { displayFeedback, feedback, deleteFeedback } = feedbackReducers;
 const { designs, singleDesign } = designReducers;
+const {
+  transport,
+  updateTransport,
+  sector,
+} = transportReducers;
+const {
+  bonus,
+  deleteBonus,
+  displayBonus,
+  allowedBonus,
+} = bonusReducers;
+
 export default {
   user,
   search,
@@ -104,4 +118,11 @@ export default {
   updateDesign,
   designs,
   singleDesign,
+  transport,
+  updateTransport,
+  sector,
+  bonus,
+  displayBonus,
+  deleteBonus,
+  allowedBonus,
 };

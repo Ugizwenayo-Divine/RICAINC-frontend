@@ -4,6 +4,7 @@ import {Redirect} from 'react-router-dom';
 import { ToastContainer, toast } from 'react-toastify';
 import userAction from '../../actions/user/allUsers';
 import AdminNavbar from '../admin-navbar/admin-navbar';
+import './update-user.css';
 
 
 const {

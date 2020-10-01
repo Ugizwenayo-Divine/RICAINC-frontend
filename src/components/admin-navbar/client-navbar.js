@@ -29,7 +29,7 @@ class ClientNavbar extends Component {
             width:'100%',
             marginLeft:'0%',}}>
           <span className="nav-item active">
-            <a className="nav-link" href="/">HOME</a>
+            <a className="nav-link" href="/">RICA</a>
           </span>
           <span className="nav-item">
             <a className="nav-link" href="/clientrefund">REFUNDS</a>
