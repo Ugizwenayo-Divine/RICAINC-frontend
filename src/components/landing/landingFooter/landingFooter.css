@@ -5,6 +5,8 @@ body{
     display: grid;
     grid-template-columns: repeat(4,1fr);
     height: auto;
+    font-family: 'Montserrat';
+    font-size: medium;
 }
 .footer-left{
     grid-column-start: 1;

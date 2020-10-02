@@ -55,3 +55,12 @@
 .client-nav>.log:hover,:focus{
     color: black;
 }
+@media (max-width: 1000px) {
+    .admin-navbar{
+      width: 108%;
+      margin-left: -4%;
+    }
+    .admin-navbar-right{
+        padding: 0 5%;
+    }
+  }

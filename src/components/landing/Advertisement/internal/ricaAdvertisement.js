@@ -58,7 +58,7 @@ class RicaAdvertisement extends Component{
       },
     };
     return (
-      <div style={{backgroundColor:' #f0f0f0e7',padding:'1% 0'}}>
+      <div style={{backgroundColor:' #f0f0f0e7',padding:'1% 0', fontFamily:'Montserrat'}}>
         <div className='outer'>
               <span className='previous-advert' style={{color:spanColor}} onClick={this.handlePrevious}><FontAwesomeIcon icon={faChevronCircleLeft}/></span>
          {!loading&&advertisements.length>0 ?
@@ -66,7 +66,7 @@ class RicaAdvertisement extends Component{
           <div className='inner'>
                 <div className='content'>
                   <h2>{advertisements[this.state.currentAdvertIndex].title}</h2>
-                  <h4>{advertisements[this.state.currentAdvertIndex].description}</h4>
+                  <h5>{advertisements[this.state.currentAdvertIndex].description}</h5>
                   {/* <p>Advertising company: {advertisements[this.state.currentAdvertIndex].advertisingCompany}</p> */}
                 </div>
                 <div className='image'>

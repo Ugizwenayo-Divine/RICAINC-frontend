@@ -20,6 +20,8 @@ html {
   border: 0 !important;
   border-radius: 0.3rem !important;
   margin-top: 5rem !important;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .text-center {
@@ -78,4 +80,9 @@ html {
 }
 .card-header:first-child {
   border-radius: calc(0.25rem - 1px) calc(0.25rem - 1px) 0 0;
+}
+@media (max-width: 1000px) {
+  .card-form{
+    width: 90%;
+  }
 }

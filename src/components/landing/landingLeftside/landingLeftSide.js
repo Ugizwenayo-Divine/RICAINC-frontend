@@ -40,7 +40,7 @@ class LandingLeft extends Component{
     const uniqueDataBrand = data.map(dt=>(dt.brand));
     const textColor = loading?'#f0f0f0e7':'#000000';
     return(
-      <div>
+      <div style={{fontFamily:'Montserrat'}}>
         <div className='available-list' style={{backgroundColor:!loading?'#f0f0f0e7':'white'}}>
           <h5 style={{color:textColor}}>Categories</h5>
           <ul>

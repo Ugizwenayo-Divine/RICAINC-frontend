@@ -104,7 +104,7 @@ class LandingHeader extends Component {
       this.props.history.go('/');
     }
     return (
-      <div>
+      <div style={{fontFamily:'Montserrat'}}>
         <ToastContainer
           position={toast.POSITION.TOP_CENTER}
           className='toastMessages'
@@ -129,10 +129,10 @@ class LandingHeader extends Component {
               <span className="icon" onClick={this.handleSubmit}><FontAwesomeIcon icon={faSearch}/></span>
             </form>
           </div>
-          <div className='grid-item language'>
-            <a href="http://localhost:3000/">ENG | </a>
-            <a href="http://localhost:3001/">KINYA | </a>
-            <a href="http://localhost:3002/">FRAN</a>
+          <div className='grid-item language' style={{visibility:(!localToken)?'visible':'hidden'}}>
+            <a href="https://ricainc.co.com/">ENG | </a>
+            <a href="https://kiny.ricainc.co.com/">KINYA | </a>
+            <a href="https://fr.ricainc.co.com/">FRAN</a>
           </div>
             {(!localToken)?
             (<div className='grid-item'><Link to='/signup'>Signup | </Link>
@@ -150,7 +150,7 @@ class LandingHeader extends Component {
             details={['design','study']}
             hover={this.handleHover}
             unHover={this.handleUnHover}
-            coordinates={40}
+            coordinates={49}
             home={true}
             action='display'
           />
