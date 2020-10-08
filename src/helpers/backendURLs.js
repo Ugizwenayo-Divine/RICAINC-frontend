@@ -1,4 +1,4 @@
-const BASE_URL = 'https://rica-inc.herokuapp.com/api';
+const BASE_URL = 'https://eng.backend.ricainc.co.com/api';
 const LOCAL_URL = 'http://localhost:3000/api';
 const SIGNUP_URL = `${BASE_URL}/auth/signup`;
 const LOGIN_URL = `${BASE_URL}/auth/login`;

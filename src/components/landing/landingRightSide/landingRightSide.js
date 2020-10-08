@@ -48,7 +48,7 @@ class LandingRightSide extends Component {
     const {announcements,loading} = this.props;
     const spanColor = loading?'#f0f0f0e7':'grey';
     return (
-      <div>
+      <div style={{fontFamily:'Montserrat'}}>
       <div className='all-announcement'>
         <h3 style={{color:spanColor}}>Announcements</h3>
         <span className='right-previous' style={{color:spanColor}} onClick={this.handlePrevious}><FontAwesomeIcon icon={faChevronCircleLeft}/></span>

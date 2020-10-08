@@ -6,7 +6,7 @@ const dropDown =(props)=>{
     const {visibility,details,hover,unHover} = props;
     let top='';
     if(props.home){
-      top='20%';
+      top='24%';
     }
     else{
       top='-3%';

@@ -29,7 +29,7 @@ class LandingMiddle extends Component{
     const token = localStorage.getItem('token');
     const backColor= loading?'white':'#f0f0f0e7';
     return(
-      <div>
+      <div style={{fontFamily:'Montserrat'}}>
         <div className='displayed-products' style={{backgroundColor:backColor}}>
           {!loading&&data.length!==0 ? data.map(dt=>
           <div className='one-image' key={dt.id}>

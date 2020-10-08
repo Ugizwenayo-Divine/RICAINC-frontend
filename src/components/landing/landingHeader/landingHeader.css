@@ -47,7 +47,7 @@ a:focus,
   font-size: medium;
   color: #000000;
   width: 80%;
-  padding: 0px 60px;
+  padding: 0px 10%;
   box-sizing: border-box;
 }
 /* ::-webkit-input-placeholder {
@@ -64,7 +64,7 @@ a:focus,
 }
 .all {
   position: relative;
-  left: 6%;
+  left: 7%;
 }
 .vertical {
   border-left: 2px solid black;
@@ -116,7 +116,7 @@ span:focus {
     height: 32px;
   }
   .all {
-    left: 8%;
+    left: 9%;
   }
   .icon {
     right: 8%;
@@ -134,5 +134,8 @@ span:focus {
     position: absolute;
     top: -100%;
     right: 43%;
+  }
+  .search-input {
+    padding: 0px 13%;
   }
 }

@@ -47,3 +47,8 @@ html {
   min-height: 1px;
   padding: 1.25rem;
 }
+@media (max-width: 1000px) {
+  .formProduct{
+    width: 90%;
+  }
+}

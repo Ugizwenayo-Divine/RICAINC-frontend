@@ -1,6 +1,6 @@
 {
   "name": "rica-inc-frontend",
-  "homepage":"http://ricainc.co.com",
+  "homepage": "https://ricainc.co.com",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
