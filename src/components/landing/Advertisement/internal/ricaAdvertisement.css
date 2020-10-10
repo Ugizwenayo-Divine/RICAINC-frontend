@@ -1,14 +1,13 @@
-body{
-  font-family: 'Montserrat';
+body {
 }
-.outer{
+.outer {
   position: relative;
   width: 100%;
   height: 230px;
   overflow: hidden;
   display: inline-flex;
 }
-.advertisement{
+.advertisement {
   width: 1310px;
   height: 250px;
   padding: 2% 2%;
@@ -18,80 +17,85 @@ body{
   background-color: white;
   margin-left: 2%;
 }
-.inner{
+.inner {
   display: inline-flex;
 }
-.next-advert,.previous-advert{
+.next-advert,
+.previous-advert {
   font-size: 32px;
   margin: auto auto;
   box-sizing: border-box;
   cursor: pointer;
 }
-.image{
+.image {
   margin-top: -2%;
   margin-left: 5%;
   height: 100%;
   width: 200px;
 }
-.imageSke{
+.imageSke {
   margin-left: 5%;
   height: 100%;
   width: 200px;
 }
-.next-advert{
+.next-advert {
   position: absolute;
-  right:8%;
-  top:35%;
+  right: 8%;
+  top: 35%;
   width: 30px;
 }
-.previous-advert{
+.previous-advert {
   position: absolute;
-  left:8%;
-  top:35%;
+  left: 8%;
+  top: 35%;
   width: 30px;
 }
-.content{
+.content {
   position: relative;
   width: 650px;
 }
-img{
+img {
   height: 100%;
   width: 100%;
 }
-.content>p{
+.content > p {
   font-style: italic;
   font-weight: bold;
-  position:absolute;
-  color: #8f8d8d;                 
-  bottom:0;                          
-  right:0; 
+  position: absolute;
+  color: #8f8d8d;
+  bottom: 0;
+  right: 0;
 }
 @media (max-width: 1000px) {
-  .advertisement{
-  width: 96%;
-  height: auto;
+  .advertisement {
+    width: 96%;
+    height: auto;
   }
-  .image, .next, .previous, .content{
+  .image,
+  .next,
+  .previous,
+  .content {
     width: auto;
   }
-  .content>p>h2>h4{
+  .content > p > h2 > h4 {
     font-size: 5px;
   }
-  .next-advert, .previous-advert{
+  .next-advert,
+  .previous-advert {
     font-size: 30px;
   }
-  .content>p{
+  .content > p {
     visibility: hidden;
   }
-  .outer{
+  .outer {
     position: relative;
   }
-  .next-advert{
-    margin-left:auto;
-    margin-top:auto;
+  .next-advert {
+    margin-left: auto;
+    margin-top: auto;
   }
-  .previous-advert{
-    margin-right:auto;
-    margin-top:auto;
+  .previous-advert {
+    margin-right: auto;
+    margin-top: auto;
   }
 }

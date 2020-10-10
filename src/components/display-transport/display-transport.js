@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { ToastContainer, toast } from 'react-toastify';
-import {Redirect} from 'react-router-dom';
+import { Redirect } from 'react-router-dom';
 import TransportSkeleton from './transportSkeleton';
 import AdminNavbar from '../admin-navbar/admin-navbar';
 import transportActions from '../../actions/transport/transportActions';
@@ -23,7 +23,7 @@ class AllTransport extends Component {
   }
   componentWillReceiveProps(nextProps) {
     const alertMessage =
-      (nextProps.transportErrors && toast.error(nextProps.transportErrors));
+      nextProps.transportErrors && toast.error(nextProps.transportErrors);
 
     return !nextProps.loading && alertMessage;
   }
@@ -45,12 +45,12 @@ class AllTransport extends Component {
     const user = JSON.parse(localStorage.getItem('user'));
 
     if (!token) {
-      return <Redirect to='/login'/>
+      return <Redirect to='/login' />;
     }
-    if (user.type === 'client'){
-      return <Redirect to='/'/>
+    if (user.type === 'client') {
+      return <Redirect to='/' />;
     }
-    
+
     return (
       <div style={{ width: '100%' }}>
         <div className='container'>
@@ -65,13 +65,23 @@ class AllTransport extends Component {
               className='navbar navbar-light'
               style={{ width: '100%', marginLeft: '0%' }}
             >
-              <h4 style={{ color: '#8f8d8d', fontFamily: 'Montserrat', marginLeft:'auto',marginRight:'auto' }}>
+              <h4
+                style={{
+                  color: '#8f8d8d',
+                  marginLeft: 'auto',
+                  marginRight: 'auto',
+                }}
+              >
                 Rica Transport <i className='fas fa-car'></i>
               </h4>
             </nav>
             {!loading && districts ? (
               <table
-                style={{ width: '80%', marginLeft:'auto',marginRight:'auto' }}
+                style={{
+                  width: '80%',
+                  marginLeft: 'auto',
+                  marginRight: 'auto',
+                }}
                 className='table table-bordered table-hover table-sm'
               >
                 <thead className='thead-dark'>
@@ -84,9 +94,7 @@ class AllTransport extends Component {
                 {districts.map((dt) => (
                   <tbody key={dt.id}>
                     <tr>
-                      <td>
-                        {dt.district}
-                      </td>
+                      <td>{dt.district}</td>
                       <td>{dt.price}</td>
                       <td>
                         <button
@@ -113,14 +121,16 @@ class AllTransport extends Component {
     );
   }
 }
-const mapStateToProps = ({transport:{loading,transportErrors,message,districts}}) => {
+const mapStateToProps = ({
+  transport: { loading, transportErrors, message, districts },
+}) => {
   return {
     loading,
     message,
     transportErrors,
-    districts
+    districts,
   };
 };
 export default connect(mapStateToProps, {
-  displayTransport
+  displayTransport,
 })(AllTransport);

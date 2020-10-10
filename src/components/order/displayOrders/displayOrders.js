@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import {Redirect} from 'react-router-dom';
+import { Redirect } from 'react-router-dom';
 import DisplayProductSkeleton from '../clientOrders/clientOrdersSkeleton';
 import AdminNavbar from '../../admin-navbar/admin-navbar';
 import {
@@ -52,7 +52,7 @@ class AllOrders extends Component {
     const { loading, data } = this.props;
     const token = localStorage.getItem('token');
     if (!token) {
-      return <Redirect to='/login'/>
+      return <Redirect to='/login' />;
     }
     return (
       <div style={{ width: '100%' }}>
@@ -68,7 +68,6 @@ class AllOrders extends Component {
                 style={{
                   fontSize: '24px',
                   color: '#8f8d8d',
-                  fontFamily: 'Montserrat',
                 }}
               >
                 Rica Orders <i className='fa fa-shopping-cart'></i>
@@ -121,43 +120,44 @@ class AllOrders extends Component {
                   </tr>
                 </thead>
                 {data.map((dt) => {
-                // const date= new Date(dt.due_time);
+                  // const date= new Date(dt.due_time);
                   return (
-                  <tbody key={dt.id}>
-                    <tr>
-                      <td>{dt.id}</td>
-                      <td>{dt.product}</td>
-                      <td>{dt.ordered_quantity}</td>
-                      <td>{dt.User?dt.User.email:dt.orderedBy}</td>
-                      <td>
-                        {dt.amount}
-                        {dt.currency}
-                      </td>
-                      <td>{dt.bonus}</td>
-                      <td>{dt.deliveredDistrict}</td>
-                      <td>{dt.deliveredLocation}</td>
-                      <td>{dt.status}</td>
-                      {/* <td>{dt.status==='pending'?`${date.getFullYear()}-${date.getMonth()}-${date.getDate()},  ${date.getHours()}:${date.getMinutes()}`:'Never'}</td> */}
-                      <td>
-                        <button
-                          type='button'
-                          className='btn btn-secondary py-0'
-                          onClick={() => {
-                            this.handleDeliver(dt.id);
-                          }}
-                          disabled={
-                            dt.status === 'canceled' ||
-                            dt.status === 'delivered'
-                              ? true
-                              : false
-                          }
-                        >
-                          DELIVER
-                        </button>
-                      </td>
-                    </tr>
-                  </tbody>
-                )})}
+                    <tbody key={dt.id}>
+                      <tr>
+                        <td>{dt.id}</td>
+                        <td>{dt.product}</td>
+                        <td>{dt.ordered_quantity}</td>
+                        <td>{dt.User ? dt.User.email : dt.orderedBy}</td>
+                        <td>
+                          {dt.amount}
+                          {dt.currency}
+                        </td>
+                        <td>{dt.bonus}</td>
+                        <td>{dt.deliveredDistrict}</td>
+                        <td>{dt.deliveredLocation}</td>
+                        <td>{dt.status}</td>
+                        {/* <td>{dt.status==='pending'?`${date.getFullYear()}-${date.getMonth()}-${date.getDate()},  ${date.getHours()}:${date.getMinutes()}`:'Never'}</td> */}
+                        <td>
+                          <button
+                            type='button'
+                            className='btn btn-secondary py-0'
+                            onClick={() => {
+                              this.handleDeliver(dt.id);
+                            }}
+                            disabled={
+                              dt.status === 'canceled' ||
+                              dt.status === 'delivered'
+                                ? true
+                                : false
+                            }
+                          >
+                            DELIVER
+                          </button>
+                        </td>
+                      </tr>
+                    </tbody>
+                  );
+                })}
               </table>
             ) : (
               <DisplayProductSkeleton />

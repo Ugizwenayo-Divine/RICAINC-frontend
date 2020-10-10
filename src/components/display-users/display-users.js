@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { ToastContainer, toast } from 'react-toastify';
-import {Redirect} from 'react-router-dom';
+import { Redirect } from 'react-router-dom';
 import DisplayUsersSkeleton from './display-usersSkeleton';
 import AdminNavbar from '../admin-navbar/admin-navbar';
 import users from '../../actions/user/allUsers';
@@ -55,12 +55,12 @@ class AllUsers extends Component {
     const user = JSON.parse(localStorage.getItem('user'));
 
     if (!token) {
-      return <Redirect to='/login'/>
+      return <Redirect to='/login' />;
     }
-    if (user.type === 'client'){
-      return <Redirect to='/'/>
+    if (user.type === 'client') {
+      return <Redirect to='/' />;
     }
-    
+
     return (
       <div style={{ width: '100%' }}>
         <div className='container'>
@@ -75,7 +75,7 @@ class AllUsers extends Component {
               className='navbar navbar-light'
               style={{ width: '100%', marginLeft: '0%' }}
             >
-              <h4 style={{ color: '#8f8d8d', fontFamily: 'Montserrat' }}>
+              <h4 style={{ color: '#8f8d8d' }}>
                 Rica registered users <i class='fas fa-user'></i>
               </h4>
             </nav>

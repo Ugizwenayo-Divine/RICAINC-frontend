@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { ToastContainer, toast } from 'react-toastify';
-import {Redirect} from 'react-router-dom';
+import { Redirect } from 'react-router-dom';
 import AdminNavbar from '../admin-navbar/admin-navbar';
 import adverts from '../../actions/displayAdverts/displayAdverts';
 import AdvertsSkeleton from './display-adverts-skeleton';
@@ -68,10 +68,10 @@ class AllAdvertisements extends Component {
     const user = JSON.parse(localStorage.getItem('user'));
 
     if (!token) {
-      return <Redirect to='/login'/>
+      return <Redirect to='/login' />;
     }
-    if (user.type === 'client'){
-      return <Redirect to='/'/>
+    if (user.type === 'client') {
+      return <Redirect to='/' />;
     }
     console.log(adverts, 'adv', data, 'data');
     return (
@@ -93,7 +93,6 @@ class AllAdvertisements extends Component {
                 style={{
                   fontSize: '24px',
                   color: '#8f8d8d',
-                  fontFamily: 'Montserrat',
                 }}
               >
                 All advertisements <i class='fas fa-ad'></i>

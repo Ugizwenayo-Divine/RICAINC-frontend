@@ -76,10 +76,7 @@ class AllStudy extends Component {
               className='navbar navbar-light'
               style={{ width: '100%', marginLeft: '0%' }}
             >
-              <h4
-                className='studiesHeader'
-                style={{ color: '#8f8d8d', fontFamily: 'Montserrat' }}
-              >
+              <h4 className='studiesHeader' style={{ color: '#8f8d8d' }}>
                 All Studies <i className='fas fa-book-open'></i>
               </h4>
             </nav>
@@ -140,7 +137,11 @@ class AllStudy extends Component {
                         ) : null}
                       </div>
                       <div className='col-md-3'>
-                      <img alt='' src={dt.image} style={{height:'170px', marginTop:'5%'}} />
+                        <img
+                          alt=''
+                          src={dt.image}
+                          style={{ height: '170px', marginTop: '5%' }}
+                        />
                         {/* <Image
                           alt=''
                           width={250}

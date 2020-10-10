@@ -75,7 +75,7 @@ class AllNews extends Component {
               className='navbar navbar-light'
               style={{ width: '100%', marginLeft: '0%' }}
             >
-              <h4 style={{ color: '#8f8d8d', fontFamily: 'Montserrat' }}>
+              <h4 style={{ color: '#8f8d8d' }}>
                 All News <i className='fas fa-newspaper'></i>
               </h4>
             </nav>
@@ -103,7 +103,7 @@ class AllNews extends Component {
                         </div>
                         {this.state.user ? (
                           this.state.user.type === 'admin' ? (
-                            <div style={{ marginBottom:'0'}}>
+                            <div style={{ marginBottom: '0' }}>
                               <button
                                 className='btn btn-outline-secondary my-2 my-sm-0 mr-sm-2'
                                 onClick={() => {
@@ -127,7 +127,11 @@ class AllNews extends Component {
                         ) : null}
                       </div>
                       <div className='col-md-3'>
-                      <img alt='' src={dt.image} style={{height:'170px', marginTop:'5%'}} />
+                        <img
+                          alt=''
+                          src={dt.image}
+                          style={{ height: '170px', marginTop: '5%' }}
+                        />
                         {/* <Image
                           alt=''
                           width={250}

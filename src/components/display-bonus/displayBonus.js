@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { ToastContainer, toast } from 'react-toastify';
-import {Redirect} from 'react-router-dom';
+import { Redirect } from 'react-router-dom';
 import BonuSkeleton from './displaySkeleton';
 import AdminNavbar from '../admin-navbar/admin-navbar';
 import bonusActions from '../../actions/bonus/bonusActions';
@@ -24,7 +24,7 @@ class AllBonus extends Component {
   }
   componentWillReceiveProps(nextProps) {
     const alertMessage =
-      (nextProps.bonusErrors && toast.error(nextProps.bonusErrors));
+      nextProps.bonusErrors && toast.error(nextProps.bonusErrors);
 
     return !nextProps.loading && alertMessage;
   }
@@ -37,12 +37,12 @@ class AllBonus extends Component {
     const user = JSON.parse(localStorage.getItem('user'));
 
     if (!token) {
-      return <Redirect to='/login'/>
+      return <Redirect to='/login' />;
     }
-    if (user.type === 'client'){
-      return <Redirect to='/'/>
+    if (user.type === 'client') {
+      return <Redirect to='/' />;
     }
-    
+
     return (
       <div style={{ width: '100%' }}>
         <div className='container'>
@@ -57,13 +57,23 @@ class AllBonus extends Component {
               className='navbar navbar-light'
               style={{ width: '100%', marginLeft: '0%' }}
             >
-              <h4 style={{ color: '#8f8d8d', fontFamily: 'Montserrat', marginLeft:'auto',marginRight:'auto' }}>
+              <h4
+                style={{
+                  color: '#8f8d8d',
+                  marginLeft: 'auto',
+                  marginRight: 'auto',
+                }}
+              >
                 Rica Bonus
               </h4>
             </nav>
             {!loading && bonuses ? (
               <table
-                style={{ width: '50%', marginLeft:'auto',marginRight:'auto' }}
+                style={{
+                  width: '50%',
+                  marginLeft: 'auto',
+                  marginRight: 'auto',
+                }}
                 className='table table-bordered table-hover table-sm'
               >
                 <thead className='thead-dark'>
@@ -75,9 +85,7 @@ class AllBonus extends Component {
                 {bonuses.map((dt) => (
                   <tbody key={dt.id}>
                     <tr>
-                      <td>
-                        {dt.name}
-                      </td>
+                      <td>{dt.name}</td>
                       <td>
                         <button
                           type='button'
@@ -95,7 +103,7 @@ class AllBonus extends Component {
                 ))}
               </table>
             ) : (
-              <BonuSkeleton/>
+              <BonuSkeleton />
             )}
           </div>
         </div>
@@ -103,16 +111,19 @@ class AllBonus extends Component {
     );
   }
 }
-const mapStateToProps = ({displayBonus:{loading,bonuses},deleteBonus:{bonusErrors,message}}) => {
-  console.log('bbb',bonuses,loading);
+const mapStateToProps = ({
+  displayBonus: { loading, bonuses },
+  deleteBonus: { bonusErrors, message },
+}) => {
+  console.log('bbb', bonuses, loading);
   return {
     loading,
     message,
     bonusErrors,
-    bonuses
+    bonuses,
   };
 };
 export default connect(mapStateToProps, {
   displayBonus,
-  deleteBonus
+  deleteBonus,
 })(AllBonus);
