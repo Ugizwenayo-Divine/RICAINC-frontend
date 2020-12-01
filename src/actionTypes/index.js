@@ -17,6 +17,7 @@ import * as addStudyActionTypes from './addStudyActionTypes';
 import * as DesignsAtionTypes from './DesignsActionTypes';
 import * as transportActionTypes from './transportActionTypes';
 import * as bonusActionTypes from './bonusActionTypes';
+import * as resetActionTypes from './resetPasswordActionTypes';
 
 export {
   apiActionsTypes,
@@ -38,4 +39,5 @@ export {
   DesignsAtionTypes,
   transportActionTypes,
   bonusActionTypes,
+  resetActionTypes,
 };

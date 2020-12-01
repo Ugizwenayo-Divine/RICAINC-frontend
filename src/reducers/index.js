@@ -11,6 +11,7 @@ import designReducers from './design';
 import studyReducers from './study';
 import transportReducers from './transport';
 import bonusReducers from './bonus';
+import resetPasswordReducers from './resetPassword';
 
 const {
   advertisement,
@@ -65,6 +66,11 @@ const {
   displayBonus,
   allowedBonus,
 } = bonusReducers;
+
+const {
+  reset,
+  updatePassword,
+} = resetPasswordReducers;
 
 export default {
   user,
@@ -125,4 +131,6 @@ export default {
   displayBonus,
   deleteBonus,
   allowedBonus,
+  reset,
+  updatePassword,
 };

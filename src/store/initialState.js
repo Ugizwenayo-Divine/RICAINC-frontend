@@ -38,6 +38,7 @@ import addStudy from './initialStates/addStudyInitialState';
 import designs from './initialStates/designInitialState';
 import transport from './initialStates/transportInitialState';
 import bonus from './initialStates/bonusInitialState';
+import reset from './initialStates/resetInitialState';
 
 export default {
   user,
@@ -80,4 +81,5 @@ export default {
   designs,
   transport,
   bonus,
+  reset,
 };

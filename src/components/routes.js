@@ -40,6 +40,8 @@ import UpdateTransport from './transportPrice/updateTransport';
 import DisplayTransport from './display-transport/display-transport';
 import AddBonus from './add-bonus/addBonus';
 import AllBonus from './display-bonus/displayBonus';
+import ResetPassword from './resetPassword/resetPassword';
+import UpdatePassword from './updatePassword/updatePassword';
 
 const Routes = () => (
   <Switch>
@@ -123,6 +125,10 @@ const Routes = () => (
     <Route exact path='/addbonus' component={AddBonus} />
     {/* display bonus */}
     <Route exact path='/displaybonus' component={AllBonus} />
+    
+    <Route exact path='/reset' component={ResetPassword} />
+    
+    <Route exact path='/updatepassword' component={UpdatePassword} />
 
   </Switch>
 );

@@ -90,7 +90,8 @@ class Login extends Component {
                 </form>
               </div>
               <div className='footer'>
-                <Link to='/signup'>Need an account? Sign up!</Link>
+                <div><Link to='/reset'>Forget password?</Link></div>
+                <div><Link to='/signup'>Need an account? Sign up!</Link></div>
               </div>
             </div>
           </div>

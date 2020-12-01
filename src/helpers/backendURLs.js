@@ -1,5 +1,5 @@
-const BASE_URL = 'https://eng.backend.ricainc.co.com/api';
-const LOCAL_URL = 'http://localhost:3000/api';
+const LOCAL_URL = 'https://eng.backend.ricainc.co.com/api';
+const BASE_URL = 'http://localhost:3000/api';
 const SIGNUP_URL = `${BASE_URL}/auth/signup`;
 const LOGIN_URL = `${BASE_URL}/auth/login`;
 const NEW_PRODUCT = `${BASE_URL}/product/add`;
@@ -57,6 +57,7 @@ const TRANSPORT_URL = `${BASE_URL}/location`;
 const ADD_BONUS_URL = `${BASE_URL}/bonus/add`;
 const BONUS_URL = `${BASE_URL}/bonus`;
 const CHECK_BONUS_URL = `${BASE_URL}/orders/allowed-bonus`;
+const RESET_PASSWORD_URL = `${BASE_URL}/auth/resetpassword`;
 
 export {
   BASE_URL,
@@ -118,4 +119,5 @@ export {
   ADD_BONUS_URL,
   BONUS_URL,
   CHECK_BONUS_URL,
+  RESET_PASSWORD_URL,
 };
